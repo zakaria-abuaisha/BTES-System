@@ -1,0 +1,9 @@
+E:\computer science\Software engineering\project\BTES\BTES\bin\Debug\BTES.exe.config
+E:\computer science\Software engineering\project\BTES\BTES\bin\Debug\BTES.exe
+E:\computer science\Software engineering\project\BTES\BTES\bin\Debug\BTES.pdb
+E:\computer science\Software engineering\project\BTES\BTES\obj\Debug\BTES.csproj.AssemblyReference.cache
+E:\computer science\Software engineering\project\BTES\BTES\obj\Debug\BTES.Properties.Resources.resources
+E:\computer science\Software engineering\project\BTES\BTES\obj\Debug\BTES.csproj.GenerateResource.cache
+E:\computer science\Software engineering\project\BTES\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
+E:\computer science\Software engineering\project\BTES\BTES\obj\Debug\BTES.exe
+E:\computer science\Software engineering\project\BTES\BTES\obj\Debug\BTES.pdb

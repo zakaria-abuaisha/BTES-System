@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BTES.Business_layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace BTES
         public Form1()
         {
             InitializeComponent();
+            clsCustomer c = clsCustomer.Find(1);
         }
     }
 }
