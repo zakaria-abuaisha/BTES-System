@@ -20,8 +20,8 @@ namespace BTES.Business_layer
         public int eventTypeID { set; get; }
         public int regularTickets { set; get; }
         public int VIPTickets { set; get; }
-        public int regularPrice { set; get; }
-        public int VIPprice { set; get; }
+        public float regularPrice { set; get; }
+        public float VIPprice { set; get; }
         public string location { set; get; }
         public int createdByUserID { set; get; }
 
@@ -43,7 +43,7 @@ namespace BTES.Business_layer
             Mode = enMode.AddNew;
         }
 
-        private clsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, int Regular_Price, int VIP_Price, string Location, int Created_By)
+        private clsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
         {
             this.event_ID = Event_ID;
             this.title = Title;
@@ -81,9 +81,9 @@ namespace BTES.Business_layer
             return clsEventData.DeleteEvent(event_ID);
         }
 
-        public static clsEvent FindbyEvent_ID(int Event_ID)
+        public static clsEvent FindbyEvent(int Event_ID)
         {
-            string title = ""; string eventContent = ""; DateTime eventDate = DateTime.Now; int eventTypeID = -1; int regularTickets = -1; int VIPTickets = -1; int regularPrice = -1; int VIPprice = -1; string location = ""; int createdByUserID = -1; ;
+            string title = ""; string eventContent = ""; DateTime eventDate = DateTime.Now; int eventTypeID = -1; int regularTickets = -1; int VIPTickets = -1; float regularPrice = -1; float VIPprice = -1; string location = ""; int createdByUserID = -1; ;
             if (clsEventData.FindByEvent_ID(Event_ID, ref title, ref eventContent, ref eventDate, ref eventTypeID, ref regularTickets, ref VIPTickets, ref regularPrice, ref VIPprice, ref location, ref createdByUserID))
 
                 return new clsEvent(Event_ID, title, eventContent, eventDate, eventTypeID, regularTickets, VIPTickets, regularPrice, VIPprice, location, createdByUserID);

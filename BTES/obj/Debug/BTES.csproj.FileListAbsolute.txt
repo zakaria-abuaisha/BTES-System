@@ -17,3 +17,13 @@ C:\Users\ly008\Desktop\c++\CS438\BTES-System\BTES-System\BTES\obj\Debug\BTES.pdb
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\BTES-System\BTES\bin\Debug\BTES.exe.config
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\BTES-System\BTES\bin\Debug\BTES.exe
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\BTES-System\BTES\bin\Debug\BTES.pdb
+E:\computer science\Software engineering\BTES-System\BTES\bin\Debug\BTES.exe.config
+E:\computer science\Software engineering\BTES-System\BTES\bin\Debug\BTES.exe
+E:\computer science\Software engineering\BTES-System\BTES\bin\Debug\BTES.pdb
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.csproj.AssemblyReference.cache
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.frmMain.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Properties.Resources.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.csproj.GenerateResource.cache
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.exe
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.pdb

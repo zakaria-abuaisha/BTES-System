@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business-layer\clsEventType.cs" />
+    <Compile Include="Business-layer\ClsPurchasedTicket.cs" />
     <Compile Include="Business-layer\Payments\clsEdfali .cs" />
     <Compile Include="Business-layer\Payments\clsMobyCash .cs" />
     <Compile Include="Business-layer\Payments\clsSaddad.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Data-Access\clsEventData.cs" />
     <Compile Include="Data-Access\clsEventTypeData.cs" />
     <Compile Include="Data-Access\clsPersonDA.cs" />
+    <Compile Include="Data-Access\ClsPurchasedTicketDA.cs" />
     <Compile Include="Data-Access\clsSettings.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

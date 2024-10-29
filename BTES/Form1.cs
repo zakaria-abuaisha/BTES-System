@@ -16,7 +16,12 @@ namespace BTES
         public frmMain()
         {
             InitializeComponent();
-            clsCustomer c = clsCustomer.Find(1);
+            ClsPurchasedTicket purchasedTicket = new ClsPurchasedTicket();
+
+
+            purchasedTicket = ClsPurchasedTicket.Find(2);
         }
+
+
     }
 }

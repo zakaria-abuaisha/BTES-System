@@ -11,7 +11,7 @@ namespace BTES.Data_Access
 
     public class clsEventData
     {
-        public static int InsertRecord(string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, int Regular_Price, int VIP_Price, string Location, int Created_By)
+        public static int InsertRecord(string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
         {
 
             int RecordID = -1;
@@ -64,7 +64,7 @@ namespace BTES.Data_Access
         }
 
 
-        public static bool UpdateRecord(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, int Regular_Price, int VIP_Price, string Location, int Created_By)
+        public static bool UpdateRecord(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
         {
             int rowsAffected = 0;
 
@@ -123,7 +123,7 @@ namespace BTES.Data_Access
         }
 
 
-        public static bool FindByEvent_ID(int Event_ID, ref string Title, ref string Event_Content, ref DateTime Event_Date, ref int EventType_ID, ref int Regular_Tickets, ref int VIP_Tickets, ref int Regular_Price, ref int VIP_Price, ref string Location, ref int Created_By)
+        public static bool FindByEvent_ID(int Event_ID, ref string Title, ref string Event_Content, ref DateTime Event_Date, ref int EventType_ID, ref int Regular_Tickets, ref int VIP_Tickets, ref float Regular_Price, ref float VIP_Price, ref string Location, ref int Created_By)
         {
             bool isFound = false;
 
@@ -149,14 +149,14 @@ namespace BTES.Data_Access
 
                     Title = (string)reader["Title"];
                     Event_Content = (string)reader["Event_Content"];
-                    Event_Date = (DateTime)reader["Event_Date"];
-                    EventType_ID = (int)reader["EventType_ID"];
-                    Regular_Tickets = (int)reader["Regular_Tickets"];
-                    VIP_Tickets = Convert.ToInt32(reader["VIP_Tickets"]);
-                    Regular_Price = (int)reader["Regular_Price"];
-                    VIP_Price = Convert.ToInt32(reader["VIP_Price"]);
+                    Event_Date = DateTime.Parse(reader["Event_Date"].ToString());
+                    EventType_ID = int.Parse(reader["EventType_ID"].ToString());
+                    Regular_Tickets = int.Parse(reader["Regular_Tickets"].ToString());
+                    VIP_Tickets = int.Parse(reader["VIP_Tickets"].ToString());
+                    Regular_Price = float.Parse(reader["Regular_Price"].ToString());
+                    VIP_Price = float.Parse(reader["VIP_Price"].ToString());
                     Location = (string)reader["Location"];
-                    Created_By = (int)reader["Created_By"];
+                    Created_By = int.Parse(reader["Created_By"].ToString());
 
 
                     reader.Close();
