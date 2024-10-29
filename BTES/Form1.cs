@@ -16,10 +16,8 @@ namespace BTES
         public frmMain()
         {
             InitializeComponent();
-            ClsPurchasedTicket purchasedTicket = new ClsPurchasedTicket();
+      
 
-
-            purchasedTicket = ClsPurchasedTicket.Find(2);
         }
 
 

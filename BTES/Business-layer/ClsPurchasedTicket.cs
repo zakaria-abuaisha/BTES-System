@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BTES.Business_layer
 {
@@ -37,9 +38,9 @@ namespace BTES.Business_layer
     
         }
 
-        private ClsPurchasedTicket(int PT_ID, int Event_ID, int Customer_ID, DateTime Purchase_Date, float Fees, int Payment_Gateway, bool Status, string TicketType)
+        private ClsPurchasedTicket(int PurchasedTicket_ID, int Event_ID, int Customer_ID, DateTime Purchase_Date, float Fees, int Payment_Gateway, bool Status, string TicketType)
         {
-            this.PurchasedTicket_ID = PT_ID;
+            this.PurchasedTicket_ID = PurchasedTicket_ID;
             this.Event = clsEvent.FindbyEvent(Event_ID);
             this.Customer = clsCustomer.Find(Customer_ID);
             this.Purchase_Date = Purchase_Date;
@@ -49,7 +50,6 @@ namespace BTES.Business_layer
             this.TicketType = TicketType;
 
         }
-
 
         public bool Purchase(string accountID, string password)
         {
@@ -134,5 +134,78 @@ namespace BTES.Business_layer
                 return null;
         }
 
+        public bool Refund(string accountID, string password)
+        {
+            try
+            {
+                switch (PaymentGateway)
+                {
+                    case enPaymentMethod.DebtCard:
+                        {
+                            clsDebtCard DebtCard = new clsDebtCard();
+                            DebtCard.accountID = accountID;
+                            DebtCard.password = password;
+                            DebtCard.Authenticate();
+                            DebtCard.Refund();
+
+                            break;
+                        }
+                    case enPaymentMethod.MobyCash:
+                        {
+                            clsMobyCash MobyCash = new clsMobyCash();
+                            MobyCash.accountID = accountID;
+                            MobyCash.password = password;
+                            MobyCash.Authenticate();
+                            MobyCash.Refund();
+
+                            break;
+                        }
+                    case enPaymentMethod.Saddad:
+                        {
+                            clsSaddad Saddad = new clsSaddad();
+                            Saddad.accountID = accountID;
+                            Saddad.password = password;
+                            Saddad.Authenticate();
+                            Saddad.Refund();
+
+                            break;
+                        }
+                    case enPaymentMethod.Tadawul:
+                        {
+                            clsTadawul Tadawul = new clsTadawul();
+                            Tadawul.accountID = accountID;
+                            Tadawul.password = password;
+                            Tadawul.Authenticate();
+                            Tadawul.Refund();
+
+                            break;
+                        }
+                    case enPaymentMethod.Edfali:
+                        {
+                            clsEdfali Edfali = new clsEdfali();
+                            Edfali.accountID = accountID;
+                            Edfali.password = password;
+                            Edfali.Authenticate();
+                            Edfali.Refund();
+
+                            break;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return ClsPurchasedTicketDA.Refund_Ticket(PurchasedTicket_ID, Event.event_ID, TicketType);
+
+        }
+
+        public static bool IsRefundAllowed(int PurchasedTicket_ID)
+        {
+            return ClsPurchasedTicketDA.IsRefundAllowed(PurchasedTicket_ID);
+        }
     }
+
+    
 }

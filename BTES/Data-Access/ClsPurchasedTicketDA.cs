@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,16 +81,16 @@ namespace BTES.Data_Access
 
         }
 
-        public static bool GetPurchased_Tickets_Info_By_In_Purchased_Tickets(int PT_ID, ref int Event_ID, ref int Customer_ID, ref DateTime Purchase_Date, ref float Fees, ref int Payment_Gateway, ref bool Status, ref string TicketType)
+        public static bool GetPurchased_Tickets_Info_By_In_Purchased_Tickets(int PurchasedTicket_ID, ref int Event_ID, ref int Customer_ID, ref DateTime Purchase_Date, ref float Fees, ref int Payment_Gateway, ref bool Status, ref string TicketType)
         {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
-            string query = "SELECT * FROM Purchased_Tickets WHERE PT_ID = @PT_ID";
+            string query = $@"SELECT * FROM Purchased_Tickets WHERE PT_ID = @PT_ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@PT_ID", PT_ID);
+            command.Parameters.AddWithValue("@PT_ID", PurchasedTicket_ID);
             try
             {
                 connection.Open();
@@ -103,7 +104,7 @@ namespace BTES.Data_Access
                     Fees = float.Parse(reader["Fees"].ToString());
                     Payment_Gateway = int.Parse(reader["Payment_Gateway"].ToString());
                     Status = bool.Parse(reader["Status"].ToString());
-                    TicketType = (string)reader["TicketType"];
+                    TicketType = reader["TicketType"].ToString();
 
                 }
                 else
@@ -126,5 +127,96 @@ namespace BTES.Data_Access
             return isFound;
 
         }
+
+        public static bool Refund_Ticket(int PurchasedTicket_ID, int Event_ID, string TicketType)
+        {
+            int RowsAffected = 0;
+            //CONNECTING WITH DATABASE
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            //PREPAER THE QUERY
+            string query;
+            if (TicketType == "Regular")
+            {
+                query = $@"UPDATE Purchased_Tickets
+                            SET Status = 0
+                            WHERE PT_ID = @PurchasedTicket_ID;
+                          UPDATE Events
+                            SET Regular_Tickets = Regular_Tickets + 1
+                            WHERE Event_ID = @Event_ID;";
+            }
+            else
+            {
+                query = $@"UPDATE Purchased_Tickets
+                            SET Status = 0
+                            WHERE PT_ID = @PurchasedTicket_ID;
+                          UPDATE Events
+                            SET Regular_Tickets = Regular_Tickets + 1
+                            WHERE Event_ID = @Event_ID;";
+            }
+
+
+            //SEND THE QUERY AND THE CONNECTION TO (COMMAND) TO EXCUTE THE QUERY
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //SEND THE PARAMETERS
+            command.Parameters.AddWithValue("@PurchasedTicket_ID ", PurchasedTicket_ID);
+            command.Parameters.AddWithValue("@Event_ID ", Event_ID);
+
+
+
+            try
+            {
+                //OPEN THE CONNECION
+                connection.Open();
+                //EXECUTE
+                RowsAffected = command.ExecuteNonQuery();
+
+                connection.Close();
+
+            }
+
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return RowsAffected > 0;
+        }
+
+        public static bool IsRefundAllowed(int PurchasedTicket_ID)
+        {
+            bool isAllowed = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = $@"select Event_Date from Purchased_Tickets inner join Events on Purchased_Tickets.Event_ID = Events.Event_ID
+                                where PT_ID = @PurchasedTicket_ID and Status = 1;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PurchasedTicket_ID", PurchasedTicket_ID);
+
+            
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    DateTime eventDate = DateTime.Parse(reader["Event_Date"].ToString());
+                    isAllowed = eventDate > DateTime.Now;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return isAllowed;
+        }
+
+     
     }
 }
