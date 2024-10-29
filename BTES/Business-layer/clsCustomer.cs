@@ -26,8 +26,6 @@ namespace BTES.Business_layer
             this.UserName = "";
 
             this.Customer_ID = -1;
-   
-
         }
 
         private clsCustomer(int Customer_ID, int Person_ID, string FirstName, string LastName,  string Phone,  string Email,  string Address,  int Age,  string Password,  string UserName)
