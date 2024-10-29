@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BTES
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
             clsCustomer c = clsCustomer.Find(1);
