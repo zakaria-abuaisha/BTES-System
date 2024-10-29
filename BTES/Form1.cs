@@ -18,5 +18,7 @@ namespace BTES
             InitializeComponent();
             clsCustomer c = clsCustomer.Find(1);
         }
+
+
     }
 }
