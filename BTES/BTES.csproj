@@ -75,6 +75,18 @@
     <Compile Include="Forms\frmAddEvent.Designer.cs">
       <DependentUpon>frmAddEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_Events.Designer.cs">
+      <DependentUpon>FRM_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_Tickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_Tickets.Designer.cs">
+      <DependentUpon>FRM_Tickets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -82,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAddEvent.resx">
       <DependentUpon>frmAddEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_Events.resx">
+      <DependentUpon>FRM_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_Tickets.resx">
+      <DependentUpon>FRM_Tickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,6 +177,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\confirm-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-purchase-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

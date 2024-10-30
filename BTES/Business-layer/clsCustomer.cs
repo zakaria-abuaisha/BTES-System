@@ -54,8 +54,26 @@ namespace BTES.Business_layer
             string Password = "";
             string UserName = "";
 
-            if (clsCustomerDA.GetCustomer_Info_By_In_Customer(Customer_ID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, ref Password, ref UserName))
+            if (clsCustomerDA.GetCustomer_Info_By_CustomerID(Customer_ID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, ref Password, ref UserName))
                 return new clsCustomer(Customer_ID, Person_ID, FirstName, LastName, Phone, Email, Address,  Age,  Password,  UserName);
+            else
+                return null;
+        }
+
+        public static clsCustomer Find(string UserName, string Password)
+        {
+            int Customer_ID = -1;
+            int Person_ID = -1;
+            string FirstName = "";
+            string LastName = "";
+            string Phone = "";
+            string Email = "";
+            string Address = "";
+            int Age = -1;
+
+
+            if (clsCustomerDA.GetCustomer_Info_By_UserNameANDPassword(UserName, Password, ref Customer_ID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age))
+                return new clsCustomer(Customer_ID, Person_ID, FirstName, LastName, Phone, Email, Address, Age, Password, UserName);
             else
                 return null;
         }

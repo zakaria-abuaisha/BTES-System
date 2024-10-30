@@ -173,6 +173,16 @@ namespace BTES.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_purchase_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-purchase-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_ticket_50__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-ticket-50 (1)", resourceCulture);
@@ -223,9 +233,39 @@ namespace BTES.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logout_main_white {
+            get {
+                object obj = ResourceManager.GetObject("logout-main-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Number_32 {
             get {
                 object obj = ResourceManager.GetObject("Number 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap payments_main_purple {
+            get {
+                object obj = ResourceManager.GetObject("payments-main-purple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap purchase_100 {
+            get {
+                object obj = ResourceManager.GetObject("purchase-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

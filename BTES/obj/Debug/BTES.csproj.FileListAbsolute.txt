@@ -28,3 +28,6 @@ E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.csproj.
 E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.exe
 E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.pdb
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\BTES-System\BTES\obj\Debug\BTES.Forms.frmAddEvent.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.frmAddEvent.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Events.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Tickets.resources
