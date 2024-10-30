@@ -9,6 +9,6 @@ namespace BTES.Data_Access
 {
     public static class clsSettings
     {
-        public static string ConnectionString = @"Server=.;Database=BTES;User Id=sa;Password=sa123456;";
+        public static string ConnectionString = @"Server=.;Database=BTES;User Id=sa;Password=123456;";
     }
 }

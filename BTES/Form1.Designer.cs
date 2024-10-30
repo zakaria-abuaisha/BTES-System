@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,6 +38,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
+            this.dgvEvent = new System.Windows.Forms.DataGridView();
+            this.btnAddEvent = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -45,6 +50,7 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -99,6 +105,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
+            this.panel2.Controls.Add(this.btnAddEvent);
+            this.panel2.Controls.Add(this.dgvEvent);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.lblEmail);
@@ -116,7 +124,7 @@
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail.Location = new System.Drawing.Point(756, 67);
+            this.lblEmail.Location = new System.Drawing.Point(756, 53);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(39, 17);
             this.lblEmail.TabIndex = 34;
@@ -129,19 +137,66 @@
             this.lblFullName.BackColor = System.Drawing.Color.Transparent;
             this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.Color.Black;
-            this.lblFullName.Location = new System.Drawing.Point(756, 40);
+            this.lblFullName.Location = new System.Drawing.Point(756, 26);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(88, 21);
             this.lblFullName.TabIndex = 33;
             this.lblFullName.Text = "Full Name";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgvEvent
+            // 
+            this.dgvEvent.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEvent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEvent.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEvent.Location = new System.Drawing.Point(24, 222);
+            this.dgvEvent.Name = "dgvEvent";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEvent.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvEvent.Size = new System.Drawing.Size(942, 374);
+            this.dgvEvent.TabIndex = 37;
+            // 
+            // btnAddEvent
+            // 
+            this.btnAddEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
+            this.btnAddEvent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
+            this.btnAddEvent.FlatAppearance.BorderSize = 0;
+            this.btnAddEvent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddEvent.Image = global::BTES.Properties.Resources.icons8_add_event_48;
+            this.btnAddEvent.Location = new System.Drawing.Point(902, 155);
+            this.btnAddEvent.Name = "btnAddEvent";
+            this.btnAddEvent.Size = new System.Drawing.Size(64, 61);
+            this.btnAddEvent.TabIndex = 38;
+            this.btnAddEvent.UseVisualStyleBackColor = false;
+            this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
+            // 
             // button5
             // 
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Image = global::BTES.Properties.Resources.icons8_down_button_30;
-            this.button5.Location = new System.Drawing.Point(946, 41);
+            this.button5.Location = new System.Drawing.Point(946, 27);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(31, 35);
             this.button5.TabIndex = 36;
@@ -150,7 +205,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::BTES.Properties.Resources.default_male;
-            this.pictureBox2.Location = new System.Drawing.Point(679, 40);
+            this.pictureBox2.Location = new System.Drawing.Point(679, 26);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(61, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -212,13 +267,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::BTES.Properties.Resources.icons8_ticket_50__1_;
+            this.button1.Image = global::BTES.Properties.Resources.icons8_event_48;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(32, 124);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 56);
             this.button1.TabIndex = 0;
-            this.button1.Text = " Ticket";
+            this.button1.Text = "Event";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -240,11 +295,13 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmMain";
             this.Text = "BTES";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -267,6 +324,8 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAddEvent;
+        private System.Windows.Forms.DataGridView dgvEvent;
     }
 }
 
