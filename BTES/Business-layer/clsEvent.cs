@@ -26,7 +26,7 @@ namespace BTES.Business_layer
         public string location { set; get; }
         public int createdByUserID { set; get; }
 
-
+        public clsEventType eventType { set; get; }
         public clsEvent()
         {
             this.event_ID = -1;
@@ -40,7 +40,7 @@ namespace BTES.Business_layer
             this.VIPprice = -1;
             this.location = "";
             this.createdByUserID = -1;
-
+            this.eventType = null;
             Mode = enMode.AddNew;
         }
 
@@ -57,7 +57,7 @@ namespace BTES.Business_layer
             this.VIPprice = VIP_Price;
             this.location = Location;
             this.createdByUserID = Created_By;
-
+            this.eventType = clsEventType.FindbyEventType_ID(EventType_ID);
             Mode = enMode.Update;
         }
 
@@ -82,7 +82,7 @@ namespace BTES.Business_layer
             return clsEventData.DeleteEvent(event_ID);
         }
 
-        public static clsEvent FindbyEvent(int Event_ID)
+        public static clsEvent FindEvent(int Event_ID)
         {
             string title = ""; string eventContent = ""; DateTime eventDate = DateTime.Now; int eventTypeID = -1; int regularTickets = -1; int VIPTickets = -1; float regularPrice = -1; float VIPprice = -1; string location = ""; int createdByUserID = -1; ;
             if (clsEventData.FindByEvent_ID(Event_ID, ref title, ref eventContent, ref eventDate, ref eventTypeID, ref regularTickets, ref VIPTickets, ref regularPrice, ref VIPprice, ref location, ref createdByUserID))
@@ -118,18 +118,6 @@ namespace BTES.Business_layer
             return false;
         }
 
-
-        public static bool CheckRegularTickets(int eventID)
-        {
-            //To DO
-            return false;
-        }
-
-        public static bool CheckVIPTickets(int event_ID)
-        {   
-            // TO DO
-            return false;
-        }
 
         public static DataTable GetAllRecord()
         {

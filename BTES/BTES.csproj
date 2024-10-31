@@ -83,6 +83,12 @@
     <Compile Include="Forms\FRM_Events.Designer.cs">
       <DependentUpon>FRM_Events.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_PurchaseTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_PurchaseTicket.Designer.cs">
+      <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FRM_Tickets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_Events.resx">
       <DependentUpon>FRM_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_PurchaseTicket.resx">
+      <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_Tickets.resx">
       <DependentUpon>FRM_Tickets.cs</DependentUpon>
@@ -191,6 +200,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\purchase-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Number 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes 321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

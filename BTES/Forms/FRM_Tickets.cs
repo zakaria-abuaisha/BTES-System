@@ -25,41 +25,41 @@ namespace BTES.Forms
         {
             dgvPurchased.DataSource = ClsPurchasedTicket.ViewPurchasedTicket(_customer.Customer_ID);
 
-            dgvPurchased.Columns[0].HeaderText = "Purchased ID";
-            dgvPurchased.Columns[0].Width = 100;
 
-            dgvPurchased.Columns[1].HeaderText = "Event Title";
-            dgvPurchased.Columns[1].Width = 100;
 
-            dgvPurchased.Columns[2].HeaderText = "Costumer Name";
-            dgvPurchased.Columns[2].Width = 140;
-
-            dgvPurchased.Columns[3].HeaderText = "Purchased Date";
-            dgvPurchased.Columns[3].Width = 110;
-
-            dgvPurchased.Columns[4].HeaderText = "Fees";
-            dgvPurchased.Columns[4].Width = 100;
-
-            dgvPurchased.Columns[5].HeaderText = "Payment Geteway";
-            dgvPurchased.Columns[5].Width = 120;
-
-            dgvPurchased.Columns[6].HeaderText = "Status";
-            dgvPurchased.Columns[6].Width = 80;
-
-            dgvPurchased.Columns[6].HeaderText = "Ticket Type";
-            dgvPurchased.Columns[6].Width = 100;
-
-            if (Dt_PT.Rows.Count > 0)
+            if (dgvPurchased.Rows.Count > 0)
             {
                 LBL_NoRecords.Visible = false;
-                CMS_Options.Visible = true;
 
-                // .....
+
+                dgvPurchased.Columns[0].HeaderText = "Purchased ID";
+                dgvPurchased.Columns[0].Width = 100;
+
+                dgvPurchased.Columns[1].HeaderText = "Event Title";
+                dgvPurchased.Columns[1].Width = 175;
+
+                dgvPurchased.Columns[2].HeaderText = "Costumer Name";
+                dgvPurchased.Columns[2].Width = 175;
+
+                dgvPurchased.Columns[3].HeaderText = "Purchased Date";
+                dgvPurchased.Columns[3].Width = 110;
+
+                dgvPurchased.Columns[4].HeaderText = "Fees";
+                dgvPurchased.Columns[4].Width = 100;
+
+                dgvPurchased.Columns[5].HeaderText = "Payment Geteway";
+                dgvPurchased.Columns[5].Width = 110;
+
+                dgvPurchased.Columns[6].HeaderText = "Status";
+                dgvPurchased.Columns[6].Width = 80;
+
+                dgvPurchased.Columns[7].HeaderText = "Ticket Type";
+                dgvPurchased.Columns[7].Width = 100;
             }
             else
             {
                 LBL_NoRecords.Visible = true;
-                LBL_NoRecords.Top = 350;
+
                 CMS_Options.Visible = false;
             }
         }

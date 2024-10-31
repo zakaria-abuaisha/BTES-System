@@ -218,8 +218,8 @@ namespace BTES.Data_Access
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = $@"SELECT   Events.Event_ID, Events.Title, Events.Event_Content,  Events.Location, Events.Event_Date, Event_Types.EventType_Name, Events.Regular_Tickets,
-                                        Events.VIP_Tickets, Events.Regular_Price, Events.VIP_Price
+            string query = $@"SELECT   Events.Event_ID, Events.Title,  Events.Location, Events.Event_Date, Event_Types.EventType_Name, 
+                                        Events.Regular_Price, Events.VIP_Price
                             FROM  Events INNER JOIN
                             Event_Types ON Events.EventType_ID = Event_Types.EventType_ID";
 

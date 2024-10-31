@@ -42,7 +42,7 @@ namespace BTES.Business_layer
         private ClsPurchasedTicket(int PurchasedTicket_ID, int Event_ID, int Customer_ID, DateTime Purchase_Date, float Fees, int Payment_Gateway, bool Status, string TicketType)
         {
             this.PurchasedTicket_ID = PurchasedTicket_ID;
-            this.Event = clsEvent.FindbyEvent(Event_ID);
+            this.Event = clsEvent.FindEvent(Event_ID);
             this.Customer = clsCustomer.Find(Customer_ID);
             this.Purchase_Date = Purchase_Date;
             this.Fees = Fees;

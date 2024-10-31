@@ -199,7 +199,7 @@
             this.dgvPurchased.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPurchased.EnableHeadersVisualStyles = false;
             this.dgvPurchased.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvPurchased.Location = new System.Drawing.Point(18, 151);
+            this.dgvPurchased.Location = new System.Drawing.Point(14, 151);
             this.dgvPurchased.Name = "dgvPurchased";
             this.dgvPurchased.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -214,7 +214,7 @@
             this.dgvPurchased.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPurchased.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPurchased.ShowCellToolTips = false;
-            this.dgvPurchased.Size = new System.Drawing.Size(1081, 455);
+            this.dgvPurchased.Size = new System.Drawing.Size(1059, 455);
             this.dgvPurchased.TabIndex = 53;
             this.dgvPurchased.Visible = false;
             // 
@@ -223,7 +223,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1151, 645);
+            this.ClientSize = new System.Drawing.Size(1089, 645);
             this.Controls.Add(this.PNL_Login);
             this.Controls.Add(this.LBL_NoRecords);
             this.Controls.Add(this.dgvPurchased);

@@ -49,7 +49,7 @@
             this.CMS_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.purchaseTicketToolStripMenuItem});
             this.CMS_Options.Name = "contextMenuStrip1";
-            this.CMS_Options.Size = new System.Drawing.Size(211, 34);
+            this.CMS_Options.Size = new System.Drawing.Size(211, 56);
             // 
             // purchaseTicketToolStripMenuItem
             // 
@@ -61,6 +61,7 @@
             this.purchaseTicketToolStripMenuItem.Name = "purchaseTicketToolStripMenuItem";
             this.purchaseTicketToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.purchaseTicketToolStripMenuItem.Text = "Purchase Ticket";
+            this.purchaseTicketToolStripMenuItem.Click += new System.EventHandler(this.purchaseTicketToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -68,7 +69,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(565, 44);
+            this.label1.Location = new System.Drawing.Point(443, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 65);
             this.label1.TabIndex = 46;
@@ -110,7 +111,7 @@
             this.dgvEvent.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEvent.EnableHeadersVisualStyles = false;
             this.dgvEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvEvent.Location = new System.Drawing.Point(18, 157);
+            this.dgvEvent.Location = new System.Drawing.Point(14, 157);
             this.dgvEvent.Name = "dgvEvent";
             this.dgvEvent.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -125,7 +126,7 @@
             this.dgvEvent.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEvent.ShowCellToolTips = false;
-            this.dgvEvent.Size = new System.Drawing.Size(1169, 455);
+            this.dgvEvent.Size = new System.Drawing.Size(1063, 455);
             this.dgvEvent.TabIndex = 43;
             // 
             // LBL_NoRecords
@@ -133,7 +134,7 @@
             this.LBL_NoRecords.AutoSize = true;
             this.LBL_NoRecords.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LBL_NoRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_NoRecords.Location = new System.Drawing.Point(285, 372);
+            this.LBL_NoRecords.Location = new System.Drawing.Point(190, 387);
             this.LBL_NoRecords.Name = "LBL_NoRecords";
             this.LBL_NoRecords.Size = new System.Drawing.Size(750, 54);
             this.LBL_NoRecords.TabIndex = 47;
@@ -145,7 +146,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1394, 645);
+            this.ClientSize = new System.Drawing.Size(1089, 645);
             this.Controls.Add(this.LBL_NoRecords);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvEvent);

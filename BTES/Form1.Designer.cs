@@ -194,7 +194,7 @@
             this.PNL_Form.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PNL_Form.Location = new System.Drawing.Point(265, 0);
             this.PNL_Form.Name = "PNL_Form";
-            this.PNL_Form.Size = new System.Drawing.Size(1202, 645);
+            this.PNL_Form.Size = new System.Drawing.Size(1089, 645);
             this.PNL_Form.TabIndex = 1;
             // 
             // frmMain
@@ -202,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1467, 645);
+            this.ClientSize = new System.Drawing.Size(1354, 645);
             this.Controls.Add(this.PNL_Form);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
