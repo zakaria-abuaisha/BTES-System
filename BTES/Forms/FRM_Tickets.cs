@@ -13,6 +13,7 @@ namespace BTES.Forms
 {
     public partial class FRM_Tickets : Form
     {
+        private clsCustomer _customer;
         public FRM_Tickets()
         {
             InitializeComponent();
@@ -22,6 +23,32 @@ namespace BTES.Forms
 
         private void Referesh()
         {
+            dgvPurchased.DataSource = ClsPurchasedTicket.ViewPurchasedTicket(_customer.Customer_ID);
+
+            dgvPurchased.Columns[0].HeaderText = "Purchased ID";
+            dgvPurchased.Columns[0].Width = 100;
+
+            dgvPurchased.Columns[1].HeaderText = "Event Title";
+            dgvPurchased.Columns[1].Width = 100;
+
+            dgvPurchased.Columns[2].HeaderText = "Costumer Name";
+            dgvPurchased.Columns[2].Width = 140;
+
+            dgvPurchased.Columns[3].HeaderText = "Purchased Date";
+            dgvPurchased.Columns[3].Width = 110;
+
+            dgvPurchased.Columns[4].HeaderText = "Fees";
+            dgvPurchased.Columns[4].Width = 100;
+
+            dgvPurchased.Columns[5].HeaderText = "Payment Geteway";
+            dgvPurchased.Columns[5].Width = 120;
+
+            dgvPurchased.Columns[6].HeaderText = "Status";
+            dgvPurchased.Columns[6].Width = 80;
+
+            dgvPurchased.Columns[6].HeaderText = "Ticket Type";
+            dgvPurchased.Columns[6].Width = 100;
+
             if (Dt_PT.Rows.Count > 0)
             {
                 LBL_NoRecords.Visible = false;
@@ -39,11 +66,11 @@ namespace BTES.Forms
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            clsCustomer customer = clsCustomer.Find(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
-            if(customer != null )
+            _customer = clsCustomer.Find(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
+            if(_customer != null )
             {
 
-                dgvEvent.Visible = true;
+                dgvPurchased.Visible = true;
                 PNL_Login.Visible = false;
                 Referesh();
             }

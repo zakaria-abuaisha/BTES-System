@@ -1,6 +1,7 @@
 ﻿using BTES.Data_Access;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -130,5 +131,10 @@ namespace BTES.Business_layer
             return false;
         }
 
+        public static DataTable GetAllRecord()
+        {
+            return clsEventData.GetAllRecords();
+
+        }
     }
 }

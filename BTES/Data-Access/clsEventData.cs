@@ -211,5 +211,50 @@ namespace BTES.Data_Access
             return (rowsAffected > 0);
 
         }
+
+        public static DataTable GetAllRecords()
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = $@"SELECT   Events.Event_ID, Events.Title, Events.Event_Content,  Events.Location, Events.Event_Date, Event_Types.EventType_Name, Events.Regular_Tickets,
+                                        Events.VIP_Tickets, Events.Regular_Price, Events.VIP_Price
+                            FROM  Events INNER JOIN
+                            Event_Types ON Events.EventType_ID = Event_Types.EventType_ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
+        }
+
+
     }
 }

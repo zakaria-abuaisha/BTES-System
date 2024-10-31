@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -41,7 +43,7 @@ namespace BTES.Data_Access
                                 WHERE Event_ID = @Event_ID;
                                 SELECT SCOPE_IDENTITY();";
             }
-            
+
 
             //SEND THE QUERY AND THE CONNECTION TO (COMMAND) TO EXCUTE THE QUERY
             SqlCommand command = new SqlCommand(query, connection);
@@ -66,7 +68,7 @@ namespace BTES.Data_Access
 
                 connection.Close();
 
-                
+
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
                     return insertedID;
                 else
@@ -118,7 +120,7 @@ namespace BTES.Data_Access
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex.Message);
-          
+
             }
             finally
             {
@@ -198,7 +200,7 @@ namespace BTES.Data_Access
 
             command.Parameters.AddWithValue("@PurchasedTicket_ID", PurchasedTicket_ID);
 
-            
+
             try
             {
                 connection.Open();
@@ -217,6 +219,70 @@ namespace BTES.Data_Access
             return isAllowed;
         }
 
-     
+
+        public static DataTable GetAllRecords(int Customer_ID)
+        {
+
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT   Purchased_Tickets.PT_ID, Events.Title, (Person.FirstName + ' ' + Person.LastName) as FullName, Purchased_Tickets.Purchase_Date,
+                                            Purchased_Tickets.Fees, 
+                        CASE Purchased_Tickets.Payment_Gateway
+                        WHEN 1 THEN 'DebtCard'
+                        WHEN 2 THEN 'MobyCash'
+                        WHEN 3 THEN 'Saddad'
+                        WHEN 4 THEN 'Tadawul'
+                        WHEN 5 THEN 'Edfali'
+                        ELSE 'Unknown Payment Method'
+                        END AS PaymentMethod,
+
+	                    case  Purchased_Tickets.Status
+		                    when  1 then 'Purchased'
+		                    when  0 then 'Canceled'
+	                    end as Status,
+                        Purchased_Tickets.TicketType
+                         FROM Purchased_Tickets INNER JOIN
+                             Customer ON Purchased_Tickets.Customer_ID = Customer.Customer_ID INNER JOIN
+                             Events ON Purchased_Tickets.Event_ID = Events.Event_ID INNER JOIN
+                             Person ON Customer.Person_ID = Person.Person_ID
+                             	 where Purchased_Tickets.Customer_ID = @CostumerID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@CostumerID", Customer_ID);
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
+        }
     }
+
 }

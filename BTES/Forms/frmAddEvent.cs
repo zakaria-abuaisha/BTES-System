@@ -47,7 +47,14 @@ namespace BTES.Forms
             NewEvent.createdByUserID = 1;
             NewEvent.eventTypeID = cbmEventType.FindString(cbmEventType.Text) + 1;
 
-            NewEvent.Save();
+            if (NewEvent.Save())
+            {
+                lblEventID.Text = NewEvent.event_ID.ToString();
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private void frmAddEvent_Load(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using BTES.Data_Access;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -204,6 +205,11 @@ namespace BTES.Business_layer
         public static bool IsRefundAllowed(int PurchasedTicket_ID)
         {
             return ClsPurchasedTicketDA.IsRefundAllowed(PurchasedTicket_ID);
+        }
+
+        public static DataTable ViewPurchasedTicket(int CostumerID)
+        {
+            return ClsPurchasedTicketDA.GetAllRecords(CostumerID);
         }
     }
 

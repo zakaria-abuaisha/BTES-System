@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business-layer\clsAdmin.cs" />
     <Compile Include="Business-layer\clsEventType.cs" />
     <Compile Include="Business-layer\ClsPurchasedTicket.cs" />
     <Compile Include="Business-layer\Payments\clsEdfali .cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Business-layer\clsPerson.cs" />
     <Compile Include="Business-layer\Payments\clsTadawul .cs" />
     <Compile Include="Business-layer\Payments\IPaymentGateway.cs" />
+    <Compile Include="Data-Access\clsAdminData.cs" />
     <Compile Include="Data-Access\clsCustomerDA.cs" />
     <Compile Include="Data-Access\clsEventData.cs" />
     <Compile Include="Data-Access\clsEventTypeData.cs" />

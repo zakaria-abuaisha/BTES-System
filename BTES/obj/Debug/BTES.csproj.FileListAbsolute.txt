@@ -31,3 +31,16 @@ C:\Users\ly008\Desktop\c++\CS438\BTES-System\BTES-System\BTES\obj\Debug\BTES.For
 E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.frmAddEvent.resources
 E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Events.resources
 E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Tickets.resources
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\bin\Debug\BTES.exe.config
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\bin\Debug\BTES.exe
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\bin\Debug\BTES.pdb
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.csproj.AssemblyReference.cache
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.frmMain.resources
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Forms.frmAddEvent.resources
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Events.resources
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Tickets.resources
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Properties.Resources.resources
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.csproj.GenerateResource.cache
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.exe
+C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.pdb

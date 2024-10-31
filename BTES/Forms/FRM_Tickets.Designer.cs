@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvEvent = new System.Windows.Forms.DataGridView();
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LBL_NoRecords = new System.Windows.Forms.Label();
@@ -45,9 +44,10 @@
             this.TXT_Password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TXT_Username = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
+            this.dgvPurchased = new System.Windows.Forms.DataGridView();
             this.CMS_Options.SuspendLayout();
             this.PNL_Login.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchased)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,64 +56,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(281, 46);
+            this.label1.Location = new System.Drawing.Point(335, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(430, 65);
             this.label1.TabIndex = 52;
             this.label1.Text = "Purchased Tickets";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dgvEvent
-            // 
-            this.dgvEvent.AllowUserToAddRows = false;
-            this.dgvEvent.AllowUserToDeleteRows = false;
-            this.dgvEvent.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.dgvEvent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEvent.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvEvent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvEvent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvEvent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEvent.ColumnHeadersHeight = 30;
-            this.dgvEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvEvent.ContextMenuStrip = this.CMS_Options;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEvent.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEvent.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvEvent.EnableHeadersVisualStyles = false;
-            this.dgvEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvEvent.Location = new System.Drawing.Point(18, 151);
-            this.dgvEvent.Name = "dgvEvent";
-            this.dgvEvent.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEvent.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.dgvEvent.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEvent.ShowCellToolTips = false;
-            this.dgvEvent.Size = new System.Drawing.Size(959, 455);
-            this.dgvEvent.TabIndex = 53;
-            this.dgvEvent.Visible = false;
             // 
             // CMS_Options
             // 
@@ -153,7 +101,7 @@
             this.PNL_Login.Controls.Add(this.TXT_Password);
             this.PNL_Login.Controls.Add(this.label2);
             this.PNL_Login.Controls.Add(this.TXT_Username);
-            this.PNL_Login.Location = new System.Drawing.Point(218, 179);
+            this.PNL_Login.Location = new System.Drawing.Point(267, 183);
             this.PNL_Login.Name = "PNL_Login";
             this.PNL_Login.Size = new System.Drawing.Size(566, 371);
             this.PNL_Login.TabIndex = 55;
@@ -218,23 +166,75 @@
             this.TXT_Username.Size = new System.Drawing.Size(434, 39);
             this.TXT_Username.TabIndex = 61;
             // 
+            // dgvPurchased
+            // 
+            this.dgvPurchased.AllowUserToAddRows = false;
+            this.dgvPurchased.AllowUserToDeleteRows = false;
+            this.dgvPurchased.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(171)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPurchased.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPurchased.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPurchased.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvPurchased.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvPurchased.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(82)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvPurchased.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPurchased.ColumnHeadersHeight = 40;
+            this.dgvPurchased.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPurchased.ContextMenuStrip = this.CMS_Options;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPurchased.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPurchased.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvPurchased.EnableHeadersVisualStyles = false;
+            this.dgvPurchased.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvPurchased.Location = new System.Drawing.Point(18, 151);
+            this.dgvPurchased.Name = "dgvPurchased";
+            this.dgvPurchased.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPurchased.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPurchased.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvPurchased.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPurchased.ShowCellToolTips = false;
+            this.dgvPurchased.Size = new System.Drawing.Size(1081, 455);
+            this.dgvPurchased.TabIndex = 53;
+            this.dgvPurchased.Visible = false;
+            // 
             // FRM_Tickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(989, 645);
+            this.ClientSize = new System.Drawing.Size(1151, 645);
             this.Controls.Add(this.PNL_Login);
             this.Controls.Add(this.LBL_NoRecords);
-            this.Controls.Add(this.dgvEvent);
+            this.Controls.Add(this.dgvPurchased);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FRM_Tickets";
             this.Text = "FRM_Tickets";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).EndInit();
             this.CMS_Options.ResumeLayout(false);
             this.PNL_Login.ResumeLayout(false);
             this.PNL_Login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchased)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,7 +243,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvEvent;
         private System.Windows.Forms.Label LBL_NoRecords;
         private System.Windows.Forms.ContextMenuStrip CMS_Options;
         private System.Windows.Forms.ToolStripMenuItem RefundToolStripMenuItem;
@@ -253,5 +252,6 @@
         private System.Windows.Forms.TextBox TXT_Password;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TXT_Username;
+        private System.Windows.Forms.DataGridView dgvPurchased;
     }
 }
