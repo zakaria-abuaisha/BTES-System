@@ -65,11 +65,17 @@
     <Compile Include="Data-Access\clsPersonDA.cs" />
     <Compile Include="Data-Access\ClsPurchasedTicketDA.cs" />
     <Compile Include="Data-Access\clsSettings.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FRM_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FRM_Main.Designer.cs">
+      <DependentUpon>FRM_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_Login.Designer.cs">
+      <DependentUpon>FRM_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FRM_AddEvent.cs">
       <SubType>Form</SubType>
@@ -103,8 +109,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FRM_Main.resx">
+      <DependentUpon>FRM_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_Login.resx">
+      <DependentUpon>FRM_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_AddEvent.resx">
       <DependentUpon>FRM_AddEvent.cs</DependentUpon>

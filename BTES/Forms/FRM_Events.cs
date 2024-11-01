@@ -13,9 +13,10 @@ namespace BTES.Forms
 {
     public partial class FRM_Events : Form
     {
-        public FRM_Events()
+        public FRM_Events(bool IsAdmin)
         {
             InitializeComponent();
+            BTN_AddEvent.Visible = IsAdmin;
         }
 
         private void Referesh()
@@ -67,6 +68,12 @@ namespace BTES.Forms
             FRM_PurchaseTicket frm = new FRM_PurchaseTicket(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
             frm.ShowDialog();
             Referesh();
+        }
+
+        private void BTN_AddEvent_Click(object sender, EventArgs e)
+        {
+            FRM_AddEvent frm = new FRM_AddEvent();
+            frm.ShowDialog();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BTES
 {
-    partial class frmMain
+    partial class FRM_Main
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.BTN_Logout = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.BTN_Login = new System.Windows.Forms.Button();
             this.BTN_Tickets = new System.Windows.Forms.Button();
             this.BTN_Event = new System.Windows.Forms.Button();
@@ -62,16 +62,6 @@
             this.panel1.Size = new System.Drawing.Size(265, 645);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BTN_Logout);
-            this.panel3.Controls.Add(this.BTN_Login);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 568);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(265, 77);
-            this.panel3.TabIndex = 0;
-            // 
             // BTN_Logout
             // 
             this.BTN_Logout.BackColor = System.Drawing.Color.Transparent;
@@ -81,13 +71,24 @@
             this.BTN_Logout.ForeColor = System.Drawing.Color.White;
             this.BTN_Logout.Image = global::BTES.Properties.Resources.logout_main_white;
             this.BTN_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_Logout.Location = new System.Drawing.Point(19, 13);
+            this.BTN_Logout.Location = new System.Drawing.Point(19, 9);
             this.BTN_Logout.Name = "BTN_Logout";
             this.BTN_Logout.Size = new System.Drawing.Size(211, 56);
             this.BTN_Logout.TabIndex = 5;
             this.BTN_Logout.Text = "Logout";
             this.BTN_Logout.UseVisualStyleBackColor = false;
             this.BTN_Logout.Visible = false;
+            this.BTN_Logout.Click += new System.EventHandler(this.BTN_Logout_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BTN_Logout);
+            this.panel3.Controls.Add(this.BTN_Login);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 568);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(265, 77);
+            this.panel3.TabIndex = 0;
             // 
             // BTN_Login
             // 
@@ -104,6 +105,7 @@
             this.BTN_Login.TabIndex = 4;
             this.BTN_Login.Text = "Login As Admin";
             this.BTN_Login.UseVisualStyleBackColor = false;
+            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
             // 
             // BTN_Tickets
             // 
@@ -197,7 +199,7 @@
             this.PNL_Form.Size = new System.Drawing.Size(1089, 645);
             this.PNL_Form.TabIndex = 1;
             // 
-            // frmMain
+            // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,7 +208,7 @@
             this.Controls.Add(this.PNL_Form);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmMain";
+            this.Name = "FRM_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BTES";
             this.Load += new System.EventHandler(this.frmMain_Load);

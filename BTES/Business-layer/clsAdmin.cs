@@ -65,10 +65,15 @@ namespace BTES.Business_layer
         }
 
 
-        public static bool Login(string Username, string Password)
+        public static clsAdmin Login(string Username, string Password)
         {
 
-            return clsAdminData.Login(Username, Password);
+            int AdminID = -1; int Person_ID = -1; string FirstName = ""; string LastName = ""; string Phone = ""; string Email = ""; string Address = ""; int Age = -1;
+            if (clsAdminData.Login(ref AdminID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, Password, Username))
+
+                return new clsAdmin(AdminID, Person_ID, FirstName, LastName, Phone, Email, Address, Age, Password, Username);
+            else
+                return null;
         }
 
 
