@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BTES.Data_Access
 {
-    public  class clsEventTypeData
+    public  class ClsEventTypeData
     {
 
         //this function will return the new contact id if succeeded and -1 if not.
@@ -17,7 +17,7 @@ namespace BTES.Data_Access
 
             int RecordID = -1;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"INSERT INTO Event_Types  (EventType_Name)
                              VALUES (@EventType_Name);
@@ -59,7 +59,7 @@ namespace BTES.Data_Access
         {
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"Update Event_Types
                               set EventType_Name = @EventType_Name 
@@ -97,7 +97,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"SELECT * FROM Event_Types 
                              WHERE  EventType_ID = @EventType_ID;"; 
@@ -143,7 +143,7 @@ namespace BTES.Data_Access
 
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"Delete Event_Types 
                                         where EventType_ID = @EventType_ID";
@@ -178,7 +178,7 @@ namespace BTES.Data_Access
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = "SELECT * FROM Event_Types;";
 

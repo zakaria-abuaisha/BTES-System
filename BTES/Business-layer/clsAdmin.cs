@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace BTES.Business_layer
 {
 
-    public class clsAdmin : clsPerson
+    public class ClsAdmin : ClsPerson
     {
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
@@ -21,7 +21,7 @@ namespace BTES.Business_layer
 
 
 
-        public clsAdmin()
+        public ClsAdmin()
         {
             this.adminID = -1;
             this.personID = -1;
@@ -38,7 +38,7 @@ namespace BTES.Business_layer
             Mode = enMode.AddNew;
         }
 
-        private clsAdmin(int Admin_ID, int Person_ID, string FirstName, string LastName, string Phone, string Email, string Address, int Age, string Password, string UserName)
+        private ClsAdmin(int Admin_ID, int Person_ID, string FirstName, string LastName, string Phone, string Email, string Address, int Age, string Password, string UserName)
         {
             this.adminID = Admin_ID;
             this.personID = Person_ID;
@@ -54,24 +54,24 @@ namespace BTES.Business_layer
             Mode = enMode.Update;
         }
 
-        public static clsAdmin FindbyAdmin_ID(int AdminID)
+        public static ClsAdmin FindbyAdmin_ID(int AdminID)
         {
             int Person_ID = -1; string FirstName = ""; string LastName = ""; string Phone = ""; string Email = ""; string Address = ""; int Age = -1; string Password = ""; string UserName = ""; ;
-            if (clsAdminData.FindByAdmin_ID(AdminID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, ref Password, ref UserName))
+            if (ClsAdminData.FindByAdmin_ID(AdminID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, ref Password, ref UserName))
 
-                return new clsAdmin(AdminID, Person_ID, FirstName, LastName, Phone, Email, Address, Age, Password, UserName);
+                return new ClsAdmin(AdminID, Person_ID, FirstName, LastName, Phone, Email, Address, Age, Password, UserName);
             else
                 return null;
         }
 
 
-        public static clsAdmin Login(string Username, string Password)
+        public static ClsAdmin Login(string Username, string Password)
         {
 
             int AdminID = -1; int Person_ID = -1; string FirstName = ""; string LastName = ""; string Phone = ""; string Email = ""; string Address = ""; int Age = -1;
-            if (clsAdminData.Login(ref AdminID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, Password, Username))
+            if (ClsAdminData.Login(ref AdminID, ref Person_ID, ref FirstName, ref LastName, ref Phone, ref Email, ref Address, ref Age, Password, Username))
 
-                return new clsAdmin(AdminID, Person_ID, FirstName, LastName, Phone, Email, Address, Age, Password, Username);
+                return new ClsAdmin(AdminID, Person_ID, FirstName, LastName, Phone, Email, Address, Age, Password, Username);
             else
                 return null;
         }

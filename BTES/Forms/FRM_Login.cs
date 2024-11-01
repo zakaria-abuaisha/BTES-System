@@ -26,7 +26,7 @@ namespace BTES.Forms
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            clsAdmin Admin = clsAdmin.Login(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
+            ClsAdmin Admin = ClsAdmin.Login(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
 
             if (Admin != null)
             {

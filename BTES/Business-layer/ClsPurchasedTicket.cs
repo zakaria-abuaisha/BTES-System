@@ -19,8 +19,8 @@ namespace BTES.Business_layer
         public float Fees { set; get; }
  
 
-        public clsCustomer Customer { set; get; }
-        public clsEvent Event { set; get; }
+        public ClsCustomer Customer { set; get; }
+        public ClsEvent Event { set; get; }
         public bool Status { set; get; }
         public string TicketType { set; get; }
 
@@ -29,8 +29,8 @@ namespace BTES.Business_layer
         {
             this.PurchasedTicket_ID = -1;
       
-            this.Customer = new clsCustomer();
-            this.Event = new clsEvent();
+            this.Customer = new ClsCustomer();
+            this.Event = new ClsEvent();
             this.Purchase_Date = DateTime.Now;
             this.Fees = 0;
      
@@ -42,8 +42,8 @@ namespace BTES.Business_layer
         private ClsPurchasedTicket(int PurchasedTicket_ID, int Event_ID, int Customer_ID, DateTime Purchase_Date, float Fees, int Payment_Gateway, bool Status, string TicketType)
         {
             this.PurchasedTicket_ID = PurchasedTicket_ID;
-            this.Event = clsEvent.FindEvent(Event_ID);
-            this.Customer = clsCustomer.Find(Customer_ID);
+            this.Event = ClsEvent.FindEvent(Event_ID);
+            this.Customer = ClsCustomer.Find(Customer_ID);
             this.Purchase_Date = Purchase_Date;
             this.Fees = Fees;
             this.PaymentGateway = (enPaymentMethod)Payment_Gateway;
@@ -60,7 +60,7 @@ namespace BTES.Business_layer
                 {
                     case enPaymentMethod.DebtCard:
                         {
-                            clsDebtCard DebtCard = new clsDebtCard();
+                            ClsDebtCard DebtCard = new ClsDebtCard();
                             DebtCard.accountID = accountID;
                             DebtCard.password = password;
                             DebtCard.Fees = Fees;
@@ -82,7 +82,7 @@ namespace BTES.Business_layer
                         }
                     case enPaymentMethod.Saddad:
                         {
-                            clsSaddad Saddad = new clsSaddad();
+                            ClsSaddad Saddad = new ClsSaddad();
                             Saddad.accountID = accountID;
                             Saddad.password = password;
                             Saddad.Fees = Fees;
@@ -148,7 +148,7 @@ namespace BTES.Business_layer
                 {
                     case enPaymentMethod.DebtCard:
                         {
-                            clsDebtCard DebtCard = new clsDebtCard();
+                            ClsDebtCard DebtCard = new ClsDebtCard();
                             DebtCard.accountID = accountID;
                             DebtCard.password = password;
                             DebtCard.Authenticate();
@@ -168,7 +168,7 @@ namespace BTES.Business_layer
                         }
                     case enPaymentMethod.Saddad:
                         {
-                            clsSaddad Saddad = new clsSaddad();
+                            ClsSaddad Saddad = new ClsSaddad();
                             Saddad.accountID = accountID;
                             Saddad.password = password;
                             Saddad.Authenticate();
@@ -216,6 +216,7 @@ namespace BTES.Business_layer
         {
             return ClsPurchasedTicketDA.GetAllRecords(CostumerID);
         }
+
     }
 
     

@@ -13,7 +13,7 @@ namespace BTES.Forms
 {
     public partial class FRM_Tickets : Form
     {
-        private clsCustomer _customer;
+        private ClsCustomer _customer;
         public FRM_Tickets()
         {
             InitializeComponent();
@@ -59,14 +59,14 @@ namespace BTES.Forms
             else
             {
                 LBL_NoRecords.Visible = true;
-
+                dgvPurchased.Visible = false;
                 CMS_Options.Visible = false;
             }
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            _customer = clsCustomer.Find(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
+            _customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
             if(_customer != null )
             {
 
@@ -84,5 +84,7 @@ namespace BTES.Forms
             frm.ShowDialog();
             Referesh();
         }
+
+
     }
 }

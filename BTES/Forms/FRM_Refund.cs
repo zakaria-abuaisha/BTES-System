@@ -19,30 +19,11 @@ namespace BTES.Forms
             InitializeComponent();
 
             purchasedTicket = ClsPurchasedTicket.Find(PurchasedTiekct_ID);
-            Refresh();
+            _Refresh();
         }
 
-        private void Refresh()
+        private void _Refresh()
         {
-
-            if(!purchasedTicket.Status)
-            {
-                MessageBox.Show("This ticket is already Refunded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TXT_AccountID.Enabled = false;
-                TXT_AccountPassword.Enabled = false;
-                BTN_Refund.Enabled = false;
-                return;
-            }
-
-            if(!purchasedTicket.IsRefundAllowed())
-            {
-                MessageBox.Show("The maximum refund period has expired", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TXT_AccountID.Enabled = false;
-                TXT_AccountPassword.Enabled = false;
-                BTN_Refund.Enabled = false;
-                return;
-            }
-
 
             LBL_Title.Text = purchasedTicket.Event.title;
             LBL_Fees.Text = purchasedTicket.Fees.ToString();
@@ -59,9 +40,24 @@ namespace BTES.Forms
             TXT_Username.Text = purchasedTicket.Customer.UserName;
             TXT_UserPassword.Text = purchasedTicket.Customer.Password;
 
-            COB_PaymentGateway.Text = purchasedTicket.TicketType;
+            COB_PaymentGateway.SelectedIndex = (int)purchasedTicket.PaymentGateway - 1;
 
+            if (!purchasedTicket.IsRefundAllowed())
+            {
+                MessageBox.Show("The maximum refund period has expired", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TXT_AccountID.Enabled = false;
+                TXT_AccountPassword.Enabled = false;
+                BTN_Refund.Enabled = false;
+                return;
+            }
 
+            if (!purchasedTicket.Status)
+            {
+                MessageBox.Show("This ticket is already Refunded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TXT_AccountID.Enabled = false;
+                TXT_AccountPassword.Enabled = false;
+                BTN_Refund.Enabled = false;
+            }
         }
 
         private void BTN_Refund_Click(object sender, EventArgs e)

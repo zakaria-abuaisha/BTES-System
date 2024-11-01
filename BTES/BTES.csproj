@@ -46,25 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business-layer\clsAdmin.cs" />
-    <Compile Include="Business-layer\clsEventType.cs" />
+    <Compile Include="Business-layer\ClsAdmin.cs" />
+    <Compile Include="Business-layer\ClsEventType.cs" />
     <Compile Include="Business-layer\ClsPurchasedTicket.cs" />
-    <Compile Include="Business-layer\Payments\clsEdfali .cs" />
-    <Compile Include="Business-layer\Payments\clsMobyCash .cs" />
-    <Compile Include="Business-layer\Payments\clsSaddad.cs" />
-    <Compile Include="Business-layer\clsCustomer.cs" />
-    <Compile Include="Business-layer\Payments\clsDebtCard.cs" />
-    <Compile Include="Business-layer\clsEvent.cs" />
-    <Compile Include="Business-layer\clsPerson.cs" />
-    <Compile Include="Business-layer\Payments\clsTadawul .cs" />
+    <Compile Include="Business-layer\Payments\ClsEdfali .cs" />
+    <Compile Include="Business-layer\Payments\ClsMobyCash .cs" />
+    <Compile Include="Business-layer\Payments\ClsSaddad.cs" />
+    <Compile Include="Business-layer\ClsCustomer.cs" />
+    <Compile Include="Business-layer\Payments\ClsDebtCard.cs" />
+    <Compile Include="Business-layer\ClsEvent.cs" />
+    <Compile Include="Business-layer\ClsPerson.cs" />
+    <Compile Include="Business-layer\Payments\ClsTadawul .cs" />
     <Compile Include="Business-layer\Payments\IPaymentGateway.cs" />
-    <Compile Include="Data-Access\clsAdminData.cs" />
-    <Compile Include="Data-Access\clsCustomerDA.cs" />
-    <Compile Include="Data-Access\clsEventData.cs" />
-    <Compile Include="Data-Access\clsEventTypeData.cs" />
-    <Compile Include="Data-Access\clsPersonDA.cs" />
+    <Compile Include="Data-Access\ClsAdminData.cs" />
+    <Compile Include="Data-Access\ClsCustomerDA.cs" />
+    <Compile Include="Data-Access\ClsEventData.cs" />
+    <Compile Include="Data-Access\ClsEventTypeData.cs" />
+    <Compile Include="Data-Access\ClsPersonDA.cs" />
     <Compile Include="Data-Access\ClsPurchasedTicketDA.cs" />
-    <Compile Include="Data-Access\clsSettings.cs" />
+    <Compile Include="Data-Access\ClsSettings.cs" />
     <Compile Include="FRM_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +230,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Notes 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar 322.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

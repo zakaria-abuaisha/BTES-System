@@ -33,11 +33,11 @@
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PNL_Login = new System.Windows.Forms.Panel();
+            this.BTN_Login = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TXT_Password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TXT_Username = new System.Windows.Forms.TextBox();
-            this.BTN_Login = new System.Windows.Forms.Button();
             this.CMS_Options.SuspendLayout();
             this.PNL_Login.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,23 @@
             this.PNL_Login.Size = new System.Drawing.Size(566, 371);
             this.PNL_Login.TabIndex = 59;
             // 
+            // BTN_Login
+            // 
+            this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Login.FlatAppearance.BorderSize = 0;
+            this.BTN_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Login.Font = new System.Drawing.Font("Tahoma", 15.25F);
+            this.BTN_Login.ForeColor = System.Drawing.Color.White;
+            this.BTN_Login.Image = global::BTES.Properties.Resources.logout_main_white;
+            this.BTN_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BTN_Login.Location = new System.Drawing.Point(171, 260);
+            this.BTN_Login.Name = "BTN_Login";
+            this.BTN_Login.Size = new System.Drawing.Size(249, 69);
+            this.BTN_Login.TabIndex = 65;
+            this.BTN_Login.Text = "  Login";
+            this.BTN_Login.UseVisualStyleBackColor = false;
+            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -129,24 +146,7 @@
             this.TXT_Username.Size = new System.Drawing.Size(434, 39);
             this.TXT_Username.TabIndex = 61;
             // 
-            // BTN_Login
-            // 
-            this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Login.FlatAppearance.BorderSize = 0;
-            this.BTN_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Login.Font = new System.Drawing.Font("Tahoma", 15.25F);
-            this.BTN_Login.ForeColor = System.Drawing.Color.White;
-            this.BTN_Login.Image = global::BTES.Properties.Resources.logout_main_white;
-            this.BTN_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_Login.Location = new System.Drawing.Point(171, 260);
-            this.BTN_Login.Name = "BTN_Login";
-            this.BTN_Login.Size = new System.Drawing.Size(249, 69);
-            this.BTN_Login.TabIndex = 65;
-            this.BTN_Login.Text = "  Login";
-            this.BTN_Login.UseVisualStyleBackColor = false;
-            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
-            // 
-            // frmLogin
+            // FRM_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,7 +155,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PNL_Login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmLogin";
+            this.Name = "FRM_Login";
             this.Text = "Login";
             this.CMS_Options.ResumeLayout(false);
             this.PNL_Login.ResumeLayout(false);

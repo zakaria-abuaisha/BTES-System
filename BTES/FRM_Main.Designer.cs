@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BTN_Logout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BTN_Logout = new System.Windows.Forms.Button();
             this.BTN_Login = new System.Windows.Forms.Button();
             this.BTN_Tickets = new System.Windows.Forms.Button();
             this.BTN_Event = new System.Windows.Forms.Button();
@@ -62,6 +62,16 @@
             this.panel1.Size = new System.Drawing.Size(265, 645);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BTN_Logout);
+            this.panel3.Controls.Add(this.BTN_Login);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 568);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(265, 77);
+            this.panel3.TabIndex = 0;
+            // 
             // BTN_Logout
             // 
             this.BTN_Logout.BackColor = System.Drawing.Color.Transparent;
@@ -79,16 +89,6 @@
             this.BTN_Logout.UseVisualStyleBackColor = false;
             this.BTN_Logout.Visible = false;
             this.BTN_Logout.Click += new System.EventHandler(this.BTN_Logout_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BTN_Logout);
-            this.panel3.Controls.Add(this.BTN_Login);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 568);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(265, 77);
-            this.panel3.TabIndex = 0;
             // 
             // BTN_Login
             // 

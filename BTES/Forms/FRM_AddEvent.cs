@@ -14,6 +14,7 @@ namespace BTES.Forms
 {
     public partial class FRM_AddEvent : Form
     {
+        private ClsEvent NewEvent = new ClsEvent();
         public FRM_AddEvent()
         {
             InitializeComponent();
@@ -34,10 +35,10 @@ namespace BTES.Forms
                 return;
             }
 
-            clsEvent NewEvent = new clsEvent(); 
+           
 
             NewEvent.eventContent = txtContent.Text;
-            NewEvent.eventDate = DateTime.Now; 
+            NewEvent.eventDate = DTP_EventDate.Value; 
             NewEvent.title = txtTitle.Text;
             NewEvent.VIPprice = Convert.ToInt32(txtPriceOfVipTicket.Text);
             NewEvent.VIPTickets = Convert.ToInt32(txtNumberOfVipTicket.Text);
@@ -51,6 +52,7 @@ namespace BTES.Forms
             {
                 lblEventID.Text = NewEvent.event_ID.ToString();
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
                 MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -59,12 +61,13 @@ namespace BTES.Forms
 
         private void frmAddEvent_Load(object sender, EventArgs e)
         {
-            DataTable allEventType = clsEventType.GetAllRecord();
+            DataTable allEventType = ClsEventType.GetAllRecord();
           
             foreach (DataRow row in allEventType.Rows)
             {
                 cbmEventType.Items.Add(row[1]);
             }
+            DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
 
         }
 
@@ -94,8 +97,10 @@ namespace BTES.Forms
             TextBox Temp = ((TextBox)sender);
             if (string.IsNullOrEmpty(Temp.Text.Trim()))
             {
-                e.Cancel = true;
+                e.Cancel = false;
                 errorProvider1.SetError(Temp, "This field is required!");
+                
+                Temp.Select(0, 0);
             }
             else
             {

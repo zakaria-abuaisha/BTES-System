@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace BTES.Data_Access
 {
 
-    public class clsEventData
+    public class ClsEventData
     {
         public static int InsertRecord(string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
         {
 
             int RecordID = -1;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"INSERT INTO Events  (Title, Event_Content, Event_Date, EventType_ID, Regular_Tickets, VIP_Tickets, Regular_Price, VIP_Price, Location, Created_By)
                                  VALUES (@Title, @Event_Content, @Event_Date, @EventType_ID, @Regular_Tickets, @VIP_Tickets, @Regular_Price, @VIP_Price, @Location, @Created_By);
@@ -68,7 +68,7 @@ namespace BTES.Data_Access
         {
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"Update Events
                               set Event_ID = @Event_ID , 
@@ -98,8 +98,7 @@ namespace BTES.Data_Access
             command.Parameters.AddWithValue("@VIP_Price", VIP_Price);
             command.Parameters.AddWithValue("@Location", Location);
             command.Parameters.AddWithValue("@Created_By", Created_By);
-            command.Parameters.AddWithValue("@Event_ID", Event_ID);
-
+    
 
             try
             {
@@ -127,7 +126,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"SELECT * FROM Events 
                                  WHERE  Event_ID = @Event_ID;";
@@ -181,7 +180,7 @@ namespace BTES.Data_Access
 
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"Delete Events 
                                             where Event_ID = @Event_ID";
@@ -216,7 +215,7 @@ namespace BTES.Data_Access
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = $@"SELECT   Events.Event_ID, Events.Title,  Events.Location, Events.Event_Date, Event_Types.EventType_Name, 
                                         Events.Regular_Price, Events.VIP_Price

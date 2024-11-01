@@ -11,14 +11,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BTES.Data_Access
 {
-    public class clsAdminData
+    public class ClsAdminData
     {
         public static bool FindByAdmin_ID(int Admin_ID, ref int Person_ID, ref string FirstName, ref string LastName, ref string Phone, ref string Email,
                               ref string Address, ref int Age, ref string Password, ref string UserName)
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"SELECT    Admin.Admin_ID, Person.*
                                                 FROM     Admin INNER JOIN
@@ -75,7 +75,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"SELECT    Admin.Admin_ID, Person.*
                                                 FROM     Admin INNER JOIN

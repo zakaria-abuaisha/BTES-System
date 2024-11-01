@@ -13,11 +13,11 @@ namespace BTES.Forms
 {
     public partial class FRM_PurchaseTicket : Form
     {
-        private clsEvent _event;
+        private ClsEvent _event;
         public FRM_PurchaseTicket(int eventID)
         {
             InitializeComponent();
-            _event = clsEvent.FindEvent(eventID);
+            _event = ClsEvent.FindEvent(eventID);
             _FillUpFormWithData();
         }
 
@@ -56,6 +56,12 @@ namespace BTES.Forms
                 return;
             }
 
+            if(ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim()) == null)
+            {
+                MessageBox.Show("Wrong UserName Or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
 
             if (RB_Regular.Checked)
@@ -64,8 +70,8 @@ namespace BTES.Forms
                 PT.Fees = _event.VIPprice;
 
             PT.PaymentGateway = (ClsPurchasedTicket.enPaymentMethod)COB_PaymentGateway.SelectedIndex + 1;
-            PT.Customer = clsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim());
-            PT.Event = clsEvent.FindEvent(_event.event_ID);
+            PT.Customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim());
+            PT.Event = ClsEvent.FindEvent(_event.event_ID);
             if (RB_Regular.Checked)
                 PT.TicketType = "Regular";
             else

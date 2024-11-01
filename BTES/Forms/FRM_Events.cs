@@ -17,16 +17,21 @@ namespace BTES.Forms
         {
             InitializeComponent();
             BTN_AddEvent.Visible = IsAdmin;
+            if(IsAdmin)
+                dgvEvent.ContextMenuStrip = null;
+
         }
 
         private void Referesh()
         {
-            dgvEvent.DataSource = clsEvent.GetAllRecord();
+
+            dgvEvent.DataSource = ClsEvent.GetAllRecord();
 
             if (dgvEvent.Rows.Count > 0)
             {
                 LBL_NoRecords.Visible = false;
                 CMS_Options.Enabled = true;
+
 
                 dgvEvent.Columns[0].HeaderText = "Event ID";
                 dgvEvent.Columns[0].Width = 40;
@@ -55,6 +60,7 @@ namespace BTES.Forms
             {
                 LBL_NoRecords.Visible = true;
                 CMS_Options.Enabled = false;
+                dgvEvent.Visible = false;
             }
         }
 
@@ -74,6 +80,7 @@ namespace BTES.Forms
         {
             FRM_AddEvent frm = new FRM_AddEvent();
             frm.ShowDialog();
+            Referesh();
         }
     }
 }

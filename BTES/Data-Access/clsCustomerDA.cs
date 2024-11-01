@@ -10,13 +10,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace BTES.Data_Access
 {
-    public static class clsCustomerDA
+    public static class ClsCustomerDA
     {
         public static bool GetCustomer_Info_By_CustomerID(int Customer_ID, ref int Person_ID, ref string FirstName, ref string LastName, ref string Phone, ref string Email, ref string Address, ref int Age, ref string Password, ref string UserName)
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
             string query = $@"select Customer.Customer_ID, Person.* from Customer inner join Person on Customer.Person_ID = Person.Person_ID where Customer_ID = @Customer_ID;";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -65,7 +65,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
             string query = $@"select Customer.Customer_ID, Person.* from Customer 
                                 inner join Person on Customer.Person_ID = Person.Person_ID
                                 where (Person.UserName = @UserName AND Person.Password = @Password);";

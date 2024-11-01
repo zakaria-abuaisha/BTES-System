@@ -55,3 +55,5 @@ C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Deb
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Login.resources
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_AddEvent.resources
 C:\Users\ly008\Desktop\c++\CS438\BTES-System\New folder\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Refund.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.FRM_Main.resources
+E:\computer science\Software engineering\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Login.resources

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BTES.Business_layer
 {
 
-    public class clsEventType
+    public class ClsEventType
     {
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
@@ -18,7 +18,7 @@ namespace BTES.Business_layer
         public string eventTypeName { set; get; }
 
 
-        public clsEventType()
+        public ClsEventType()
         {
             this.eventTypeID = -1;
             this.eventTypeName = "";
@@ -26,7 +26,7 @@ namespace BTES.Business_layer
             Mode = enMode.AddNew;
         }
 
-        private clsEventType(int EventType_ID, string EventType_Name)
+        private ClsEventType(int EventType_ID, string EventType_Name)
         {
             this.eventTypeID = EventType_ID;
             this.eventTypeName = EventType_Name;
@@ -60,13 +60,13 @@ namespace BTES.Business_layer
         }
 
 
-        public static clsEventType FindbyEventType_ID(int eventTypeID)
+        public static ClsEventType FindbyEventType_ID(int eventTypeID)
         {
             string eventTypeName = ""; ;
 
-            if (clsEventTypeData.FindByEventType_ID(eventTypeID, ref eventTypeName))
+            if (ClsEventTypeData.FindByEventType_ID(eventTypeID, ref eventTypeName))
 
-                return new clsEventType(eventTypeID, eventTypeName);
+                return new ClsEventType(eventTypeID, eventTypeName);
             else
                 return null;
         }
@@ -75,7 +75,7 @@ namespace BTES.Business_layer
         {
             //call DataAccess Layer 
 
-            this.eventTypeID = clsEventTypeData.InsertRecord(this.eventTypeName);
+            this.eventTypeID = ClsEventTypeData.InsertRecord(this.eventTypeName);
 
             return (this.eventTypeID != -1);
         }
@@ -84,17 +84,17 @@ namespace BTES.Business_layer
         {
             //call DataAccess Layer 
 
-            return clsEventTypeData.UpdateRecord(this.eventTypeID, this.eventTypeName);
+            return ClsEventTypeData.UpdateRecord(this.eventTypeID, this.eventTypeName);
         }
 
         public static bool DeleteRecord(int EventType_ID)
         {
-            return clsEventTypeData.DeleteEventType(EventType_ID);
+            return ClsEventTypeData.DeleteEventType(EventType_ID);
         }
 
         public static DataTable GetAllRecord()
         {
-            return clsEventTypeData.GetAllRecords();
+            return ClsEventTypeData.GetAllRecords();
 
         }
     }

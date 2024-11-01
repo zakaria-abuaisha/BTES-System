@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BTES.Business_layer
 {
-    public abstract class clsPerson
+    public abstract class ClsPerson
     {
 
         public int Person_ID { set; get; }
@@ -22,7 +22,7 @@ namespace BTES.Business_layer
 
 
 
-        public clsPerson()
+        public ClsPerson()
         {
             this.Person_ID = -1;
             this.FirstName = "";
@@ -37,7 +37,7 @@ namespace BTES.Business_layer
  
         }
 
-        protected clsPerson(int Person_ID, string FirstName, string LastName, string Phone, string Email, string Address, int Age, string Password, string UserName)
+        protected ClsPerson(int Person_ID, string FirstName, string LastName, string Phone, string Email, string Address, int Age, string Password, string UserName)
         {
             this.Person_ID = Person_ID;
             this.FirstName = FirstName;

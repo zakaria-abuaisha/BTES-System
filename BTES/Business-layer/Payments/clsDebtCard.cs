@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BTES.Business_layer
 {
-    public class clsDebtCard : IPaymentGateway
+    public class ClsDebtCard : IPaymentGateway
     {
         public string accountID;
         public string password;
