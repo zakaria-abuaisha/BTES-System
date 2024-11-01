@@ -77,5 +77,12 @@ namespace BTES.Forms
             else
                 MessageBox.Show("Wrong UserName Or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void RefundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRM_Refund frm = new FRM_Refund(int.Parse(dgvPurchased.CurrentRow.Cells[0].Value.ToString()));
+            frm.ShowDialog();
+            Referesh();
+        }
     }
 }

@@ -102,7 +102,7 @@
             this.BTN_Login.Name = "BTN_Login";
             this.BTN_Login.Size = new System.Drawing.Size(211, 56);
             this.BTN_Login.TabIndex = 4;
-            this.BTN_Login.Text = "Login";
+            this.BTN_Login.Text = "Login As Admin";
             this.BTN_Login.UseVisualStyleBackColor = false;
             // 
             // BTN_Tickets

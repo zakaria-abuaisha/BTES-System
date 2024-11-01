@@ -1,6 +1,6 @@
 ﻿namespace BTES.Forms
 {
-    partial class frmAddEvent
+    partial class FRM_AddEvent
     {
         /// <summary>
         /// Required designer variable.

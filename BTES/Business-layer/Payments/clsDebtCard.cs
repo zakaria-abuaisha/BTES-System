@@ -10,7 +10,7 @@ namespace BTES.Business_layer
     {
         public string accountID;
         public string password;
-
+        public float Fees;
         public void Authenticate()
         {
             // Implement specific logic for processing payments via DebtCard

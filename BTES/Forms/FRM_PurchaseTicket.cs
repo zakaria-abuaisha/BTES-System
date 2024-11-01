@@ -133,7 +133,9 @@ namespace BTES.Forms
             }
         }
 
-
-
+        private void LL_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("This Feature is not implemented yet");
+        }
     }
 }

@@ -63,6 +63,7 @@ namespace BTES.Business_layer
                             clsDebtCard DebtCard = new clsDebtCard();
                             DebtCard.accountID = accountID;
                             DebtCard.password = password;
+                            DebtCard.Fees = Fees;
                             DebtCard.Authenticate();
                             DebtCard.Pay_For_Ticket();
 
@@ -73,6 +74,7 @@ namespace BTES.Business_layer
                             clsMobyCash MobyCash = new clsMobyCash();
                             MobyCash.accountID = accountID;
                             MobyCash.password = password;
+                            MobyCash.Fees = Fees;
                             MobyCash.Authenticate();
                             MobyCash.Pay_For_Ticket();
 
@@ -83,6 +85,7 @@ namespace BTES.Business_layer
                             clsSaddad Saddad = new clsSaddad();
                             Saddad.accountID = accountID;
                             Saddad.password = password;
+                            Saddad.Fees = Fees;
                             Saddad.Authenticate();
                             Saddad.Pay_For_Ticket();
 
@@ -93,6 +96,7 @@ namespace BTES.Business_layer
                             clsTadawul Tadawul = new clsTadawul();
                             Tadawul.accountID = accountID;
                             Tadawul.password = password;
+                            Tadawul.Fees = Fees;
                             Tadawul.Authenticate();
                             Tadawul.Pay_For_Ticket();
 
@@ -103,6 +107,7 @@ namespace BTES.Business_layer
                             clsEdfali Edfali = new clsEdfali();
                             Edfali.accountID = accountID;
                             Edfali.password = password;
+                            Edfali.Fees = Fees;
                             Edfali.Authenticate();
                             Edfali.Pay_For_Ticket();
 
@@ -202,7 +207,7 @@ namespace BTES.Business_layer
 
         }
 
-        public static bool IsRefundAllowed(int PurchasedTicket_ID)
+        public bool IsRefundAllowed()
         {
             return ClsPurchasedTicketDA.IsRefundAllowed(PurchasedTicket_ID);
         }

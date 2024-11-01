@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace BTES.Forms
 {
-    public partial class frmAddEvent : Form
+    public partial class FRM_AddEvent : Form
     {
-        public frmAddEvent()
+        public FRM_AddEvent()
         {
             InitializeComponent();
         }

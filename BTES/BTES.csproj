@@ -71,11 +71,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAddEvent.cs">
+    <Compile Include="Forms\FRM_AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAddEvent.Designer.cs">
-      <DependentUpon>frmAddEvent.cs</DependentUpon>
+    <Compile Include="Forms\FRM_AddEvent.Designer.cs">
+      <DependentUpon>FRM_AddEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FRM_Events.cs">
       <SubType>Form</SubType>
@@ -89,6 +89,12 @@
     <Compile Include="Forms\FRM_PurchaseTicket.Designer.cs">
       <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_Refund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_Refund.Designer.cs">
+      <DependentUpon>FRM_Refund.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FRM_Tickets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,14 +106,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmAddEvent.resx">
-      <DependentUpon>frmAddEvent.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FRM_AddEvent.resx">
+      <DependentUpon>FRM_AddEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_Events.resx">
       <DependentUpon>FRM_Events.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_PurchaseTicket.resx">
       <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_Refund.resx">
+      <DependentUpon>FRM_Refund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_Tickets.resx">
       <DependentUpon>FRM_Tickets.cs</DependentUpon>

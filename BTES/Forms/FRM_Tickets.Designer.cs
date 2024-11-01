@@ -69,7 +69,7 @@
             this.CMS_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RefundToolStripMenuItem});
             this.CMS_Options.Name = "contextMenuStrip1";
-            this.CMS_Options.Size = new System.Drawing.Size(140, 34);
+            this.CMS_Options.Size = new System.Drawing.Size(181, 56);
             // 
             // RefundToolStripMenuItem
             // 
@@ -79,8 +79,9 @@
             this.RefundToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RefundToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Gray;
             this.RefundToolStripMenuItem.Name = "RefundToolStripMenuItem";
-            this.RefundToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.RefundToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
             this.RefundToolStripMenuItem.Text = "Refund";
+            this.RefundToolStripMenuItem.Click += new System.EventHandler(this.RefundToolStripMenuItem_Click);
             // 
             // LBL_NoRecords
             // 
