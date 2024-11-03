@@ -28,13 +28,16 @@ namespace BTES.Forms
             this.Close();
         }
 
+
         private void BTN_Save_Click(object sender, EventArgs e)
         {
 
-            if(!this.ValidateChildren())
+            if(string.IsNullOrEmpty(txtTitle.Text.Trim()) || string.IsNullOrEmpty(txtPriceOfVipTicket.Text.Trim()) || string.IsNullOrEmpty(txtPriceOfRegularTicket.Text.Trim()) 
+                || string.IsNullOrEmpty(txtNumberOfVipTicket.Text.Trim()) || string.IsNullOrEmpty(txtNumberofRegularTicket.Text.Trim()) || string.IsNullOrEmpty(txtLocation.Text.Trim()) ||
+                string.IsNullOrEmpty(txtContent.Text.Trim()))
             {
                 //Here we dont continue becuase the form is not valid
-                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Fill Up All The fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

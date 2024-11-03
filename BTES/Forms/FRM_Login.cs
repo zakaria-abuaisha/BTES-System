@@ -13,24 +13,29 @@ namespace BTES.Forms
 {
     public partial class FRM_Login : Form
     {
-        private Button _BTN_Ticket;
+        //this a void delegate, and we will use it here if the username, and password added correctly then we will invoke a method in the caller method,
         public event Action<object, ClsAdmin> ShowForm;
         
 
 
-        public FRM_Login(Button BTN_Ticket)
+        public FRM_Login()
         {
             InitializeComponent();
-            _BTN_Ticket = BTN_Ticket;
+
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(TXT_Username.Text.Trim()) || string.IsNullOrEmpty(TXT_Password.Text.Trim()))
+            {
+                MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             ClsAdmin Admin = ClsAdmin.Login(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
 
             if (Admin != null)
             {
-                _BTN_Ticket.Visible = false;
                 ShowForm.Invoke(null, Admin);
             }
             else

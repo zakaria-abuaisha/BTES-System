@@ -45,6 +45,9 @@ namespace BTES.Forms
             }
         }
 
+        //this method iterates all the text boxes, and checks if there are any ampty text box.
+
+
         private void BTN_Buy_Click(object sender, EventArgs e)
         {
             ClsPurchasedTicket PT = new ClsPurchasedTicket();

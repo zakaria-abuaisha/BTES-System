@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BTES.Forms
 {
@@ -66,6 +67,10 @@ namespace BTES.Forms
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(TXT_Username.Text.Trim()) || string.IsNullOrEmpty(TXT_Password.Text.Trim()))
+            {
+                MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             _customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
             if(_customer != null )
             {

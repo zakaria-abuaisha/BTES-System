@@ -20,6 +20,8 @@ namespace BTES.Forms
             admin = Admin;
             if (admin != null)
             {
+                //if this constructor is called when the system is used by (admin), this the button (BTN_AddEvent) which is the button that allow the admin to
+                //      add events will be enabled, and we have to disable (ContextMenuStrip) that consists (purchase button) because the user is an admin.
                 BTN_AddEvent.Visible = true;
                 dgvEvent.ContextMenuStrip = null;
             }

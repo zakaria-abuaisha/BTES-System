@@ -53,7 +53,7 @@ namespace BTES
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            FRM_Login FRM_Login = new FRM_Login(BTN_Tickets);
+            FRM_Login FRM_Login = new FRM_Login();
             FRM_Login.ShowForm += FRM_Login_ShowEvent;
             ChangeForm(FRM_Login);
         }
@@ -64,6 +64,7 @@ namespace BTES
             ChangeForm(new FRM_Events(Admin));
             BTN_Login.Visible = false;
             BTN_Logout.Visible = true;
+            BTN_Tickets.Visible = false;
 
         }
 
@@ -72,7 +73,7 @@ namespace BTES
             BTN_Tickets.Visible = true;
             BTN_Login.Visible = true;
             BTN_Logout.Visible = false;
-
+            BTN_Tickets.Visible = true;
             admin = null;
             ChangeForm(new FRM_Events(admin));
         }
