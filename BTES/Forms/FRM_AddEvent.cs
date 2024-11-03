@@ -15,9 +15,12 @@ namespace BTES.Forms
     public partial class FRM_AddEvent : Form
     {
         private ClsEvent NewEvent = new ClsEvent();
-        public FRM_AddEvent()
+        private int admin_ID;
+        public FRM_AddEvent(int Admin_ID)
         {
             InitializeComponent();
+            admin_ID = Admin_ID;
+
         }
 
         private void BTN_Close_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace BTES.Forms
             NewEvent.regularTickets = Convert.ToInt32(txtNumberofRegularTicket.Text);
             NewEvent.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
             NewEvent.location = txtLocation.Text;
-            NewEvent.createdByUserID = 1;
+            NewEvent.createdByUserID = admin_ID;
             NewEvent.eventTypeID = cbmEventType.FindString(cbmEventType.Text) + 1;
 
             if (NewEvent.Save())

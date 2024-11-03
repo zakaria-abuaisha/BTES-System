@@ -14,7 +14,7 @@ namespace BTES.Forms
     public partial class FRM_Login : Form
     {
         private Button _BTN_Ticket;
-        public event Action<object, EventArgs> ShowForm;
+        public event Action<object, ClsAdmin> ShowForm;
         
 
 
@@ -31,11 +31,11 @@ namespace BTES.Forms
             if (Admin != null)
             {
                 _BTN_Ticket.Visible = false;
-                ShowForm.Invoke(null, null);
+                ShowForm.Invoke(null, Admin);
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Wrong Username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

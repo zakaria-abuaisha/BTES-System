@@ -13,12 +13,17 @@ namespace BTES.Forms
 {
     public partial class FRM_Events : Form
     {
-        public FRM_Events(bool IsAdmin)
+        private ClsAdmin admin;
+        public FRM_Events(ClsAdmin Admin)
         {
             InitializeComponent();
-            BTN_AddEvent.Visible = IsAdmin;
-            if(IsAdmin)
+            admin = Admin;
+            if (admin != null)
+            {
+                BTN_AddEvent.Visible = true;
                 dgvEvent.ContextMenuStrip = null;
+            }
+            
 
         }
 
@@ -78,7 +83,7 @@ namespace BTES.Forms
 
         private void BTN_AddEvent_Click(object sender, EventArgs e)
         {
-            FRM_AddEvent frm = new FRM_AddEvent();
+            FRM_AddEvent frm = new FRM_AddEvent(admin.adminID);
             frm.ShowDialog();
             Referesh();
         }

@@ -8,7 +8,7 @@ namespace BTES
     public partial class FRM_Main : Form
     {
         private Form currentFrm;
-        private bool _IsAdmin = false;
+        private ClsAdmin admin = null;
 
         
         public FRM_Main()
@@ -35,13 +35,13 @@ namespace BTES
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            ChangeForm(new FRM_Events(_IsAdmin));
+            ChangeForm(new FRM_Events(admin));
         }
 
         private void BTN_Event_Click(object sender, EventArgs e)
         {
 
-            ChangeForm(new FRM_Events(_IsAdmin));
+            ChangeForm(new FRM_Events(admin));
 
         }
 
@@ -58,10 +58,10 @@ namespace BTES
             ChangeForm(FRM_Login);
         }
 
-        private void FRM_Login_ShowEvent(object sender, EventArgs e)
+        private void FRM_Login_ShowEvent(object sender, ClsAdmin Admin)
         {
-            _IsAdmin = true;
-            ChangeForm(new FRM_Events(_IsAdmin));
+            admin = Admin;
+            ChangeForm(new FRM_Events(Admin));
             BTN_Login.Visible = false;
             BTN_Logout.Visible = true;
 
@@ -73,8 +73,8 @@ namespace BTES
             BTN_Login.Visible = true;
             BTN_Logout.Visible = false;
 
-            _IsAdmin = false;
-            ChangeForm(new FRM_Events(_IsAdmin));
+            admin = null;
+            ChangeForm(new FRM_Events(admin));
         }
     }
 }
