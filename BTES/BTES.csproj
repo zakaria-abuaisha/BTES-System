@@ -46,88 +46,88 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business-layer\ClsAdmin.cs" />
-    <Compile Include="Business-layer\ClsEventType.cs" />
-    <Compile Include="Business-layer\ClsPurchasedTicket.cs" />
+    <Compile Include="Business-layer\User Management\ClsAdmin.cs" />
+    <Compile Include="Business-layer\Event Management\ClsEventType.cs" />
+    <Compile Include="Business-layer\Tickets\ClsPurchasedTicket.cs" />
     <Compile Include="Business-layer\Payments\ClsEdfali .cs" />
     <Compile Include="Business-layer\Payments\ClsMobyCash .cs" />
     <Compile Include="Business-layer\Payments\ClsSaddad.cs" />
-    <Compile Include="Business-layer\ClsCustomer.cs" />
+    <Compile Include="Business-layer\User Management\ClsCustomer.cs" />
     <Compile Include="Business-layer\Payments\ClsDebtCard.cs" />
-    <Compile Include="Business-layer\ClsEvent.cs" />
-    <Compile Include="Business-layer\ClsPerson.cs" />
+    <Compile Include="Business-layer\Event Management\ClsEvent.cs" />
+    <Compile Include="Business-layer\User Management\ClsPerson.cs" />
     <Compile Include="Business-layer\Payments\ClsTadawul .cs" />
     <Compile Include="Business-layer\Payments\IPaymentGateway.cs" />
-    <Compile Include="Data-Access\ClsAdminData.cs" />
-    <Compile Include="Data-Access\ClsCustomerDA.cs" />
-    <Compile Include="Data-Access\ClsEventData.cs" />
-    <Compile Include="Data-Access\ClsEventTypeData.cs" />
-    <Compile Include="Data-Access\ClsPersonDA.cs" />
-    <Compile Include="Data-Access\ClsPurchasedTicketDA.cs" />
-    <Compile Include="Data-Access\ClsSettings.cs" />
-    <Compile Include="FRM_Main.cs">
+    <Compile Include="Data-Access\User Management\ClsAdminData.cs" />
+    <Compile Include="Data-Access\User Management\ClsCustomerDA.cs" />
+    <Compile Include="Data-Access\Event Management\ClsEventData.cs" />
+    <Compile Include="Data-Access\Event Management\ClsEventTypeData.cs" />
+    <Compile Include="Data-Access\User Management\ClsPersonDA.cs" />
+    <Compile Include="Data-Access\Tickets\ClsPurchasedTicketDA.cs" />
+    <Compile Include="Data-Access\Setting\ClsSettings.cs" />
+    <Compile Include="Forms\Main\FRM_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Main.Designer.cs">
+    <Compile Include="Forms\Main\FRM_Main.Designer.cs">
       <DependentUpon>FRM_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_Login.cs">
+    <Compile Include="Forms\Users\FRM_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_Login.Designer.cs">
+    <Compile Include="Forms\Users\FRM_Login.Designer.cs">
       <DependentUpon>FRM_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_AddEvent.cs">
+    <Compile Include="Forms\Events\FRM_AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_AddEvent.Designer.cs">
+    <Compile Include="Forms\Events\FRM_AddEvent.Designer.cs">
       <DependentUpon>FRM_AddEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_Events.cs">
+    <Compile Include="Forms\Events\FRM_Events.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_Events.Designer.cs">
+    <Compile Include="Forms\Events\FRM_Events.Designer.cs">
       <DependentUpon>FRM_Events.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_PurchaseTicket.cs">
+    <Compile Include="Forms\Ticket\FRM_PurchaseTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_PurchaseTicket.Designer.cs">
+    <Compile Include="Forms\Ticket\FRM_PurchaseTicket.Designer.cs">
       <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_Refund.cs">
+    <Compile Include="Forms\Ticket\FRM_Refund.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_Refund.Designer.cs">
+    <Compile Include="Forms\Ticket\FRM_Refund.Designer.cs">
       <DependentUpon>FRM_Refund.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_Tickets.cs">
+    <Compile Include="Forms\Ticket\FRM_Tickets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_Tickets.Designer.cs">
+    <Compile Include="Forms\Ticket\FRM_Tickets.Designer.cs">
       <DependentUpon>FRM_Tickets.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FRM_Main.resx">
+    <EmbeddedResource Include="Forms\Main\FRM_Main.resx">
       <DependentUpon>FRM_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_Login.resx">
+    <EmbeddedResource Include="Forms\Users\FRM_Login.resx">
       <DependentUpon>FRM_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_AddEvent.resx">
+    <EmbeddedResource Include="Forms\Events\FRM_AddEvent.resx">
       <DependentUpon>FRM_AddEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_Events.resx">
+    <EmbeddedResource Include="Forms\Events\FRM_Events.resx">
       <DependentUpon>FRM_Events.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_PurchaseTicket.resx">
+    <EmbeddedResource Include="Forms\Ticket\FRM_PurchaseTicket.resx">
       <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_Refund.resx">
+    <EmbeddedResource Include="Forms\Ticket\FRM_Refund.resx">
       <DependentUpon>FRM_Refund.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_Tickets.resx">
+    <EmbeddedResource Include="Forms\Ticket\FRM_Tickets.resx">
       <DependentUpon>FRM_Tickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
