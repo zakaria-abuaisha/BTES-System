@@ -44,20 +44,21 @@ namespace BTES.Business_layer
             Mode = enMode.AddNew;
         }
 
-        private ClsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
+        private ClsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date,  int Regular_Tickets, int VIP_Tickets, float Regular_Price, 
+            float VIP_Price, string Location, int Created_By, ClsEventType EventType)
         {
             this.event_ID = Event_ID;
             this.title = Title;
             this.eventContent = Event_Content;
             this.eventDate = Event_Date;
-            this.eventTypeID = EventType_ID;
+            this.eventTypeID = EventType.eventTypeID;
             this.regularTickets = Regular_Tickets;
             this.VIPTickets = VIP_Tickets;
             this.regularPrice = Regular_Price;
             this.VIPprice = VIP_Price;
             this.location = Location;
             this.createdByUserID = Created_By;
-            this.eventType = ClsEventType.FindbyEventType_ID(EventType_ID);
+            this.eventType = EventType;
             Mode = enMode.Update;
         }
 
@@ -65,14 +66,14 @@ namespace BTES.Business_layer
         {
             //call DataAccess Layer 
 
-            return ClsEventData.UpdateRecord(this.event_ID, this.title, this.eventContent, this.eventDate, this.eventTypeID, this.regularTickets, this.VIPTickets, this.regularPrice, this.VIPprice, this.location, this.createdByUserID);
+            return ClsEventData.UpdateRecord(this);
         }
          
         private bool _AddNewclsEvent()
         {
             //call DataAccess Layer 
 
-            this.event_ID = ClsEventData.InsertRecord(this.title, this.eventContent, this.eventDate, this.eventTypeID, this.regularTickets, this.VIPTickets, this.regularPrice, this.VIPprice, this.location, this.createdByUserID);
+            this.event_ID = ClsEventData.InsertRecord(this);
 
             return (this.event_ID != -1);
         }
@@ -87,7 +88,7 @@ namespace BTES.Business_layer
             string title = ""; string eventContent = ""; DateTime eventDate = DateTime.Now; int eventTypeID = -1; int regularTickets = -1; int VIPTickets = -1; float regularPrice = -1; float VIPprice = -1; string location = ""; int createdByUserID = -1; ;
             if (ClsEventData.FindByEvent_ID(Event_ID, ref title, ref eventContent, ref eventDate, ref eventTypeID, ref regularTickets, ref VIPTickets, ref regularPrice, ref VIPprice, ref location, ref createdByUserID))
 
-                return new ClsEvent(Event_ID, title, eventContent, eventDate, eventTypeID, regularTickets, VIPTickets, regularPrice, VIPprice, location, createdByUserID);
+                return new ClsEvent(Event_ID, title, eventContent, eventDate, regularTickets, VIPTickets, regularPrice, VIPprice, location, createdByUserID, ClsEventType.FindbyEventType_ID(eventTypeID));
             else
                 return null;
         }

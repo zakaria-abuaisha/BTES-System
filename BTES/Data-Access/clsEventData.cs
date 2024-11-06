@@ -5,14 +5,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BTES.Business_layer;
 
 namespace BTES.Data_Access
 {
 
     public class ClsEventData
     {
-        public static int InsertRecord(string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
-        {
+        public static int InsertRecord(ClsEvent Event)
+        { 
 
             int RecordID = -1;
 
@@ -24,17 +25,17 @@ namespace BTES.Data_Access
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@Title", Title);
-            command.Parameters.AddWithValue("@Event_Content", Event_Content);
-            command.Parameters.AddWithValue("@Event_Date", Event_Date);
-            command.Parameters.AddWithValue("@EventType_ID", EventType_ID);
-            command.Parameters.AddWithValue("@Regular_Tickets", Regular_Tickets);
-            command.Parameters.AddWithValue("@VIP_Tickets", VIP_Tickets);
-            command.Parameters.AddWithValue("@Regular_Price", Regular_Price);
-            command.Parameters.AddWithValue("@VIP_Price", VIP_Price);
-            command.Parameters.AddWithValue("@Location", Location);
-            command.Parameters.AddWithValue("@Created_By", Created_By);
 
+            command.Parameters.AddWithValue("@Title", Event.title);
+            command.Parameters.AddWithValue("@Event_Content", Event.eventContent);
+            command.Parameters.AddWithValue("@Event_Date", Event.eventDate);
+            command.Parameters.AddWithValue("@EventType_ID", Event.eventTypeID);
+            command.Parameters.AddWithValue("@Regular_Tickets", Event.regularTickets);
+            command.Parameters.AddWithValue("@VIP_Tickets", Event.VIPTickets);
+            command.Parameters.AddWithValue("@Regular_Price", Event.regularPrice);
+            command.Parameters.AddWithValue("@VIP_Price", Event.VIPprice);
+            command.Parameters.AddWithValue("@Location", Event.location);
+            command.Parameters.AddWithValue("@Created_By", Event.createdByUserID);
 
 
 
@@ -64,7 +65,7 @@ namespace BTES.Data_Access
         }
 
 
-        public static bool UpdateRecord(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int EventType_ID, int Regular_Tickets, int VIP_Tickets, float Regular_Price, float VIP_Price, string Location, int Created_By)
+        public static bool UpdateRecord(ClsEvent Event)
         {
             int rowsAffected = 0;
 
@@ -87,17 +88,17 @@ namespace BTES.Data_Access
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@Event_ID", Event_ID);
-            command.Parameters.AddWithValue("@Title", Title);
-            command.Parameters.AddWithValue("@Event_Content", Event_Content);
-            command.Parameters.AddWithValue("@Event_Date", Event_Date);
-            command.Parameters.AddWithValue("@EventType_ID", EventType_ID);
-            command.Parameters.AddWithValue("@Regular_Tickets", Regular_Tickets);
-            command.Parameters.AddWithValue("@VIP_Tickets", VIP_Tickets);
-            command.Parameters.AddWithValue("@Regular_Price", Regular_Price);
-            command.Parameters.AddWithValue("@VIP_Price", VIP_Price);
-            command.Parameters.AddWithValue("@Location", Location);
-            command.Parameters.AddWithValue("@Created_By", Created_By);
+            command.Parameters.AddWithValue("@Event_ID", Event.event_ID);
+            command.Parameters.AddWithValue("@Title", Event.title);
+            command.Parameters.AddWithValue("@Event_Content", Event.eventContent);
+            command.Parameters.AddWithValue("@Event_Date", Event.eventDate);
+            command.Parameters.AddWithValue("@EventType_ID", Event.eventTypeID);
+            command.Parameters.AddWithValue("@Regular_Tickets", Event.regularTickets);
+            command.Parameters.AddWithValue("@VIP_Tickets", Event.VIPTickets);
+            command.Parameters.AddWithValue("@Regular_Price", Event.regularPrice);
+            command.Parameters.AddWithValue("@VIP_Price", Event.VIPprice);
+            command.Parameters.AddWithValue("@Location", Event.location);
+            command.Parameters.AddWithValue("@Created_By", Event.createdByUserID);
     
 
             try
