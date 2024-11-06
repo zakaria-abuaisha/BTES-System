@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BTES.Business_layer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,15 +18,15 @@ namespace BTES.Data_Access
         /// This method will return the newly inserted ID for the purchased ticket. If the operation fails, it will return -1.
         /// </summary>
         /// <returns></returns>
-        public static int Purchase_Ticket(int Event_ID, int Customer_ID, float Fees, int Payment_Gateway, string TicketType)
+        public static int Purchase_Ticket(ClsPurchasedTicket PT)
         {
-
+  
             //CONNECTING WITH DATABASE
             SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             //PREPAER THE QUERY
             string query;
-            if (TicketType == "Regular")
+            if (PT.TicketType == "Regular")
             {
                 query = $@"INSERT INTO Purchased_Tickets (Event_ID, Customer_ID, Purchase_Date, Fees, Payment_Gateway, Status, TicketType)
                                 VALUES ( @Event_ID, @Customer_ID, @Purchase_Date, @Fees, @Payment_Gateway, @Status, @TicketType);
@@ -49,13 +50,13 @@ namespace BTES.Data_Access
             SqlCommand command = new SqlCommand(query, connection);
 
             //SEND THE PARAMETERS
-            command.Parameters.AddWithValue("@Event_ID ", Event_ID);
-            command.Parameters.AddWithValue("@Customer_ID ", Customer_ID);
+            command.Parameters.AddWithValue("@Event_ID ", PT.Event.event_ID);
+            command.Parameters.AddWithValue("@Customer_ID ", PT.Customer.Customer_ID);
             command.Parameters.AddWithValue("@Purchase_Date ", DateTime.Now);
-            command.Parameters.AddWithValue("@Fees ", Fees);
-            command.Parameters.AddWithValue("@Payment_Gateway ", Payment_Gateway);
+            command.Parameters.AddWithValue("@Fees ", PT.Fees);
+            command.Parameters.AddWithValue("@Payment_Gateway ", (int)PT.PaymentGateway);
             command.Parameters.AddWithValue("@Status ", 1);
-            command.Parameters.AddWithValue("@TicketType ", TicketType);
+            command.Parameters.AddWithValue("@TicketType ", PT.TicketType);
 
 
 
@@ -130,15 +131,16 @@ namespace BTES.Data_Access
 
         }
 
-        public static bool Refund_Ticket(int PurchasedTicket_ID, int Event_ID, string TicketType)
+        public static bool Refund_Ticket(ClsPurchasedTicket PT)
         {
+
             int RowsAffected = 0;
             //CONNECTING WITH DATABASE
             SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             //PREPAER THE QUERY
             string query;
-            if (TicketType == "Regular")
+            if (PT.TicketType == "Regular")
             {
                 query = $@"UPDATE Purchased_Tickets
                             SET Status = 0
@@ -162,8 +164,8 @@ namespace BTES.Data_Access
             SqlCommand command = new SqlCommand(query, connection);
 
             //SEND THE PARAMETERS
-            command.Parameters.AddWithValue("@PurchasedTicket_ID ", PurchasedTicket_ID);
-            command.Parameters.AddWithValue("@Event_ID ", Event_ID);
+            command.Parameters.AddWithValue("@PurchasedTicket_ID ", PT.PurchasedTicket_ID);
+            command.Parameters.AddWithValue("@Event_ID ", PT.Event.event_ID);
 
 
 

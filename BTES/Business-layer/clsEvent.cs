@@ -67,7 +67,7 @@ namespace BTES.Business_layer
 
             return ClsEventData.UpdateRecord(this.event_ID, this.title, this.eventContent, this.eventDate, this.eventTypeID, this.regularTickets, this.VIPTickets, this.regularPrice, this.VIPprice, this.location, this.createdByUserID);
         }
-
+         
         private bool _AddNewclsEvent()
         {
             //call DataAccess Layer 

@@ -39,14 +39,14 @@ namespace BTES.Business_layer
     
         }
 
-        private ClsPurchasedTicket(int PurchasedTicket_ID, int Event_ID, int Customer_ID, DateTime Purchase_Date, float Fees, int Payment_Gateway, bool Status, string TicketType)
+        public ClsPurchasedTicket(int PurchasedTicket_ID, ClsEvent Event, ClsCustomer Customer, DateTime Purchase_Date, float Fees, enPaymentMethod Payment_Gateway, bool Status, string TicketType)
         {
             this.PurchasedTicket_ID = PurchasedTicket_ID;
-            this.Event = ClsEvent.FindEvent(Event_ID);
-            this.Customer = ClsCustomer.Find(Customer_ID);
+            this.Event = Event;
+            this.Customer = Customer;
             this.Purchase_Date = Purchase_Date;
             this.Fees = Fees;
-            this.PaymentGateway = (enPaymentMethod)Payment_Gateway;
+            this.PaymentGateway = Payment_Gateway;
             this.Status = Status;
             this.TicketType = TicketType;
 
@@ -120,7 +120,7 @@ namespace BTES.Business_layer
                 return false;
             }
 
-            this.PurchasedTicket_ID = ClsPurchasedTicketDA.Purchase_Ticket(Event.event_ID, Customer.Customer_ID, Fees, (int)PaymentGateway, TicketType);
+            this.PurchasedTicket_ID = ClsPurchasedTicketDA.Purchase_Ticket(this);
             return PurchasedTicket_ID != -1;
         }
 
@@ -135,7 +135,7 @@ namespace BTES.Business_layer
             string TicketType = "";
 
             if (ClsPurchasedTicketDA.GetPurchased_Tickets_Info_By_In_Purchased_Tickets(PT_ID, ref Event_ID, ref Customer_ID, ref Purchase_Date, ref Fees, ref Payment_Gateway, ref Status, ref TicketType))
-                return new ClsPurchasedTicket(PT_ID, Event_ID, Customer_ID, Purchase_Date, Fees, Payment_Gateway, Status, TicketType);
+                return new ClsPurchasedTicket(PT_ID, ClsEvent.FindEvent(Event_ID) , ClsCustomer.Find(Customer_ID) , Purchase_Date, Fees, (enPaymentMethod)Payment_Gateway, Status, TicketType);
             else
                 return null;
         }
@@ -203,7 +203,7 @@ namespace BTES.Business_layer
                 return false;
             }
 
-            return ClsPurchasedTicketDA.Refund_Ticket(PurchasedTicket_ID, Event.event_ID, TicketType);
+            return ClsPurchasedTicketDA.Refund_Ticket(this);
 
         }
 
