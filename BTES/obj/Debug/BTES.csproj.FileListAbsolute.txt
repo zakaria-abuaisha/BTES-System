@@ -73,3 +73,19 @@ E:\BTES-System\BTES\obj\Debug\BTES.csproj.GenerateResource.cache
 E:\BTES-System\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
 E:\BTES-System\BTES\obj\Debug\BTES.exe
 E:\BTES-System\BTES\obj\Debug\BTES.pdb
+E:\computer science\Software engineering\project\BTES-System\BTES\bin\Debug\BTES.exe.config
+E:\computer science\Software engineering\project\BTES-System\BTES\bin\Debug\BTES.exe
+E:\computer science\Software engineering\project\BTES-System\BTES\bin\Debug\BTES.pdb
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.csproj.AssemblyReference.cache
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.FRM_Main.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Login.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_AddEvent.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Events.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_PurchaseTicket.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Refund.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.FRM_Tickets.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Properties.Resources.resources
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.csproj.GenerateResource.cache
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.exe
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.pdb

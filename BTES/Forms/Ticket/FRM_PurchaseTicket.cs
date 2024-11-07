@@ -14,10 +14,10 @@ namespace BTES.Forms
     public partial class FRM_PurchaseTicket : Form
     {
         private ClsEvent _event;
-        public FRM_PurchaseTicket(int eventID)
+        public FRM_PurchaseTicket(ClsEvent Event)
         {
             InitializeComponent();
-            _event = ClsEvent.FindEvent(eventID);
+            _event = Event;
             _FillUpFormWithData();
         }
 

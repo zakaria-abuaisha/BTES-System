@@ -113,6 +113,7 @@
             this.dgvEvent.EnableHeadersVisualStyles = false;
             this.dgvEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
             this.dgvEvent.Location = new System.Drawing.Point(14, 157);
+            this.dgvEvent.MultiSelect = false;
             this.dgvEvent.Name = "dgvEvent";
             this.dgvEvent.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -129,6 +130,7 @@
             this.dgvEvent.ShowCellToolTips = false;
             this.dgvEvent.Size = new System.Drawing.Size(1063, 455);
             this.dgvEvent.TabIndex = 43;
+            this.dgvEvent.SelectionChanged += new System.EventHandler(this.dgvEvent_SelectionChanged);
             // 
             // LBL_NoRecords
             // 

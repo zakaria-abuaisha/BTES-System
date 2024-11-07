@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace BTES.Forms
 {
@@ -85,11 +85,20 @@ namespace BTES.Forms
 
         private void RefundToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRM_Refund frm = new FRM_Refund(int.Parse(dgvPurchased.CurrentRow.Cells[0].Value.ToString()));
+            FRM_Refund frm = new FRM_Refund(ClsPurchasedTicket.Find(int.Parse(dgvPurchased.CurrentRow.Cells[0].Value.ToString())));
             frm.ShowDialog();
             Referesh();
         }
 
+        private void dgvPurchased_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvPurchased.Rows.Count > 0)
+            {
+                DataGridViewCell cell = dgvPurchased.CurrentRow.Cells[3];
 
+                ToolTip tip = new ToolTip();
+                tip.SetToolTip(dgvPurchased, "Use (Right mouse click) to refund");
+            }
+        }
     }
 }

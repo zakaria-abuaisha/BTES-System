@@ -14,11 +14,11 @@ namespace BTES.Forms
     public partial class FRM_Refund : Form
     {
         private ClsPurchasedTicket purchasedTicket;
-        public FRM_Refund(int PurchasedTiekct_ID)
+        public FRM_Refund(ClsPurchasedTicket PT)
         {
             InitializeComponent();
 
-            purchasedTicket = ClsPurchasedTicket.Find(PurchasedTiekct_ID);
+            purchasedTicket = PT;
             _Refresh();
         }
 

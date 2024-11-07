@@ -78,7 +78,7 @@ namespace BTES.Forms
 
         private void purchaseTicketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRM_PurchaseTicket frm = new FRM_PurchaseTicket(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+            FRM_PurchaseTicket frm = new FRM_PurchaseTicket(ClsEvent.FindEvent(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString())));
             frm.ShowDialog();
             Referesh();
         }
@@ -88,6 +88,17 @@ namespace BTES.Forms
             FRM_AddEvent frm = new FRM_AddEvent(admin.adminID);
             frm.ShowDialog();
             Referesh();
+        }
+
+        private void dgvEvent_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvEvent.Rows.Count > 0 && admin == null)
+            {
+                DataGridViewCell cell = dgvEvent.CurrentRow.Cells[0];
+
+                ToolTip tip = new ToolTip();
+                tip.SetToolTip(dgvEvent, "Use (Right mouse click) to purchase");
+            }
         }
     }
 }
