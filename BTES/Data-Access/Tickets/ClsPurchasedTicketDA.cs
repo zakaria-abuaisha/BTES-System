@@ -1,4 +1,5 @@
 ﻿using BTES.Business_layer;
+using BTES.Data_Access.Setting;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,7 +21,7 @@ namespace BTES.Data_Access
         /// <returns></returns>
         public static int Purchase_Ticket(ClsPurchasedTicket PT)
         {
-  
+
             //CONNECTING WITH DATABASE
             SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 

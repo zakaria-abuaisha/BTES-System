@@ -34,7 +34,7 @@ namespace BTES.Business_layer
             this.Password = "";
             this.UserName = "";
 
- 
+
         }
 
         protected ClsPerson(int Person_ID, string FirstName, string LastName, string Phone, string Email, string Address, int Age, string Password, string UserName)

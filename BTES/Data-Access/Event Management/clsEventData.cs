@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BTES.Business_layer;
+using BTES.Data_Access.Setting;
 
 namespace BTES.Data_Access
 {
@@ -13,7 +14,7 @@ namespace BTES.Data_Access
     public class ClsEventData
     {
         public static int InsertRecord(ClsEvent Event)
-        { 
+        {
 
             int RecordID = -1;
 
@@ -99,7 +100,7 @@ namespace BTES.Data_Access
             command.Parameters.AddWithValue("@VIP_Price", Event.VIPprice);
             command.Parameters.AddWithValue("@Location", Event.location);
             command.Parameters.AddWithValue("@Created_By", Event.createdByUserID);
-    
+
 
             try
             {

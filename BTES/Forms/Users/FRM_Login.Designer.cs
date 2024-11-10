@@ -1,4 +1,4 @@
-﻿namespace BTES.Forms
+﻿namespace BTES.Forms.Users
 {
     partial class FRM_Login
     {
@@ -33,11 +33,11 @@
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PNL_Login = new System.Windows.Forms.Panel();
-            this.BTN_Login = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TXT_Password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TXT_Username = new System.Windows.Forms.TextBox();
+            this.BTN_Login = new System.Windows.Forms.Button();
             this.CMS_Options.SuspendLayout();
             this.PNL_Login.SuspendLayout();
             this.SuspendLayout();
@@ -48,10 +48,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(335, 49);
+            this.label1.Location = new System.Drawing.Point(329, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(400, 65);
-            this.label1.TabIndex = 56;
+            this.label1.TabIndex = 60;
             this.label1.Text = "Log in As Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -81,27 +81,10 @@
             this.PNL_Login.Controls.Add(this.TXT_Password);
             this.PNL_Login.Controls.Add(this.label2);
             this.PNL_Login.Controls.Add(this.TXT_Username);
-            this.PNL_Login.Location = new System.Drawing.Point(267, 182);
+            this.PNL_Login.Location = new System.Drawing.Point(261, 203);
             this.PNL_Login.Name = "PNL_Login";
             this.PNL_Login.Size = new System.Drawing.Size(566, 371);
-            this.PNL_Login.TabIndex = 59;
-            // 
-            // BTN_Login
-            // 
-            this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Login.FlatAppearance.BorderSize = 0;
-            this.BTN_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Login.Font = new System.Drawing.Font("Tahoma", 15.25F);
-            this.BTN_Login.ForeColor = System.Drawing.Color.White;
-            this.BTN_Login.Image = global::BTES.Properties.Resources.logout_main_white;
-            this.BTN_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_Login.Location = new System.Drawing.Point(171, 260);
-            this.BTN_Login.Name = "BTN_Login";
-            this.BTN_Login.Size = new System.Drawing.Size(249, 69);
-            this.BTN_Login.TabIndex = 65;
-            this.BTN_Login.Text = "  Login";
-            this.BTN_Login.UseVisualStyleBackColor = false;
-            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
+            this.PNL_Login.TabIndex = 61;
             // 
             // label3
             // 
@@ -146,6 +129,23 @@
             this.TXT_Username.Size = new System.Drawing.Size(434, 39);
             this.TXT_Username.TabIndex = 61;
             // 
+            // BTN_Login
+            // 
+            this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Login.FlatAppearance.BorderSize = 0;
+            this.BTN_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Login.Font = new System.Drawing.Font("Tahoma", 15.25F);
+            this.BTN_Login.ForeColor = System.Drawing.Color.White;
+            this.BTN_Login.Image = global::BTES.Properties.Resources.logout_main_white;
+            this.BTN_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BTN_Login.Location = new System.Drawing.Point(171, 260);
+            this.BTN_Login.Name = "BTN_Login";
+            this.BTN_Login.Size = new System.Drawing.Size(249, 69);
+            this.BTN_Login.TabIndex = 65;
+            this.BTN_Login.Text = "  Login";
+            this.BTN_Login.UseVisualStyleBackColor = false;
+            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
+            // 
             // FRM_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,7 +156,8 @@
             this.Controls.Add(this.PNL_Login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FRM_Login";
-            this.Text = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FRM_Login";
             this.CMS_Options.ResumeLayout(false);
             this.PNL_Login.ResumeLayout(false);
             this.PNL_Login.PerformLayout();

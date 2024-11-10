@@ -9,19 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BTES.Forms
+namespace BTES.Forms.Users
 {
     public partial class FRM_Login : Form
     {
         //this a void delegate, and we will use it here if the username, and password added correctly then we will invoke a method in the caller method,
         public event Action<object, ClsAdmin> ShowForm;
-        
-
 
         public FRM_Login()
         {
             InitializeComponent();
-
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)

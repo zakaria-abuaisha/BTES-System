@@ -9,8 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace BTES.Forms
+namespace BTES.Forms.Ticket
 {
     public partial class FRM_Tickets : Form
     {
@@ -65,6 +64,7 @@ namespace BTES.Forms
             }
         }
 
+
         private void BTN_Login_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TXT_Username.Text.Trim()) || string.IsNullOrEmpty(TXT_Password.Text.Trim()))
@@ -72,7 +72,7 @@ namespace BTES.Forms
                 MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             _customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_Password.Text.Trim());
-            if(_customer != null )
+            if (_customer != null)
             {
 
                 dgvPurchased.Visible = true;

@@ -28,24 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.PNL_Form = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BTN_Logout = new System.Windows.Forms.Button();
             this.BTN_Login = new System.Windows.Forms.Button();
             this.BTN_Tickets = new System.Windows.Forms.Button();
             this.BTN_Event = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.purchaseTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PNL_Form = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.CMS_Options.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // PNL_Form
+            // 
+            this.PNL_Form.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
+            this.PNL_Form.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PNL_Form.Location = new System.Drawing.Point(265, 0);
+            this.PNL_Form.Name = "PNL_Form";
+            this.PNL_Form.Size = new System.Drawing.Size(1089, 645);
+            this.PNL_Form.TabIndex = 3;
             // 
             // panel1
             // 
@@ -60,7 +65,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 645);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 2;
             // 
             // panel3
             // 
@@ -72,6 +77,28 @@
             this.panel3.Size = new System.Drawing.Size(265, 77);
             this.panel3.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.label2.Location = new System.Drawing.Point(135, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Event System";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(114, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Booking Ticket";
+            // 
             // BTN_Logout
             // 
             this.BTN_Logout.BackColor = System.Drawing.Color.Transparent;
@@ -81,7 +108,7 @@
             this.BTN_Logout.ForeColor = System.Drawing.Color.White;
             this.BTN_Logout.Image = global::BTES.Properties.Resources.logout_main_white;
             this.BTN_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_Logout.Location = new System.Drawing.Point(19, 9);
+            this.BTN_Logout.Location = new System.Drawing.Point(19, 13);
             this.BTN_Logout.Name = "BTN_Logout";
             this.BTN_Logout.Size = new System.Drawing.Size(211, 56);
             this.BTN_Logout.TabIndex = 5;
@@ -141,28 +168,6 @@
             this.BTN_Event.UseVisualStyleBackColor = false;
             this.BTN_Event.Click += new System.EventHandler(this.BTN_Event_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.label2.Location = new System.Drawing.Point(135, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Event System";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Booking Ticket";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BTES.Properties.Resources.ticket_5408974__1_;
@@ -173,37 +178,10 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // CMS_Options
-            // 
-            this.CMS_Options.BackColor = System.Drawing.Color.Gray;
-            this.CMS_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.purchaseTicketToolStripMenuItem});
-            this.CMS_Options.Name = "contextMenuStrip1";
-            this.CMS_Options.Size = new System.Drawing.Size(211, 34);
-            // 
-            // purchaseTicketToolStripMenuItem
-            // 
-            this.purchaseTicketToolStripMenuItem.BackColor = System.Drawing.SystemColors.GrayText;
-            this.purchaseTicketToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchaseTicketToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.purchaseTicketToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Gray;
-            this.purchaseTicketToolStripMenuItem.Name = "purchaseTicketToolStripMenuItem";
-            this.purchaseTicketToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
-            this.purchaseTicketToolStripMenuItem.Text = "Purchase Ticket";
-            // 
-            // PNL_Form
-            // 
-            this.PNL_Form.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNL_Form.Location = new System.Drawing.Point(265, 0);
-            this.PNL_Form.Name = "PNL_Form";
-            this.PNL_Form.Size = new System.Drawing.Size(1089, 645);
-            this.PNL_Form.TabIndex = 1;
-            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1354, 645);
             this.Controls.Add(this.PNL_Form);
             this.Controls.Add(this.panel1);
@@ -211,30 +189,27 @@
             this.Name = "FRM_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BTES";
-            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Load += new System.EventHandler(this.FRM_Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.CMS_Options.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel PNL_Form;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BTN_Logout;
+        private System.Windows.Forms.Button BTN_Login;
+        private System.Windows.Forms.Button BTN_Tickets;
+        private System.Windows.Forms.Button BTN_Event;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button BTN_Event;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button BTN_Login;
-        private System.Windows.Forms.Button BTN_Tickets;
-        private System.Windows.Forms.Button BTN_Logout;
-        private System.Windows.Forms.ContextMenuStrip CMS_Options;
-        private System.Windows.Forms.ToolStripMenuItem purchaseTicketToolStripMenuItem;
-        private System.Windows.Forms.Panel PNL_Form;
     }
 }
 

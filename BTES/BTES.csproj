@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AD05448A-11E4-4E4E-AC42-7C4164DCEB5A}</ProjectGuid>
+    <ProjectGuid>{C16A2377-25C9-4D2C-986D-36820FCE4644}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BTES</RootNamespace>
     <AssemblyName>BTES</AssemblyName>
@@ -46,37 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business-layer\User Management\ClsAdmin.cs" />
-    <Compile Include="Business-layer\Event Management\ClsEventType.cs" />
-    <Compile Include="Business-layer\Tickets\ClsPurchasedTicket.cs" />
-    <Compile Include="Business-layer\Payments\ClsEdfali .cs" />
-    <Compile Include="Business-layer\Payments\ClsMobyCash .cs" />
-    <Compile Include="Business-layer\Payments\ClsSaddad.cs" />
-    <Compile Include="Business-layer\User Management\ClsCustomer.cs" />
-    <Compile Include="Business-layer\Payments\ClsDebtCard.cs" />
     <Compile Include="Business-layer\Event Management\ClsEvent.cs" />
-    <Compile Include="Business-layer\User Management\ClsPerson.cs" />
-    <Compile Include="Business-layer\Payments\ClsTadawul .cs" />
+    <Compile Include="Business-layer\Event Management\ClsEventType.cs" />
+    <Compile Include="Business-layer\Payments\ClsDebtCard.cs" />
+    <Compile Include="Business-layer\Payments\ClsEdfali.cs" />
+    <Compile Include="Business-layer\Payments\ClsMobyCash.cs" />
+    <Compile Include="Business-layer\Payments\ClsSaddad.cs" />
+    <Compile Include="Business-layer\Payments\ClsTadawul.cs" />
     <Compile Include="Business-layer\Payments\IPaymentGateway.cs" />
-    <Compile Include="Data-Access\User Management\ClsAdminData.cs" />
-    <Compile Include="Data-Access\User Management\ClsCustomerDA.cs" />
+    <Compile Include="Business-layer\Tickets\ClsPurchasedTicket.cs" />
+    <Compile Include="Business-layer\User Management\ClsAdmin.cs" />
+    <Compile Include="Business-layer\User Management\ClsCustomer.cs" />
+    <Compile Include="Business-layer\User Management\ClsPerson.cs" />
     <Compile Include="Data-Access\Event Management\ClsEventData.cs" />
     <Compile Include="Data-Access\Event Management\ClsEventTypeData.cs" />
-    <Compile Include="Data-Access\User Management\ClsPersonDA.cs" />
-    <Compile Include="Data-Access\Tickets\ClsPurchasedTicketDA.cs" />
     <Compile Include="Data-Access\Setting\ClsSettings.cs" />
-    <Compile Include="Forms\Main\FRM_Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Main\FRM_Main.Designer.cs">
-      <DependentUpon>FRM_Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Users\FRM_Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Users\FRM_Login.Designer.cs">
-      <DependentUpon>FRM_Login.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Data-Access\Tickets\ClsPurchasedTicketDA.cs" />
+    <Compile Include="Data-Access\User Management\ClsAdminData.cs" />
+    <Compile Include="Data-Access\User Management\ClsCustomerDA.cs" />
+    <Compile Include="Data-Access\User Management\ClsPersonDA.cs" />
     <Compile Include="Forms\Events\FRM_AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +76,12 @@
     </Compile>
     <Compile Include="Forms\Events\FRM_Events.Designer.cs">
       <DependentUpon>FRM_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\FRM_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\FRM_Main.Designer.cs">
+      <DependentUpon>FRM_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Ticket\FRM_PurchaseTicket.cs">
       <SubType>Form</SubType>
@@ -107,19 +101,22 @@
     <Compile Include="Forms\Ticket\FRM_Tickets.Designer.cs">
       <DependentUpon>FRM_Tickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\FRM_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\FRM_Login.Designer.cs">
+      <DependentUpon>FRM_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Main\FRM_Main.resx">
-      <DependentUpon>FRM_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\FRM_Login.resx">
-      <DependentUpon>FRM_Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Events\FRM_AddEvent.resx">
       <DependentUpon>FRM_AddEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Events\FRM_Events.resx">
       <DependentUpon>FRM_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\FRM_Main.resx">
+      <DependentUpon>FRM_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ticket\FRM_PurchaseTicket.resx">
       <DependentUpon>FRM_PurchaseTicket.cs</DependentUpon>
@@ -129,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ticket\FRM_Tickets.resx">
       <DependentUpon>FRM_Tickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\FRM_Login.resx">
+      <DependentUpon>FRM_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -153,23 +153,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-ticket-50 %281%29.png" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\ticket_5408974 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\default-male.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-down-button-30.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-event-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ticket-50 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-main-white.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-add-event-48.png" />
@@ -178,49 +173,22 @@
     <None Include="Resources\Number 32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-title-25.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-title-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-event-50.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-location-50.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-ticket-50 %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-ticket-50 %281%291.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-price-50.png" />
+    <None Include="Resources\icons8-event-50.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-index-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cancel-32.png" />
+    <None Include="Resources\icons8-ticket-50 %282%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\confirm-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logout-main-white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\payments-main-purple.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-purchase-80.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\purchase-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Number 321.png" />
+    <None Include="Resources\icons8-price-50.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Password 32.png" />
@@ -229,10 +197,10 @@
     <None Include="Resources\money 32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Notes 321.png" />
+    <None Include="Resources\confirm-32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Calendar 322.png" />
+    <None Include="Resources\cancel-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

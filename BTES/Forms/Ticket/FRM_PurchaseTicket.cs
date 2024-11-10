@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BTES.Forms
+namespace BTES.Forms.Ticket
 {
     public partial class FRM_PurchaseTicket : Form
     {
@@ -28,7 +28,7 @@ namespace BTES.Forms
             LBL_EventType.Text = _event.eventType.eventTypeName;
             TXT_Content.Text = _event.eventContent;
             LBL_Regular.Text = _event.regularTickets.ToString();
-            LBL_RegularPrice.Text = _event.regularPrice.ToString();            
+            LBL_RegularPrice.Text = _event.regularPrice.ToString();
             LBL_VIP.Text = _event.VIPTickets.ToString();
             LBL_VIPPrice.Text = _event.VIPprice.ToString();
             COB_PaymentGateway.SelectedIndex = 0;
@@ -45,21 +45,18 @@ namespace BTES.Forms
             }
         }
 
-        //this method iterates all the text boxes, and checks if there are any ampty text box.
-
-
         private void BTN_Buy_Click(object sender, EventArgs e)
         {
             ClsPurchasedTicket PT = new ClsPurchasedTicket();
 
-            if(string.IsNullOrEmpty(TXT_AccountID.Text.Trim()) || string.IsNullOrEmpty(TXT_AccountPassword.Text.Trim()) || string.IsNullOrEmpty(TXT_Username.Text.Trim()) ||
+            if (string.IsNullOrEmpty(TXT_AccountID.Text.Trim()) || string.IsNullOrEmpty(TXT_AccountPassword.Text.Trim()) || string.IsNullOrEmpty(TXT_Username.Text.Trim()) ||
                 string.IsNullOrEmpty(TXT_UserPassword.Text.Trim()))
             {
                 MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if(ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim()) == null)
+            if (ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim()) == null)
             {
                 MessageBox.Show("Wrong UserName Or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -80,7 +77,7 @@ namespace BTES.Forms
             else
                 PT.TicketType = "VIP";
 
-            if(PT.Purchase(TXT_AccountID.Text.Trim(), TXT_AccountPassword.Text.Trim()))
+            if (PT.Purchase(TXT_AccountID.Text.Trim(), TXT_AccountPassword.Text.Trim()))
             {
                 MessageBox.Show("Ticket Purchased Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RB_Regular.Enabled = false;
@@ -102,12 +99,12 @@ namespace BTES.Forms
             if (_event.regularTickets == 0)
             {
                 BTN_Buy.Enabled = false;
-                TXT_AccountID.Enabled = false;  
+                TXT_AccountID.Enabled = false;
                 TXT_AccountPassword.Enabled = false;
                 TXT_Username.Enabled = false;
                 TXT_UserPassword.Enabled = false;
                 COB_PaymentGateway.Enabled = false;
-     
+
             }
             else
             {

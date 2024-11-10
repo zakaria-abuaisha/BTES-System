@@ -1,4 +1,4 @@
-﻿namespace BTES.Forms
+﻿namespace BTES.Forms.Ticket
 {
     partial class FRM_Tickets
     {
@@ -37,14 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LBL_NoRecords = new System.Windows.Forms.Label();
             this.PNL_Login = new System.Windows.Forms.Panel();
-            this.BTN_Login = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TXT_Password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TXT_Username = new System.Windows.Forms.TextBox();
+            this.LBL_NoRecords = new System.Windows.Forms.Label();
             this.dgvPurchased = new System.Windows.Forms.DataGridView();
+            this.BTN_Login = new System.Windows.Forms.Button();
             this.CMS_Options.SuspendLayout();
             this.PNL_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchased)).BeginInit();
@@ -56,10 +56,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(335, 50);
+            this.label1.Location = new System.Drawing.Point(336, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(430, 65);
-            this.label1.TabIndex = 52;
+            this.label1.TabIndex = 56;
             this.label1.Text = "Purchased Tickets";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -83,18 +83,6 @@
             this.RefundToolStripMenuItem.Text = "Refund";
             this.RefundToolStripMenuItem.Click += new System.EventHandler(this.RefundToolStripMenuItem_Click);
             // 
-            // LBL_NoRecords
-            // 
-            this.LBL_NoRecords.AutoSize = true;
-            this.LBL_NoRecords.BackColor = System.Drawing.Color.Transparent;
-            this.LBL_NoRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_NoRecords.Location = new System.Drawing.Point(250, 352);
-            this.LBL_NoRecords.Name = "LBL_NoRecords";
-            this.LBL_NoRecords.Size = new System.Drawing.Size(631, 54);
-            this.LBL_NoRecords.TabIndex = 54;
-            this.LBL_NoRecords.Text = "There Are No Purchased Tickets !!";
-            this.LBL_NoRecords.Visible = false;
-            // 
             // PNL_Login
             // 
             this.PNL_Login.Controls.Add(this.BTN_Login);
@@ -102,27 +90,10 @@
             this.PNL_Login.Controls.Add(this.TXT_Password);
             this.PNL_Login.Controls.Add(this.label2);
             this.PNL_Login.Controls.Add(this.TXT_Username);
-            this.PNL_Login.Location = new System.Drawing.Point(268, 192);
+            this.PNL_Login.Location = new System.Drawing.Point(269, 186);
             this.PNL_Login.Name = "PNL_Login";
             this.PNL_Login.Size = new System.Drawing.Size(566, 371);
-            this.PNL_Login.TabIndex = 55;
-            // 
-            // BTN_Login
-            // 
-            this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Login.FlatAppearance.BorderSize = 0;
-            this.BTN_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Login.Font = new System.Drawing.Font("Tahoma", 15.25F);
-            this.BTN_Login.ForeColor = System.Drawing.Color.White;
-            this.BTN_Login.Image = global::BTES.Properties.Resources.logout_main_white;
-            this.BTN_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_Login.Location = new System.Drawing.Point(171, 260);
-            this.BTN_Login.Name = "BTN_Login";
-            this.BTN_Login.Size = new System.Drawing.Size(249, 69);
-            this.BTN_Login.TabIndex = 65;
-            this.BTN_Login.Text = "  Login";
-            this.BTN_Login.UseVisualStyleBackColor = false;
-            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
+            this.PNL_Login.TabIndex = 59;
             // 
             // label3
             // 
@@ -167,6 +138,18 @@
             this.TXT_Username.Size = new System.Drawing.Size(434, 39);
             this.TXT_Username.TabIndex = 61;
             // 
+            // LBL_NoRecords
+            // 
+            this.LBL_NoRecords.AutoSize = true;
+            this.LBL_NoRecords.BackColor = System.Drawing.Color.Transparent;
+            this.LBL_NoRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_NoRecords.Location = new System.Drawing.Point(251, 346);
+            this.LBL_NoRecords.Name = "LBL_NoRecords";
+            this.LBL_NoRecords.Size = new System.Drawing.Size(631, 54);
+            this.LBL_NoRecords.TabIndex = 58;
+            this.LBL_NoRecords.Text = "There Are No Purchased Tickets !!";
+            this.LBL_NoRecords.Visible = false;
+            // 
             // dgvPurchased
             // 
             this.dgvPurchased.AllowUserToAddRows = false;
@@ -200,7 +183,7 @@
             this.dgvPurchased.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPurchased.EnableHeadersVisualStyles = false;
             this.dgvPurchased.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvPurchased.Location = new System.Drawing.Point(14, 151);
+            this.dgvPurchased.Location = new System.Drawing.Point(15, 145);
             this.dgvPurchased.MultiSelect = false;
             this.dgvPurchased.Name = "dgvPurchased";
             this.dgvPurchased.ReadOnly = true;
@@ -217,9 +200,26 @@
             this.dgvPurchased.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPurchased.ShowCellToolTips = false;
             this.dgvPurchased.Size = new System.Drawing.Size(1059, 455);
-            this.dgvPurchased.TabIndex = 53;
+            this.dgvPurchased.TabIndex = 57;
             this.dgvPurchased.Visible = false;
             this.dgvPurchased.SelectionChanged += new System.EventHandler(this.dgvPurchased_SelectionChanged);
+            // 
+            // BTN_Login
+            // 
+            this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Login.FlatAppearance.BorderSize = 0;
+            this.BTN_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Login.Font = new System.Drawing.Font("Tahoma", 15.25F);
+            this.BTN_Login.ForeColor = System.Drawing.Color.White;
+            this.BTN_Login.Image = global::BTES.Properties.Resources.logout_main_white;
+            this.BTN_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BTN_Login.Location = new System.Drawing.Point(171, 260);
+            this.BTN_Login.Name = "BTN_Login";
+            this.BTN_Login.Size = new System.Drawing.Size(249, 69);
+            this.BTN_Login.TabIndex = 65;
+            this.BTN_Login.Text = "  Login";
+            this.BTN_Login.UseVisualStyleBackColor = false;
+            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
             // 
             // FRM_Tickets
             // 
@@ -227,12 +227,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1089, 645);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.PNL_Login);
             this.Controls.Add(this.LBL_NoRecords);
             this.Controls.Add(this.dgvPurchased);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FRM_Tickets";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_Tickets";
             this.CMS_Options.ResumeLayout(false);
             this.PNL_Login.ResumeLayout(false);
@@ -246,7 +247,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LBL_NoRecords;
         private System.Windows.Forms.ContextMenuStrip CMS_Options;
         private System.Windows.Forms.ToolStripMenuItem RefundToolStripMenuItem;
         private System.Windows.Forms.Panel PNL_Login;
@@ -255,6 +255,7 @@
         private System.Windows.Forms.TextBox TXT_Password;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TXT_Username;
+        private System.Windows.Forms.Label LBL_NoRecords;
         private System.Windows.Forms.DataGridView dgvPurchased;
     }
 }

@@ -17,7 +17,7 @@ namespace BTES.Business_layer
         public int PurchasedTicket_ID { set; get; }
         public DateTime Purchase_Date { set; get; }
         public float Fees { set; get; }
- 
+
 
         public ClsCustomer Customer { set; get; }
         public ClsEvent Event { set; get; }
@@ -28,15 +28,15 @@ namespace BTES.Business_layer
         public ClsPurchasedTicket()
         {
             this.PurchasedTicket_ID = -1;
-      
+
             this.Customer = new ClsCustomer();
             this.Event = new ClsEvent();
             this.Purchase_Date = DateTime.Now;
             this.Fees = 0;
-     
+
             this.TicketType = "";
 
-    
+
         }
 
         public ClsPurchasedTicket(int PurchasedTicket_ID, ClsEvent Event, ClsCustomer Customer, DateTime Purchase_Date, float Fees, enPaymentMethod Payment_Gateway, bool Status, string TicketType)
@@ -131,11 +131,11 @@ namespace BTES.Business_layer
             DateTime Purchase_Date = DateTime.Now;
             float Fees = -1;
             int Payment_Gateway = -1;
-            bool Status = false ;
+            bool Status = false;
             string TicketType = "";
 
             if (ClsPurchasedTicketDA.GetPurchased_Tickets_Info_By_In_Purchased_Tickets(PT_ID, ref Event_ID, ref Customer_ID, ref Purchase_Date, ref Fees, ref Payment_Gateway, ref Status, ref TicketType))
-                return new ClsPurchasedTicket(PT_ID, ClsEvent.FindEvent(Event_ID) , ClsCustomer.Find(Customer_ID) , Purchase_Date, Fees, (enPaymentMethod)Payment_Gateway, Status, TicketType);
+                return new ClsPurchasedTicket(PT_ID, ClsEvent.FindEvent(Event_ID), ClsCustomer.Find(Customer_ID), Purchase_Date, Fees, (enPaymentMethod)Payment_Gateway, Status, TicketType);
             else
                 return null;
         }
@@ -219,5 +219,5 @@ namespace BTES.Business_layer
 
     }
 
-    
+
 }

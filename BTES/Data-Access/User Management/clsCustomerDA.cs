@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BTES.Data_Access.Setting;
 namespace BTES.Data_Access
 {
     public static class ClsCustomerDA

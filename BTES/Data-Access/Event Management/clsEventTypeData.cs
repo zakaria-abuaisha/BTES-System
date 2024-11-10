@@ -5,10 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BTES.Data_Access.Setting;
 
 namespace BTES.Data_Access
 {
-    public  class ClsEventTypeData
+    public class ClsEventTypeData
     {
 
         //this function will return the new contact id if succeeded and -1 if not.
@@ -100,7 +101,7 @@ namespace BTES.Data_Access
             SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"SELECT * FROM Event_Types 
-                             WHERE  EventType_ID = @EventType_ID;"; 
+                             WHERE  EventType_ID = @EventType_ID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

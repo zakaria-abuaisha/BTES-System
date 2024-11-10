@@ -1,6 +1,15 @@
 ﻿using BTES.Business_layer;
-using BTES.Forms;
+using BTES.Forms.Events;
+using BTES.Forms.Ticket;
+using BTES.Forms.Users;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BTES
@@ -10,11 +19,9 @@ namespace BTES
         private Form currentFrm;
         private ClsAdmin admin = null;
 
-        
         public FRM_Main()
         {
             InitializeComponent();
-
         }
 
         private void ChangeForm(Form frm)
@@ -32,30 +39,26 @@ namespace BTES
 
             currentFrm.Show();
         }
-
-        private void frmMain_Load(object sender, EventArgs e)
+        private void BTN_Event_Click(object sender, EventArgs e)
         {
             ChangeForm(new FRM_Events(admin));
         }
 
-        private void BTN_Event_Click(object sender, EventArgs e)
+        private void FRM_Main_Load(object sender, EventArgs e)
         {
-
             ChangeForm(new FRM_Events(admin));
-
         }
 
         private void BTN_Tickets_Click(object sender, EventArgs e)
         {
             ChangeForm(new FRM_Tickets());
- 
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            FRM_Login FRM_Login = new FRM_Login();
-            FRM_Login.ShowForm += FRM_Login_ShowEvent;
-            ChangeForm(FRM_Login);
+            FRM_Login FRM_login = new FRM_Login();
+            FRM_login.ShowForm += FRM_Login_ShowEvent;
+            ChangeForm(FRM_login);
         }
 
         private void FRM_Login_ShowEvent(object sender, ClsAdmin Admin)

@@ -1,4 +1,5 @@
 ﻿using BTES.Business_layer;
+using BTES.Forms.Ticket;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BTES.Forms
+namespace BTES.Forms.Events
 {
     public partial class FRM_Events : Form
     {
@@ -25,7 +26,7 @@ namespace BTES.Forms
                 BTN_AddEvent.Visible = true;
                 dgvEvent.ContextMenuStrip = null;
             }
-            
+
 
         }
 

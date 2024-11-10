@@ -44,7 +44,7 @@ namespace BTES.Business_layer
             Mode = enMode.AddNew;
         }
 
-        private ClsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date,  int Regular_Tickets, int VIP_Tickets, float Regular_Price, 
+        private ClsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int Regular_Tickets, int VIP_Tickets, float Regular_Price,
             float VIP_Price, string Location, int Created_By, ClsEventType EventType)
         {
             this.event_ID = Event_ID;
@@ -68,7 +68,7 @@ namespace BTES.Business_layer
 
             return ClsEventData.UpdateRecord(this);
         }
-         
+
         private bool _AddNewclsEvent()
         {
             //call DataAccess Layer 

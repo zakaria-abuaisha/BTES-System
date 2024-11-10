@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BTES.Forms
+namespace BTES.Forms.Ticket
 {
     public partial class FRM_Refund : Form
     {
@@ -62,13 +62,13 @@ namespace BTES.Forms
 
         private void BTN_Refund_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(TXT_AccountID.Text.Trim()) || string.IsNullOrEmpty(TXT_AccountPassword.Text.Trim()))
+            if (string.IsNullOrEmpty(TXT_AccountID.Text.Trim()) || string.IsNullOrEmpty(TXT_AccountPassword.Text.Trim()))
             {
                 MessageBox.Show("Please Fill up Account ID and PIN(Password).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if(purchasedTicket.Refund(TXT_AccountID.Text.Trim(), TXT_AccountPassword.Text.Trim()))
+            if (purchasedTicket.Refund(TXT_AccountID.Text.Trim(), TXT_AccountPassword.Text.Trim()))
             {
                 MessageBox.Show("The Process ended successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BTN_Refund.Enabled = false;
