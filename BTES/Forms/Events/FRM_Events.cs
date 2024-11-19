@@ -15,6 +15,8 @@ namespace BTES.Forms.Events
     public partial class FRM_Events : Form
     {
         private ClsAdmin admin;
+        DataTable _Event = new DataTable();
+
         public FRM_Events(ClsAdmin Admin)
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace BTES.Forms.Events
             if (admin != null)
             {
                 //if this constructor is called when the system is used by (admin), this the button (BTN_AddEvent) which is the button that allow the admin to
-                //      add events will be enabled, and we have to disable (ContextMenuStrip) that consists (purchase button) because the user is an admin.
+                //add events will be enabled, and we have to disable (ContextMenuStrip) that consists (purchase button) because the user is an admin.
                 BTN_AddEvent.Visible = true;
                 dgvEvent.ContextMenuStrip = null;
             }
@@ -32,8 +34,12 @@ namespace BTES.Forms.Events
 
         private void Referesh()
         {
+            _Event = ClsEvent.GetAllRecord();
 
-            dgvEvent.DataSource = ClsEvent.GetAllRecord();
+            _Event.Columns.Add("Month", typeof(int));
+            _Event.Columns.Add("Year", typeof(int));
+
+            dgvEvent.DataSource = _Event;
 
             if (dgvEvent.Rows.Count > 0)
             {
@@ -63,6 +69,22 @@ namespace BTES.Forms.Events
 
                 dgvEvent.Columns[6].HeaderText = "VIP Price";
                 dgvEvent.Columns[6].Width = 80;
+
+
+                foreach (DataRow row in _Event.Rows)
+                {
+                    DateTime date = DateTime.Parse(row["Event_Date"].ToString());
+                    row["Month"] = date.Month;
+                    row["Year"] = date.Year;
+                }
+                if (dgvEvent.Columns["Month"] != null)
+                    dgvEvent.Columns["Month"].Visible = false;
+                
+
+                if (dgvEvent.Columns["Year"] != null)              
+                    dgvEvent.Columns["Year"].Visible = false;
+
+
             }
             else
             {
@@ -99,6 +121,140 @@ namespace BTES.Forms.Events
 
                 ToolTip tip = new ToolTip();
                 tip.SetToolTip(dgvEvent, "Use (Right mouse click) to purchase");
+            }
+        }
+
+        private void dgvEvent_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
+        {
+            if(admin  != null)
+            {
+                CMS_Options.Visible = true;
+                CMS_Options.Items["UpdateToolStripMenuItem1"].Visible = true;
+                CMS_Options.Items["DeleteToolStripMenuItem2"].Visible = true;
+            }
+        }
+
+        private void DeleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+            // Show a message box with Yes and No buttons
+            DialogResult result = MessageBox.Show("Are you sure you want to delete This Event?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Check the result
+            if (result == DialogResult.Yes)
+            {
+                if(ClsEvent.DeleteRecord(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString())))
+                MessageBox.Show("Item deleted successfully.", "Deletion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // User clicked No
+                MessageBox.Show("Deletion canceled.", "Cancellation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void UpdateToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClsEvent Event = ClsEvent.FindEvent(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value));
+            FRM_AddEvent frm = new FRM_AddEvent(admin.adminID, Event);
+            frm.ShowDialog();
+        }
+
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (cbFilterBy.Text)
+            {
+                case "Event ID":
+                    FilterColumn = "Event_ID";
+                    break;
+                case "Event Name":
+                    FilterColumn = "Title";
+                    break;
+
+                case "Date":
+                    FilterColumn = "Event_Date";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+
+            }
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _Event.DefaultView.RowFilter = "";
+                return;
+            }
+
+
+            if (FilterColumn == "EventID")
+                //in this case we deal with numbers not string.
+                _Event.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
+
+            else
+                _Event.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
+
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            txtFilterValue.Visible = (cbFilterBy.Text != "None");
+
+            dateTimePicker1.Visible = cbFilterBy.Text == "Date";
+            cbDate.Visible = cbFilterBy.Text == "Date";
+
+
+            if (dateTimePicker1.Visible)
+            {
+                txtFilterValue.Visible = false;
+                dateTimePicker1.Focus();
+            }
+
+            if (cbFilterBy.Text == "None")
+            {
+                txtFilterValue.Enabled = false;
+                _Event.DefaultView.RowFilter = "";
+            }
+            else
+                txtFilterValue.Enabled = true;
+
+            txtFilterValue.Text = "";
+            txtFilterValue.Focus();
+            
+        }
+
+        private void cbDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string FilterColumn = cbDate.Text;
+
+                FilterData(FilterColumn, dateTimePicker1.Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void FilterData(string filterColumn, DateTime filterValue)
+        {
+            if (filterColumn == "Month")
+            {
+                _Event.DefaultView.RowFilter = $"Month = {filterValue.Month}";
+            }
+            else if (filterColumn == "Year")
+            {
+                _Event.DefaultView.RowFilter = $"Year = {filterValue.Year}";
+            }
+            else if (filterColumn == "Day")
+            {
+                _Event.DefaultView.RowFilter = $"Event_Date = '{filterValue.ToShortDateString()}'";
             }
         }
     }

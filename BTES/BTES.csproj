@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business-layer\Event Management\clsConcertEvent.cs" />
     <Compile Include="Business-layer\Event Management\ClsEvent.cs" />
     <Compile Include="Business-layer\Event Management\ClsEventType.cs" />
+    <Compile Include="Business-layer\Event Management\clsSportEvent.cs" />
     <Compile Include="Business-layer\Payments\ClsDebtCard.cs" />
     <Compile Include="Business-layer\Payments\ClsEdfali.cs" />
     <Compile Include="Business-layer\Payments\ClsMobyCash.cs" />
@@ -153,7 +155,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Calendar 32.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ticket_5408974 %281%29.png" />
   </ItemGroup>
