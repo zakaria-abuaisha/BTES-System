@@ -4,29 +4,24 @@ using BTES.Data_Access.Event_Management;
 namespace BTES.Business_layer.Event_Management
 {
 
-    public class clsConcertEvent
+    public class clsConcertEvent : ClsEvent
     {
-        public enum enMode { AddNew = 0, Update = 1 };
-        public enMode Mode = enMode.AddNew;
 
         public int Concert_ID { set; get; }
-        public int Event_ID { set; get; }
         public string Band_Or_Artist { set; get; }
 
 
-        public clsConcertEvent()
+        public clsConcertEvent() : base()
         {
             this.Concert_ID = -1;
-            this.Event_ID = -1;
             this.Band_Or_Artist = "";
 
             Mode = enMode.AddNew;
         }
 
-        private clsConcertEvent(int Concert_ID, int Event_ID, string Band_Or_Artist)
+        private clsConcertEvent(int Concert_ID, string Band_Or_Artist, ClsEvent Event) : base(Event)
         {
             this.Concert_ID = Concert_ID;
-            this.Event_ID = Event_ID;
             this.Band_Or_Artist = Band_Or_Artist;
 
             Mode = enMode.Update;
@@ -60,10 +55,21 @@ namespace BTES.Business_layer.Event_Management
 
         public static clsConcertEvent FindbyConcert_ID(int Concert_ID)
         {
-            int Event_ID = -1; string Band_Or_Artist = ""; ;
-            if (clsConcertEventData.FindByConcert_ID(Concert_ID, ref Event_ID, ref Band_Or_Artist))
+            string Band_Or_Artist = "";
+            ClsEvent Event = new ClsEvent();
+            if (clsConcertEventData.FindByConcert_ID(Concert_ID, ref Band_Or_Artist, ref Event))
 
-                return new clsConcertEvent(Concert_ID, Event_ID, Band_Or_Artist);
+                return new clsConcertEvent(Concert_ID, Band_Or_Artist, Event);
+            else
+                return null;
+        }
+
+        public static clsConcertEvent FindbyEvent_ID(int Event_ID)
+        {
+            int Concert_ID = -1; string Band_Or_Artist = "";
+            ClsEvent Event = new ClsEvent();
+            if (clsConcertEventData.FindByEvent_ID(Event_ID, ref Concert_ID, ref Band_Or_Artist, ref Event))
+                return new clsConcertEvent(Concert_ID, Band_Or_Artist, Event);
             else
                 return null;
         }
@@ -71,9 +77,9 @@ namespace BTES.Business_layer.Event_Management
         private bool _AddNewclsConcertEvent()
         {
             //call DataAccess Layer 
-
-            this.Concert_ID = clsConcertEventData.InsertRecord(this.Event_ID, this.Band_Or_Artist);
-
+            int New_Event_ID = -1;
+            this.Concert_ID = clsConcertEventData.InsertRecord(this, ref New_Event_ID);
+            this.event_ID = New_Event_ID;
             return (this.Concert_ID != -1);
         }
 
@@ -81,7 +87,7 @@ namespace BTES.Business_layer.Event_Management
         {
             //call DataAccess Layer 
 
-            return clsConcertEventData.UpdateRecord(this.Concert_ID, this.Event_ID, this.Band_Or_Artist);
+            return clsConcertEventData.UpdateRecord(this);
         }
 
         public static bool DeleteRecord(int Concert_ID)

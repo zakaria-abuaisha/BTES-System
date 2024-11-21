@@ -14,11 +14,14 @@ namespace BTES.Business_layer
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
+
+
         public int event_ID { set; get; }
         public string title { set; get; }
         public string eventContent { set; get; }
         public DateTime eventDate { set; get; }
-        public int eventTypeID { set; get; }
+        public enum enEventType { NULL = 0, Sport = 1, Concert = 2 };
+        public enEventType eventType { set; get; }
         public int regularTickets { set; get; }
         public int VIPTickets { set; get; }
         public float regularPrice { set; get; }
@@ -26,99 +29,48 @@ namespace BTES.Business_layer
         public string location { set; get; }
         public int createdByUserID { set; get; }
 
-        public ClsEventType eventType { set; get; }
         public ClsEvent()
         {
             this.event_ID = -1;
             this.title = "";
             this.eventContent = "";
             this.eventDate = DateTime.Now;
-            this.eventTypeID = -1;
+            this.eventType = enEventType.NULL;
             this.regularTickets = -1;
             this.VIPTickets = -1;
             this.regularPrice = -1;
             this.VIPprice = -1;
             this.location = "";
             this.createdByUserID = -1;
-            this.eventType = null;
             Mode = enMode.AddNew;
         }
 
-        private ClsEvent(int Event_ID, string Title, string Event_Content, DateTime Event_Date, int Regular_Tickets, int VIP_Tickets, float Regular_Price,
-            float VIP_Price, string Location, int Created_By, ClsEventType EventType)
+        protected ClsEvent(ClsEvent Event)
         {
-            this.event_ID = Event_ID;
-            this.title = Title;
-            this.eventContent = Event_Content;
-            this.eventDate = Event_Date;
-            this.eventTypeID = EventType.eventTypeID;
-            this.regularTickets = Regular_Tickets;
-            this.VIPTickets = VIP_Tickets;
-            this.regularPrice = Regular_Price;
-            this.VIPprice = VIP_Price;
-            this.location = Location;
-            this.createdByUserID = Created_By;
-            this.eventType = EventType;
+            this.event_ID = Event.event_ID;
+            this.title = Event.title;
+            this.eventContent = Event.eventContent;
+            this.eventDate = Event.eventDate;
+            this.eventType = Event.eventType;
+            this.regularTickets = Event.regularTickets;
+            this.VIPTickets = Event.VIPTickets;
+            this.regularPrice = Event.regularPrice;
+            this.VIPprice = Event.VIPprice;
+            this.location = Event.location;
+            this.createdByUserID = Event.createdByUserID;
+
             Mode = enMode.Update;
-        }
-
-        private bool _UpdateclsEvent()
-        {
-            //call DataAccess Layer 
-
-            return ClsEventData.UpdateRecord(this);
-        }
-
-        private bool _AddNewclsEvent()
-        {
-            //call DataAccess Layer 
-
-            this.event_ID = ClsEventData.InsertRecord(this);
-
-            return (this.event_ID != -1);
-        }
-
-        public static bool DeleteRecord(int event_ID)
-        {
-            return ClsEventData.DeleteEvent(event_ID);
         }
 
         public static ClsEvent FindEvent(int Event_ID)
         {
-            string title = ""; string eventContent = ""; DateTime eventDate = DateTime.Now; int eventTypeID = -1; int regularTickets = -1; int VIPTickets = -1; float regularPrice = -1; float VIPprice = -1; string location = ""; int createdByUserID = -1; ;
-            if (ClsEventData.FindByEvent_ID(Event_ID, ref title, ref eventContent, ref eventDate, ref eventTypeID, ref regularTickets, ref VIPTickets, ref regularPrice, ref VIPprice, ref location, ref createdByUserID))
+            ClsEvent newEvent = new ClsEvent();
+            if (ClsEventData.FindByEvent_ID(Event_ID, ref newEvent))
 
-                return new ClsEvent(Event_ID, title, eventContent, eventDate, regularTickets, VIPTickets, regularPrice, VIPprice, location, createdByUserID, ClsEventType.FindbyEventType_ID(eventTypeID));
+                return new ClsEvent(newEvent);
             else
                 return null;
         }
-
-
-        public bool Save()
-        {
-            switch (Mode)
-            {
-                case enMode.AddNew:
-                    if (_AddNewclsEvent())
-                    {
-
-                        Mode = enMode.Update;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                case enMode.Update:
-
-                    return _UpdateclsEvent();
-
-            }
-
-            return false;
-        }
-
 
         public static DataTable GetAllRecord()
         {

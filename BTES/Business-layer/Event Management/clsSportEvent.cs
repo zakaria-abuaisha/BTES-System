@@ -5,29 +5,23 @@ using BTES.Data_Access.Event_Management;
 namespace BTES.Business_layer.Event_Management
 {
 
-    public class clsSportEvent
+    public class clsSportEvent : ClsEvent
     {
-        public enum enMode { AddNew = 0, Update = 1 };
-        public enMode Mode = enMode.AddNew;
-
         public int Sport_ID { set; get; }
-        public int Event_ID { set; get; }
         public string Team_VS_Team { set; get; }
 
-
-        public clsSportEvent()
+        public clsSportEvent() : base()
         {
             this.Sport_ID = -1;
-            this.Event_ID = -1;
+            this.event_ID = -1;
             this.Team_VS_Team = "";
 
             Mode = enMode.AddNew;
         }
 
-        private clsSportEvent(int Sport_ID, int Event_ID, string Team_VS_Team)
+        private clsSportEvent(int Sport_ID, string Team_VS_Team, ClsEvent Event) : base(Event)
         {
             this.Sport_ID = Sport_ID;
-            this.Event_ID = Event_ID;
             this.Team_VS_Team = Team_VS_Team;
 
             Mode = enMode.Update;
@@ -58,24 +52,33 @@ namespace BTES.Business_layer.Event_Management
             return false;
         }
 
-
         public static clsSportEvent FindbySport_ID(int Sport_ID)
         {
-            int Event_ID = -1; string Team_VS_Team = "";
-            if (clsSportEventData.FindBySport_ID(Sport_ID, ref Event_ID, ref Team_VS_Team))
-
-                return new clsSportEvent(Sport_ID, Event_ID, Team_VS_Team);
+            string Team_VS_Team = "";
+            ClsEvent Event = new ClsEvent();
+            if (clsSportEventData.FindBySport_ID(Sport_ID, ref Team_VS_Team, ref Event))
+                return new clsSportEvent(Sport_ID, Team_VS_Team, Event);
             else
                 return null;
         }
 
+        public static clsSportEvent FindbyEvent_ID(int Event_ID)
+        {
+            int Sport_ID = -1; string Team_VS_Team = "";
+            ClsEvent Event = new ClsEvent();
+            if (clsSportEventData.FindByEvent_ID(Event_ID , ref Sport_ID, ref Team_VS_Team, ref Event))
+
+                return new clsSportEvent(Sport_ID, Team_VS_Team, Event);
+            else
+                return null;
+        }
 
         private bool _AddNewclsSportEvent()
         {
             //call DataAccess Layer 
-
-            this.Sport_ID = clsSportEventData.InsertRecord(this.Event_ID, this.Team_VS_Team);
-
+            int New_Event_ID = -1;
+            this.Sport_ID = clsSportEventData.InsertRecord(this, ref New_Event_ID);
+            this.event_ID = New_Event_ID;
             return (this.Sport_ID != -1);
         }
 
@@ -83,7 +86,7 @@ namespace BTES.Business_layer.Event_Management
         {
             //call DataAccess Layer 
 
-            return clsSportEventData.UpdateRecord(this.Sport_ID, this.Event_ID, this.Team_VS_Team);
+            return clsSportEventData.UpdateRecord(this);
         }
 
         public static bool DeleteRecord(int Sport_ID)
@@ -91,10 +94,6 @@ namespace BTES.Business_layer.Event_Management
             return clsSportEventData.DeleteRecord(Sport_ID);
         }
 
-        public static bool isRecordExist(int Sport_ID)
-        {
-            return clsSportEventData.IsRecordExist(Sport_ID);
-        }
         public static DataTable GetAllRecord()
         {
             return clsSportEventData.GetRecords();
