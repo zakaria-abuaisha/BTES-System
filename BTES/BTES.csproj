@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Business-layer\Event Management\clsConcertEvent.cs" />
     <Compile Include="Business-layer\Event Management\ClsEvent.cs" />
-    <Compile Include="Business-layer\Event Management\ClsEventType.cs" />
     <Compile Include="Business-layer\Event Management\clsSportEvent.cs" />
     <Compile Include="Business-layer\Payments\ClsDebtCard.cs" />
     <Compile Include="Business-layer\Payments\ClsEdfali.cs" />
@@ -60,8 +59,10 @@
     <Compile Include="Business-layer\User Management\ClsAdmin.cs" />
     <Compile Include="Business-layer\User Management\ClsCustomer.cs" />
     <Compile Include="Business-layer\User Management\ClsPerson.cs" />
+    <Compile Include="Data-Access\Event Management\clsConcertEventData.cs" />
     <Compile Include="Data-Access\Event Management\ClsEventData.cs" />
     <Compile Include="Data-Access\Event Management\ClsEventTypeData.cs" />
+    <Compile Include="Data-Access\Event Management\clsSportEventData.cs" />
     <Compile Include="Data-Access\Setting\ClsSettings.cs" />
     <Compile Include="Data-Access\Tickets\ClsPurchasedTicketDA.cs" />
     <Compile Include="Data-Access\User Management\ClsAdminData.cs" />
