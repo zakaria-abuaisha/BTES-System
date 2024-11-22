@@ -1,4 +1,5 @@
 ﻿using BTES.Business_layer;
+using BTES.Business_layer.Event_Management;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace BTES.Forms.Ticket
     public partial class FRM_PurchaseTicket : Form
     {
         private ClsEvent _event;
+
         public FRM_PurchaseTicket(ClsEvent Event)
         {
             InitializeComponent();
@@ -25,7 +27,20 @@ namespace BTES.Forms.Ticket
         {
             LBL_Title.Text = _event.title;
             LBL_Location.Text = _event.location;
-            LBL_EventType.Text = _event.eventType.eventTypeName;
+            
+            if(_event is clsSportEvent SE)
+            {
+                LBL_EventType.Text = "Sports";
+                LBL_TeamsOrArtist.Text = "Teams : ";
+                TXT_TeamsOrArtists.Text = SE.Team_VS_Team;
+            }
+            else if(_event is clsConcertEvent CE)
+            {
+                LBL_EventType.Text = "Concerts";
+                LBL_TeamsOrArtist.Text = "Band Or Artist : ";
+                TXT_TeamsOrArtists.Text = CE.Band_Or_Artist;
+            }
+
             TXT_Content.Text = _event.eventContent;
             LBL_Regular.Text = _event.regularTickets.ToString();
             LBL_RegularPrice.Text = _event.regularPrice.ToString();
