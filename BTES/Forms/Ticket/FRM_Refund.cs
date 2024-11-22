@@ -29,7 +29,18 @@ namespace BTES.Forms.Ticket
             LBL_Fees.Text = purchasedTicket.Fees.ToString();
             LBL_Location.Text = purchasedTicket.Event.location;
             LBL_PT_ID.Text = purchasedTicket.PurchasedTicket_ID.ToString();
-            LBL_EventType.Text = purchasedTicket.Event.eventType.eventTypeName;
+            switch (purchasedTicket.Event.eventType)
+            {
+                case ClsEvent.enEventType.Sport:
+                    LBL_EventType.Text = "Sports";
+                    break;
+                case ClsEvent.enEventType.Concert:
+                    LBL_EventType.Text = "Concerts";
+                    break;
+                default:
+                    LBL_EventType.Text = "Unknown";
+                    break;
+            }
             TXT_Content.Text = purchasedTicket.Event.eventContent;
 
             if (purchasedTicket.TicketType == "Regular")
