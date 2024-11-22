@@ -130,29 +130,9 @@ namespace BTES.Forms.Events
             {
                 CMS_Options.Visible = true;
                 CMS_Options.Items["UpdateToolStripMenuItem1"].Visible = true;
-                CMS_Options.Items["DeleteToolStripMenuItem2"].Visible = true;
             }
         }
 
-        private void DeleteToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-            // Show a message box with Yes and No buttons
-            DialogResult result = MessageBox.Show("Are you sure you want to delete This Event?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            // Check the result
-            if (result == DialogResult.Yes)
-            {
-                if(ClsEvent.DeleteRecord(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString())))
-                MessageBox.Show("Item deleted successfully.", "Deletion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                // User clicked No
-                MessageBox.Show("Deletion canceled.", "Cancellation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
-        }
 
         private void UpdateToolStripMenuItem1_Click(object sender, EventArgs e)
         {
