@@ -14,3 +14,16 @@ E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES
 E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.Ticket.FRM_Refund.resources
 E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.Ticket.FRM_Tickets.resources
 E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.Users.FRM_Login.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.csproj.AssemblyReference.cache
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Forms.Events.FRM_AddEvent.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Forms.Events.FRM_Events.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.FRM_Main.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Forms.Ticket.FRM_PurchaseTicket.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Forms.Ticket.FRM_Refund.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Forms.Ticket.FRM_Tickets.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Forms.Users.FRM_Login.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.Properties.Resources.resources
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.csproj.GenerateResource.cache
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.exe
+E:\computer science\BTES-System\BTES\obj\Debug\BTES.pdb

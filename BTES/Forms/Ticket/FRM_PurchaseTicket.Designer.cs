@@ -51,16 +51,24 @@
             this.LBL_VIP = new System.Windows.Forms.Label();
             this.LBL_Regular = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.LBL_VIPPrice = new System.Windows.Forms.Label();
             this.LBL_RegularPrice = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.RB_Regular = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TXT_Username = new System.Windows.Forms.TextBox();
@@ -73,17 +81,20 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.BTN_Buy = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.LBL_TeamsOrArtist = new System.Windows.Forms.Label();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.TXT_TeamsOrArtists = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -91,14 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
             // RB_VIP
@@ -119,7 +123,7 @@
             this.TXT_Content.Multiline = true;
             this.TXT_Content.Name = "TXT_Content";
             this.TXT_Content.ReadOnly = true;
-            this.TXT_Content.Size = new System.Drawing.Size(235, 224);
+            this.TXT_Content.Size = new System.Drawing.Size(235, 91);
             this.TXT_Content.TabIndex = 162;
             // 
             // LBL_EventType
@@ -283,7 +287,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(41, 250);
+            this.label11.Location = new System.Drawing.Point(15, 250);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 24);
@@ -350,6 +354,16 @@
             this.label13.TabIndex = 145;
             this.label13.Text = "Regular Ticket :";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::BTES.Properties.Resources.icons8_ticket_50__2_;
+            this.pictureBox3.Location = new System.Drawing.Point(245, 44);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 146;
+            this.pictureBox3.TabStop = false;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -360,6 +374,16 @@
             this.label14.Size = new System.Drawing.Size(101, 20);
             this.label14.TabIndex = 108;
             this.label14.Text = "VIP Ticket :";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::BTES.Properties.Resources.icons8_ticket_50__2_;
+            this.pictureBox6.Location = new System.Drawing.Point(245, 87);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 133;
+            this.pictureBox6.TabStop = false;
             // 
             // label
             // 
@@ -421,6 +445,16 @@
             this.label17.TabIndex = 145;
             this.label17.Text = "Regular Ticket :";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::BTES.Properties.Resources.icons8_price_50;
+            this.pictureBox11.Location = new System.Drawing.Point(247, 38);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 146;
+            this.pictureBox11.TabStop = false;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -431,6 +465,16 @@
             this.label18.Size = new System.Drawing.Size(101, 20);
             this.label18.TabIndex = 108;
             this.label18.Text = "VIP Ticket :";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::BTES.Properties.Resources.icons8_price_50;
+            this.pictureBox12.Location = new System.Drawing.Point(247, 84);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 133;
+            this.pictureBox12.TabStop = false;
             // 
             // label21
             // 
@@ -459,6 +503,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TXT_TeamsOrArtists);
+            this.groupBox1.Controls.Add(this.pictureBox16);
+            this.groupBox1.Controls.Add(this.LBL_TeamsOrArtist);
             this.groupBox1.Controls.Add(this.TXT_Content);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.LBL_EventType);
@@ -478,6 +525,46 @@
             this.groupBox1.TabIndex = 193;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Information";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BTES.Properties.Resources.icons8_title_50;
+            this.pictureBox2.Location = new System.Drawing.Point(148, 36);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 110;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = global::BTES.Properties.Resources.icons8_event_50;
+            this.pictureBox14.Location = new System.Drawing.Point(148, 172);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 160;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BTES.Properties.Resources.icons8_index_64;
+            this.pictureBox1.Location = new System.Drawing.Point(148, 244);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 153;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::BTES.Properties.Resources.icons8_location_50;
+            this.pictureBox13.Location = new System.Drawing.Point(148, 103);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 157;
+            this.pictureBox13.TabStop = false;
             // 
             // label2
             // 
@@ -604,85 +691,35 @@
             this.pictureBox4.TabIndex = 196;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // LBL_TeamsOrArtist
             // 
-            this.pictureBox3.Image = global::BTES.Properties.Resources.icons8_ticket_50__2_;
-            this.pictureBox3.Location = new System.Drawing.Point(245, 44);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 146;
-            this.pictureBox3.TabStop = false;
+            this.LBL_TeamsOrArtist.AutoSize = true;
+            this.LBL_TeamsOrArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_TeamsOrArtist.Location = new System.Drawing.Point(16, 363);
+            this.LBL_TeamsOrArtist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_TeamsOrArtist.Name = "LBL_TeamsOrArtist";
+            this.LBL_TeamsOrArtist.Size = new System.Drawing.Size(94, 24);
+            this.LBL_TeamsOrArtist.TabIndex = 163;
+            this.LBL_TeamsOrArtist.Text = "Content :";
             // 
-            // pictureBox6
+            // pictureBox16
             // 
-            this.pictureBox6.Image = global::BTES.Properties.Resources.icons8_ticket_50__2_;
-            this.pictureBox6.Location = new System.Drawing.Point(245, 87);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 133;
-            this.pictureBox6.TabStop = false;
+            this.pictureBox16.Image = global::BTES.Properties.Resources.icons8_index_64;
+            this.pictureBox16.Location = new System.Drawing.Point(148, 358);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 164;
+            this.pictureBox16.TabStop = false;
             // 
-            // pictureBox11
+            // TXT_TeamsOrArtists
             // 
-            this.pictureBox11.Image = global::BTES.Properties.Resources.icons8_price_50;
-            this.pictureBox11.Location = new System.Drawing.Point(247, 38);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 146;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::BTES.Properties.Resources.icons8_price_50;
-            this.pictureBox12.Location = new System.Drawing.Point(247, 84);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 133;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BTES.Properties.Resources.icons8_title_50;
-            this.pictureBox2.Location = new System.Drawing.Point(148, 36);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 110;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = global::BTES.Properties.Resources.icons8_event_50;
-            this.pictureBox14.Location = new System.Drawing.Point(148, 172);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 160;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BTES.Properties.Resources.icons8_index_64;
-            this.pictureBox1.Location = new System.Drawing.Point(148, 244);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 153;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = global::BTES.Properties.Resources.icons8_location_50;
-            this.pictureBox13.Location = new System.Drawing.Point(148, 103);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox13.TabIndex = 157;
-            this.pictureBox13.TabStop = false;
+            this.TXT_TeamsOrArtists.Location = new System.Drawing.Point(190, 355);
+            this.TXT_TeamsOrArtists.Multiline = true;
+            this.TXT_TeamsOrArtists.Name = "TXT_TeamsOrArtists";
+            this.TXT_TeamsOrArtists.ReadOnly = true;
+            this.TXT_TeamsOrArtists.Size = new System.Drawing.Size(235, 70);
+            this.TXT_TeamsOrArtists.TabIndex = 165;
             // 
             // FRM_PurchaseTicket
             // 
@@ -724,10 +761,18 @@
             this.Text = "Purchase Ticket";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -735,14 +780,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -803,5 +841,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TXT_Username;
+        private System.Windows.Forms.TextBox TXT_TeamsOrArtists;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.Label LBL_TeamsOrArtist;
     }
 }
