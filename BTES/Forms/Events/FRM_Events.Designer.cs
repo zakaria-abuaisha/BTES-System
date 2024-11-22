@@ -46,6 +46,7 @@
             this.BTN_AddEvent = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cbDate = new System.Windows.Forms.ComboBox();
+            this.RateEventToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CMS_Options.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             this.SuspendLayout();
@@ -55,10 +56,11 @@
             this.CMS_Options.BackColor = System.Drawing.Color.Gray;
             this.CMS_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.purchaseTicketToolStripMenuItem,
-            this.UpdateToolStripMenuItem1});
+            this.UpdateToolStripMenuItem1,
+            this.RateEventToolStripMenuItem1});
             this.CMS_Options.Name = "contextMenuStrip1";
             this.CMS_Options.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CMS_Options.Size = new System.Drawing.Size(211, 86);
+            this.CMS_Options.Size = new System.Drawing.Size(211, 116);
             // 
             // purchaseTicketToolStripMenuItem
             // 
@@ -239,6 +241,17 @@
             this.cbDate.TabIndex = 112;
             this.cbDate.SelectedIndexChanged += new System.EventHandler(this.cbDate_SelectedIndexChanged);
             // 
+            // RateEventToolStripMenuItem1
+            // 
+            this.RateEventToolStripMenuItem1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.RateEventToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RateEventToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.RateEventToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RateEventToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Gray;
+            this.RateEventToolStripMenuItem1.Name = "RateEventToolStripMenuItem1";
+            this.RateEventToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
+            this.RateEventToolStripMenuItem1.Text = "Rate Event";
+            // 
             // FRM_Events
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +292,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cbDate;
+        private System.Windows.Forms.ToolStripMenuItem RateEventToolStripMenuItem1;
     }
 }

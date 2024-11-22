@@ -103,7 +103,7 @@ namespace BTES.Forms.Events
 
         private void FRM_AddEvent_Load(object sender, EventArgs e)
         {
-            DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
+            
 
             if (_Event is clsSportEvent SportEvent)
             {
@@ -136,6 +136,8 @@ namespace BTES.Forms.Events
                 txtLocation.Text = ConcertEvent.location;
                 txtTeamOrArtis.Text = ConcertEvent.Band_Or_Artist;
             }
+
+            DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
         }
 
         //Event to handle the required fields
