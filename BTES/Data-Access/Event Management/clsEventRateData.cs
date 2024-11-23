@@ -231,5 +231,41 @@ namespace BTES.Data_Access.Event_Management
 
         }
 
+        public static bool IsEventRateExist(int Event_ID, int Customer_ID)
+        {
+
+            bool isFound = false;       
+
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+
+            string query = "SELECT * FROM Event_Rate WHERE Event_ID = @Event_ID AND Customer_ID = @Customer_ID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Event_ID", Event_ID);
+            command.Parameters.AddWithValue("@Customer_ID", Customer_ID);
+
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    isFound = true;
+                
+                reader.Close();
+            }
+            catch (Exception ex) {
+                isFound = false;
+
+            }
+            finally {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+        
     }
 }

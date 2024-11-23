@@ -77,5 +77,15 @@ namespace BTES.Business_layer
             else
                 return null;
         }
+
+        public static int GetCustomer_ID_By_UserName(string UserName)
+        {
+            int Customer_ID = -1;
+            if (ClsCustomerDA.GetCustomer_ID_By_UserName(UserName, ref Customer_ID))
+                return Customer_ID;
+            else
+                return -1;
+        }
+         
     }
 }

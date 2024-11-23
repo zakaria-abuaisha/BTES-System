@@ -37,6 +37,7 @@
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.purchaseTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.RateEventToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.LBL_NoRecords = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvEvent = new System.Windows.Forms.DataGridView();
@@ -46,7 +47,6 @@
             this.BTN_AddEvent = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cbDate = new System.Windows.Forms.ComboBox();
-            this.RateEventToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CMS_Options.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +85,18 @@
             this.UpdateToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
             this.UpdateToolStripMenuItem1.Text = "Update Event";
             this.UpdateToolStripMenuItem1.Click += new System.EventHandler(this.UpdateToolStripMenuItem1_Click);
+            // 
+            // RateEventToolStripMenuItem1
+            // 
+            this.RateEventToolStripMenuItem1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.RateEventToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RateEventToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.RateEventToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RateEventToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Gray;
+            this.RateEventToolStripMenuItem1.Name = "RateEventToolStripMenuItem1";
+            this.RateEventToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
+            this.RateEventToolStripMenuItem1.Text = "Rate Event";
+            this.RateEventToolStripMenuItem1.Click += new System.EventHandler(this.RateEventToolStripMenuItem1_Click);
             // 
             // LBL_NoRecords
             // 
@@ -240,17 +252,6 @@
             this.cbDate.Size = new System.Drawing.Size(90, 27);
             this.cbDate.TabIndex = 112;
             this.cbDate.SelectedIndexChanged += new System.EventHandler(this.cbDate_SelectedIndexChanged);
-            // 
-            // RateEventToolStripMenuItem1
-            // 
-            this.RateEventToolStripMenuItem1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.RateEventToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RateEventToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.RateEventToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RateEventToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Gray;
-            this.RateEventToolStripMenuItem1.Name = "RateEventToolStripMenuItem1";
-            this.RateEventToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
-            this.RateEventToolStripMenuItem1.Text = "Rate Event";
             // 
             // FRM_Events
             // 

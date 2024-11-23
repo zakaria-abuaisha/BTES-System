@@ -106,5 +106,11 @@ namespace BTES.Business_layer.Event_Management
 
         }
 
+        public static bool IsEventRateExist(int Event_ID, int _CustomerID)
+        {
+
+            return clsEventRateData.IsEventRateExist(Event_ID, _CustomerID);
+        }
+
     }
 }

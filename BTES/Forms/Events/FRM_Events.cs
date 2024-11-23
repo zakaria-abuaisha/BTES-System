@@ -268,5 +268,11 @@ namespace BTES.Forms.Events
                 _Event.DefaultView.RowFilter = $"Event_Date = '{filterValue.ToShortDateString()}'";
             }
         }
+
+        private void RateEventToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FRM_RaateEvent frm = new FRM_RaateEvent(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+            frm.ShowDialog();
+        }
     }
 }

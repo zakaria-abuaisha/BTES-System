@@ -112,6 +112,44 @@ namespace BTES.Data_Access
 
         }
 
+        public static bool GetCustomer_ID_By_UserName(string UserName, ref int Customer_ID)
+        {
 
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+
+            string query = $@"SELECT       Customer.Customer_ID
+                                FROM            Customer INNER JOIN
+                                Person ON Customer.Person_ID = Person.Person_ID 
+                                    WHERE UserName = @UserName;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@UserName", UserName);
+
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    
+                    Customer_ID = (int)reader["Customer_ID"];
+                    IsFound = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
     }
 }
