@@ -36,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.purchaseTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UpdateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.RateEventToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.LBL_NoRecords = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BTN_AddEvent = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DTP_Date = new System.Windows.Forms.DateTimePicker();
             this.cbDate = new System.Windows.Forms.ComboBox();
             this.CMS_Options.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
@@ -56,11 +55,10 @@
             this.CMS_Options.BackColor = System.Drawing.Color.Gray;
             this.CMS_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.purchaseTicketToolStripMenuItem,
-            this.UpdateToolStripMenuItem1,
             this.RateEventToolStripMenuItem1});
             this.CMS_Options.Name = "contextMenuStrip1";
             this.CMS_Options.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CMS_Options.Size = new System.Drawing.Size(211, 116);
+            this.CMS_Options.Size = new System.Drawing.Size(211, 64);
             // 
             // purchaseTicketToolStripMenuItem
             // 
@@ -73,18 +71,6 @@
             this.purchaseTicketToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.purchaseTicketToolStripMenuItem.Text = "Purchase Ticket";
             this.purchaseTicketToolStripMenuItem.Click += new System.EventHandler(this.purchaseTicketToolStripMenuItem_Click);
-            // 
-            // UpdateToolStripMenuItem1
-            // 
-            this.UpdateToolStripMenuItem1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.UpdateToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.UpdateToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Gray;
-            this.UpdateToolStripMenuItem1.Name = "UpdateToolStripMenuItem1";
-            this.UpdateToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
-            this.UpdateToolStripMenuItem1.Text = "Update Event";
-            this.UpdateToolStripMenuItem1.Click += new System.EventHandler(this.UpdateToolStripMenuItem1_Click);
             // 
             // RateEventToolStripMenuItem1
             // 
@@ -230,13 +216,14 @@
             this.BTN_AddEvent.Visible = false;
             this.BTN_AddEvent.Click += new System.EventHandler(this.BTN_AddEvent_Click);
             // 
-            // dateTimePicker1
+            // DTP_Date
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(437, 117);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(256, 27);
-            this.dateTimePicker1.TabIndex = 111;
+            this.DTP_Date.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTP_Date.Location = new System.Drawing.Point(437, 117);
+            this.DTP_Date.Name = "DTP_Date";
+            this.DTP_Date.Size = new System.Drawing.Size(256, 27);
+            this.DTP_Date.TabIndex = 111;
+            this.DTP_Date.Visible = false;
             // 
             // cbDate
             // 
@@ -251,6 +238,7 @@
             this.cbDate.Name = "cbDate";
             this.cbDate.Size = new System.Drawing.Size(90, 27);
             this.cbDate.TabIndex = 112;
+            this.cbDate.Visible = false;
             this.cbDate.SelectedIndexChanged += new System.EventHandler(this.cbDate_SelectedIndexChanged);
             // 
             // FRM_Events
@@ -260,7 +248,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(145)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1089, 645);
             this.Controls.Add(this.cbDate);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DTP_Date);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.label2);
@@ -287,11 +275,10 @@
         private System.Windows.Forms.Label LBL_NoRecords;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.DataGridView dgvEvent;
-        private System.Windows.Forms.ToolStripMenuItem UpdateToolStripMenuItem1;
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DTP_Date;
         private System.Windows.Forms.ComboBox cbDate;
         private System.Windows.Forms.ToolStripMenuItem RateEventToolStripMenuItem1;
     }

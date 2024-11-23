@@ -14,9 +14,8 @@ namespace BTES.Forms.Events
 {
     public partial class FRM_AddEvent : Form
     {
-        clsSportEvent SportEvent = new clsSportEvent();
-        clsConcertEvent ConcertEvent = new clsConcertEvent();
-        ClsEvent _Event = new ClsEvent(); 
+
+
         private int admin_ID;
 
         public FRM_AddEvent(int Admin_ID)
@@ -26,27 +25,23 @@ namespace BTES.Forms.Events
 
         }
 
-        public FRM_AddEvent(int Admin_ID, ClsEvent Event)
-        {
-            InitializeComponent();
-            admin_ID = Admin_ID;
-            _Event = Event;
-            cbmEventType.Enabled = false;
-        }
 
         private void BTN_Save_Click(object sender, EventArgs e) 
         {
             if (string.IsNullOrEmpty(txtTitle.Text.Trim()) || string.IsNullOrEmpty(txtPriceOfVipTicket.Text.Trim()) || string.IsNullOrEmpty(txtPriceOfRegularTicket.Text.Trim())
                 || string.IsNullOrEmpty(txtNumberOfVipTicket.Text.Trim()) || string.IsNullOrEmpty(txtNumberofRegularTicket.Text.Trim()) || string.IsNullOrEmpty(txtLocation.Text.Trim()) ||
-                string.IsNullOrEmpty(txtContent.Text.Trim()))
+                string.IsNullOrEmpty(txtContent.Text.Trim()) || string.IsNullOrEmpty(txt_variableTXT.Text.Trim()))
             {
                 //Here we dont continue becuase the form is not valid
                 MessageBox.Show("Please Fill Up All The fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+
+
             if (cbmEventType.Text == "Sport")
             {
+                clsSportEvent SportEvent = new clsSportEvent();
 
                 SportEvent.eventContent = txtContent.Text;
                 SportEvent.eventDate = DTP_EventDate.Value;
@@ -57,7 +52,7 @@ namespace BTES.Forms.Events
                 SportEvent.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
                 SportEvent.location = txtLocation.Text;
                 SportEvent.createdByUserID = admin_ID;
-                SportEvent.Team_VS_Team = txtTeamOrArtis.Text;
+                SportEvent.Team_VS_Team = txt_variableTXT.Text;
                 SportEvent.eventType = ClsEvent.enEventType.Sport;
 
 
@@ -73,6 +68,8 @@ namespace BTES.Forms.Events
 
             else if (cbmEventType.Text == "Concert")
             {
+
+                clsConcertEvent ConcertEvent = new clsConcertEvent();
                 ConcertEvent.eventContent = txtContent.Text;
                 ConcertEvent.eventDate = DTP_EventDate.Value;
                 ConcertEvent.title = txtTitle.Text;
@@ -82,12 +79,13 @@ namespace BTES.Forms.Events
                 ConcertEvent.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
                 ConcertEvent.location = txtLocation.Text;
                 ConcertEvent.createdByUserID = admin_ID;
-                ConcertEvent.Band_Or_Artist = txtTeamOrArtis.Text;
+                ConcertEvent.Band_Or_Artist = txt_variableTXT.Text;
                 ConcertEvent.eventType = ClsEvent.enEventType.Concert;
+
 
                 if (ConcertEvent.Save())
                 {
-                    lblEventID.Text = SportEvent.event_ID.ToString();
+                    lblEventID.Text = ConcertEvent.event_ID.ToString();
                     MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -103,59 +101,14 @@ namespace BTES.Forms.Events
 
         private void FRM_AddEvent_Load(object sender, EventArgs e)
         {
-            
-
-            if (_Event is clsSportEvent SportEvent)
-            {
-
-                cbmEventType.Text = "Sport";
-                txtContent.Text = SportEvent.eventContent;
-                DTP_EventDate.Value = SportEvent.eventDate;
-                txtTitle.Text = SportEvent.title;
-                txtPriceOfRegularTicket.Text = SportEvent.regularPrice.ToString();
-                txtPriceOfVipTicket.Text = SportEvent.VIPprice.ToString();
-                txtNumberOfVipTicket.Text = SportEvent.VIPTickets.ToString();
-                txtNumberofRegularTicket.Text = SportEvent.regularTickets.ToString();
-                txtTeamOrArtis.Text = SportEvent.Team_VS_Team;
-                lblEventID.Text = SportEvent.event_ID.ToString();
-                txtLocation.Text = SportEvent.location;
-
-
-            }
-            else if (_Event is clsConcertEvent ConcertEvent)
-            {
-                cbmEventType.Text = "Concert";
-                txtContent.Text = ConcertEvent.eventContent;
-                DTP_EventDate.Value = ConcertEvent.eventDate;
-                txtTitle.Text = ConcertEvent.title;
-                txtPriceOfVipTicket.Text = ConcertEvent.VIPprice.ToString();
-                txtPriceOfRegularTicket.Text = ConcertEvent.regularPrice.ToString();
-                txtNumberOfVipTicket.Text = ConcertEvent.VIPTickets.ToString();
-                txtNumberofRegularTicket.Text = ConcertEvent.regularTickets.ToString();
-                lblEventID.Text = ConcertEvent.event_ID.ToString();
-                txtLocation.Text = ConcertEvent.location;
-                txtTeamOrArtis.Text = ConcertEvent.Band_Or_Artist;
-            }
-
+            cbmEventType.SelectedIndex = 0;
             DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
         }
 
         //Event to handle the required fields
         private void IsRequired(object sender, CancelEventArgs e)
         {
-            TextBox Temp = ((TextBox)sender);
-            if (string.IsNullOrEmpty(Temp.Text.Trim()))
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(Temp, "This field is required!");
 
-                Temp.Select(0, 0);
-            }
-            else
-            {
-                //e.Cancel = false;
-                errorProvider1.SetError(Temp, null);
-            }
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
@@ -226,6 +179,11 @@ namespace BTES.Forms.Events
 
             }
 
+        }
+
+        private void txt_variableTXT_Validating(object sender, CancelEventArgs e)
+        {
+            IsRequired(sender, e);
         }
     }
 }

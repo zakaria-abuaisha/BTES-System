@@ -90,6 +90,12 @@
     <Compile Include="Forms\Events\FRM_Events.Designer.cs">
       <DependentUpon>FRM_Events.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Events\FRM_RaateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Events\FRM_RaateEvent.Designer.cs">
+      <DependentUpon>FRM_RaateEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main\FRM_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Events\FRM_Events.resx">
       <DependentUpon>FRM_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Events\FRM_RaateEvent.resx">
+      <DependentUpon>FRM_RaateEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\FRM_Main.resx">
       <DependentUpon>FRM_Main.cs</DependentUpon>

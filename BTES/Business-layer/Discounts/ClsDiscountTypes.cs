@@ -24,10 +24,10 @@ namespace BTES.Data_Access.Discounts
     {
         public static readonly DiscountType[] DiscountTypes =
         {
-            new DiscountType(1, "Military People", 0.10f),
-            new DiscountType(2, "Seniors +65", 0.05f),
-            new DiscountType(3, "Students", 0.10f),
-            new DiscountType(4, "Teachers", 0.10f)
+            new DiscountType(1, "Military People", 0.90f),
+            new DiscountType(2, "Seniors +65", 0.95f),
+            new DiscountType(3, "Students", 0.90f),
+            new DiscountType(4, "Teachers", 0.90f)
         };
 
     }

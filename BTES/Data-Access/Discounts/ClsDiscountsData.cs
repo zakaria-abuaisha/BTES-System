@@ -21,7 +21,7 @@ namespace BTES.Data_Access.Discounts
 
 
             string query = $@"INSERT INTO Discount_Orders(Customer_ID,Proof_Of_Identity,DiscountType,Status)
-                                VALUES ( @Customer_ID, @Proof_Of_Identity, @Status);
+                                VALUES ( @Customer_ID, @Proof_Of_Identity, @DiscountType, @Status);
                                 SELECT SCOPE_IDENTITY();";
 
             //SEND THE QUERY AND THE CONNECTION TO (COMMAND) TO EXCUTE THE QUERY

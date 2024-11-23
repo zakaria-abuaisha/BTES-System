@@ -34,7 +34,6 @@
             this.lblEventID = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtRate = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -45,6 +44,11 @@
             this.BTN_Close = new System.Windows.Forms.Button();
             this.BTN_Save = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.rb_1 = new System.Windows.Forms.RadioButton();
+            this.rb_2 = new System.Windows.Forms.RadioButton();
+            this.rb_3 = new System.Windows.Forms.RadioButton();
+            this.rb_4 = new System.Windows.Forms.RadioButton();
+            this.rb_5 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -97,23 +101,13 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::BTES.Properties.Resources.icons8_location_50;
+            this.pictureBox5.Image = global::BTES.Properties.Resources.icons8_event_48;
             this.pictureBox5.Location = new System.Drawing.Point(142, 170);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 33);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 146;
             this.pictureBox5.TabStop = false;
-            // 
-            // txtRate
-            // 
-            this.txtRate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(191, 183);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Size = new System.Drawing.Size(142, 23);
-            this.txtRate.TabIndex = 144;
-            this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLocation_KeyPress);
-            this.txtRate.Validating += new System.ComponentModel.CancelEventHandler(this.txtRate_Validating);
             // 
             // pictureBox2
             // 
@@ -182,9 +176,9 @@
             this.label13.Location = new System.Drawing.Point(24, 248);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 24);
+            this.label13.Size = new System.Drawing.Size(111, 24);
             this.label13.TabIndex = 149;
-            this.label13.Text = "Coment :";
+            this.label13.Text = "Comment :";
             // 
             // BTN_Close
             // 
@@ -221,11 +215,82 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // rb_1
+            // 
+            this.rb_1.AutoSize = true;
+            this.rb_1.Checked = true;
+            this.rb_1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_1.Location = new System.Drawing.Point(191, 179);
+            this.rb_1.Name = "rb_1";
+            this.rb_1.Size = new System.Drawing.Size(35, 24);
+            this.rb_1.TabIndex = 153;
+            this.rb_1.TabStop = true;
+            this.rb_1.Text = "1";
+            this.rb_1.UseVisualStyleBackColor = true;
+            this.rb_1.CheckedChanged += new System.EventHandler(this.rb_1_CheckedChanged);
+            // 
+            // rb_2
+            // 
+            this.rb_2.AutoSize = true;
+            this.rb_2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_2.Location = new System.Drawing.Point(251, 180);
+            this.rb_2.Name = "rb_2";
+            this.rb_2.Size = new System.Drawing.Size(35, 24);
+            this.rb_2.TabIndex = 154;
+            this.rb_2.TabStop = true;
+            this.rb_2.Text = "2";
+            this.rb_2.UseVisualStyleBackColor = true;
+            this.rb_2.CheckedChanged += new System.EventHandler(this.rb_2_CheckedChanged);
+            // 
+            // rb_3
+            // 
+            this.rb_3.AutoSize = true;
+            this.rb_3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_3.Location = new System.Drawing.Point(303, 180);
+            this.rb_3.Name = "rb_3";
+            this.rb_3.Size = new System.Drawing.Size(35, 24);
+            this.rb_3.TabIndex = 155;
+            this.rb_3.TabStop = true;
+            this.rb_3.Text = "3";
+            this.rb_3.UseVisualStyleBackColor = true;
+            this.rb_3.CheckedChanged += new System.EventHandler(this.rb_3_CheckedChanged);
+            // 
+            // rb_4
+            // 
+            this.rb_4.AutoSize = true;
+            this.rb_4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_4.Location = new System.Drawing.Point(357, 180);
+            this.rb_4.Name = "rb_4";
+            this.rb_4.Size = new System.Drawing.Size(35, 24);
+            this.rb_4.TabIndex = 156;
+            this.rb_4.TabStop = true;
+            this.rb_4.Text = "4";
+            this.rb_4.UseVisualStyleBackColor = true;
+            this.rb_4.CheckedChanged += new System.EventHandler(this.rb_4_CheckedChanged);
+            // 
+            // rb_5
+            // 
+            this.rb_5.AutoSize = true;
+            this.rb_5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_5.Location = new System.Drawing.Point(409, 180);
+            this.rb_5.Name = "rb_5";
+            this.rb_5.Size = new System.Drawing.Size(35, 24);
+            this.rb_5.TabIndex = 157;
+            this.rb_5.TabStop = true;
+            this.rb_5.Text = "5";
+            this.rb_5.UseVisualStyleBackColor = true;
+            this.rb_5.CheckedChanged += new System.EventHandler(this.rb_5_CheckedChanged);
+            // 
             // FRM_RaateEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 374);
+            this.Controls.Add(this.rb_5);
+            this.Controls.Add(this.rb_4);
+            this.Controls.Add(this.rb_3);
+            this.Controls.Add(this.rb_2);
+            this.Controls.Add(this.rb_1);
             this.Controls.Add(this.BTN_Close);
             this.Controls.Add(this.BTN_Save);
             this.Controls.Add(this.pictureBox3);
@@ -233,7 +298,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.txtRate);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUsername);
@@ -241,8 +305,10 @@
             this.Controls.Add(this.LBL_Title);
             this.Controls.Add(this.lblEventID);
             this.Controls.Add(this.label22);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FRM_RaateEvent";
-            this.Text = "FRM_RaateEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Rate Event";
             this.Load += new System.EventHandler(this.FRM_RaateEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -261,7 +327,6 @@
         private System.Windows.Forms.Label lblEventID;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox txtRate;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsername;
@@ -272,5 +337,10 @@
         private System.Windows.Forms.Button BTN_Close;
         private System.Windows.Forms.Button BTN_Save;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.RadioButton rb_5;
+        private System.Windows.Forms.RadioButton rb_4;
+        private System.Windows.Forms.RadioButton rb_3;
+        private System.Windows.Forms.RadioButton rb_2;
+        private System.Windows.Forms.RadioButton rb_1;
     }
 }

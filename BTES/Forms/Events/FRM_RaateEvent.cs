@@ -16,6 +16,7 @@ namespace BTES.Forms.Events
     {
         int _EventID;
         int _CustomerID;
+        private int rate = 1;
         public FRM_RaateEvent(int EventID)
         {
             InitializeComponent();
@@ -88,7 +89,7 @@ namespace BTES.Forms.Events
 
         private void BTN_Save_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUsername.Text.Trim()) || string.IsNullOrEmpty(txtRate.Text.Trim()) || string.IsNullOrEmpty(txtComent.Text.Trim()))
+            if (string.IsNullOrEmpty(txtUsername.Text.Trim()) || string.IsNullOrEmpty(txtComent.Text.Trim()))
             {
                 MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -98,7 +99,7 @@ namespace BTES.Forms.Events
 
             EventRate.Event_ID = _EventID;
             EventRate.Customer_ID = _CustomerID;
-            EventRate.Rate = Convert.ToInt32(txtRate.Text.Trim());
+            EventRate.Rate = rate;
             EventRate.Comment = txtComent.Text.Trim();
 
             if(EventRate.Save())
@@ -111,6 +112,31 @@ namespace BTES.Forms.Events
                 MessageBox.Show("Failed to Rate Event!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void rb_1_CheckedChanged(object sender, EventArgs e)
+        {
+            rate = 1;
+        }
+
+        private void rb_2_CheckedChanged(object sender, EventArgs e)
+        {
+            rate = 2;
+        }
+
+        private void rb_3_CheckedChanged(object sender, EventArgs e)
+        {
+            rate = 3;
+        }
+
+        private void rb_4_CheckedChanged(object sender, EventArgs e)
+        {
+            rate = 4;
+        }
+
+        private void rb_5_CheckedChanged(object sender, EventArgs e)
+        {
+            rate = 5;
         }
     }
 }

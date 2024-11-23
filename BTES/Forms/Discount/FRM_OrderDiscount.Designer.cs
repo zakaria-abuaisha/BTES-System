@@ -139,7 +139,7 @@
             this.BTN_Request.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Request.Image = global::BTES.Properties.Resources.confirm_32;
             this.BTN_Request.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_Request.Location = new System.Drawing.Point(158, 409);
+            this.BTN_Request.Location = new System.Drawing.Point(172, 406);
             this.BTN_Request.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_Request.Name = "BTN_Request";
             this.BTN_Request.Size = new System.Drawing.Size(208, 41);
@@ -153,7 +153,7 @@
             this.LBL_Error.AutoSize = true;
             this.LBL_Error.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Error.ForeColor = System.Drawing.Color.Red;
-            this.LBL_Error.Location = new System.Drawing.Point(123, 364);
+            this.LBL_Error.Location = new System.Drawing.Point(135, 364);
             this.LBL_Error.Name = "LBL_Error";
             this.LBL_Error.Size = new System.Drawing.Size(285, 37);
             this.LBL_Error.TabIndex = 218;
@@ -209,6 +209,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FRM_OrderDiscount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order Discount";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();

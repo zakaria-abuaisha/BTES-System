@@ -96,13 +96,13 @@ namespace BTES.Forms.Ticket
 
 
             if (RB_Regular.Checked)
-                PT.Fees = _event.regularPrice;
+                PT.Fees = (_event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value);
             else
-                PT.Fees = _event.VIPprice;
+                PT.Fees = (_event.VIPTickets * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value);
 
             PT.PaymentGateway = (ClsPurchasedTicket.enPaymentMethod)COB_PaymentGateway.SelectedIndex + 1;
-            PT.Customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim());
-            PT.Event = ClsEvent.FindEvent(_event.event_ID);
+            PT.Customer = customer;
+            PT.Event = _event;
             if (RB_Regular.Checked)
                 PT.TicketType = "Regular";
             else

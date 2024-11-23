@@ -16,7 +16,7 @@ namespace BTES.Forms.Events
     public partial class FRM_Events : Form
     {
         private ClsAdmin admin;
-        DataTable _Event = new DataTable();
+        DataTable _Events = new DataTable();
 
         public FRM_Events(ClsAdmin Admin)
         {
@@ -34,18 +34,19 @@ namespace BTES.Forms.Events
 
         private void Referesh()
         {
-            _Event = ClsEvent.GetAllRecord();
+            _Events = ClsEvent.GetAllRecord();
 
-            _Event.Columns.Add("Month", typeof(int));
-            _Event.Columns.Add("Year", typeof(int));
+            _Events.Columns.Add("Month", typeof(int));
+            _Events.Columns.Add("Year", typeof(int));
 
-            dgvEvent.DataSource = _Event;
+            dgvEvent.DataSource = _Events;
+            
 
             if (dgvEvent.Rows.Count > 0)
             {
                 LBL_NoRecords.Visible = false;
                 CMS_Options.Enabled = true;
-
+                cbFilterBy.SelectedIndex = 1;
 
                 dgvEvent.Columns[0].HeaderText = "Event ID";
                 dgvEvent.Columns[0].Width = 40;
@@ -71,7 +72,7 @@ namespace BTES.Forms.Events
                 dgvEvent.Columns[6].Width = 80;
 
 
-                foreach (DataRow row in _Event.Rows)
+                foreach (DataRow row in _Events.Rows)
                 {
                     DateTime date = DateTime.Parse(row["Event_Date"].ToString());
                     row["Month"] = date.Month;
@@ -84,13 +85,17 @@ namespace BTES.Forms.Events
                 if (dgvEvent.Columns["Year"] != null)              
                     dgvEvent.Columns["Year"].Visible = false;
 
-
+                
+                
             }
             else
             {
                 LBL_NoRecords.Visible = true;
                 CMS_Options.Enabled = false;
                 dgvEvent.Visible = false;
+                cbFilterBy.Enabled = false;
+                cbDate.Enabled = false;
+                DTP_Date.Enabled = false;
             }
         }
 
@@ -142,34 +147,13 @@ namespace BTES.Forms.Events
             if(admin  != null)
             {
                 CMS_Options.Items["purchaseTicketToolStripMenuItem"].Visible = false;
-                CMS_Options.Items["UpdateToolStripMenuItem1"].Visible = true;
                 CMS_Options.Items["RateEventToolStripMenuItem1"].Visible = false;
             }
             else
             {
                 CMS_Options.Items["purchaseTicketToolStripMenuItem"].Visible = true;
-                CMS_Options.Items["UpdateToolStripMenuItem1"].Visible = false;
                 CMS_Options.Items["RateEventToolStripMenuItem1"].Visible = true;
             }
-        }
-
-
-        private void UpdateToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ClsEvent Event = new ClsEvent();
-
-            if (dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Sport")
-            {
-                Event = clsSportEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
-            }
-
-            else if(dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Concert")
-            {
-                Event = clsConcertEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
-            }
-
-            FRM_AddEvent frm = new FRM_AddEvent(admin.adminID, Event);
-            frm.ShowDialog();
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
@@ -198,17 +182,17 @@ namespace BTES.Forms.Events
             //Reset the filters in case nothing selected or filter value conains nothing.
             if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
             {
-                _Event.DefaultView.RowFilter = "";
+                _Events.DefaultView.RowFilter = "";
                 return;
             }
 
 
-            if (FilterColumn == "EventID")
+            if (FilterColumn == "Event_ID")
                 //in this case we deal with numbers not string.
-                _Event.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
+                _Events.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
 
             else
-                _Event.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
+                _Events.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
 
         }
 
@@ -217,20 +201,20 @@ namespace BTES.Forms.Events
             
             txtFilterValue.Visible = (cbFilterBy.Text != "None");
 
-            dateTimePicker1.Visible = cbFilterBy.Text == "Date";
+            DTP_Date.Visible = cbFilterBy.Text == "Date";
             cbDate.Visible = cbFilterBy.Text == "Date";
 
 
-            if (dateTimePicker1.Visible)
+            if (DTP_Date.Visible)
             {
                 txtFilterValue.Visible = false;
-                dateTimePicker1.Focus();
+                DTP_Date.Focus();
             }
 
             if (cbFilterBy.Text == "None")
             {
                 txtFilterValue.Enabled = false;
-                _Event.DefaultView.RowFilter = "";
+                _Events.DefaultView.RowFilter = "";
             }
             else
                 txtFilterValue.Enabled = true;
@@ -246,26 +230,27 @@ namespace BTES.Forms.Events
             {
                 string FilterColumn = cbDate.Text;
 
-                FilterData(FilterColumn, dateTimePicker1.Value);
+                FilterData(FilterColumn, DTP_Date.Value);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void FilterData(string filterColumn, DateTime filterValue)
         {
             if (filterColumn == "Month")
             {
-                _Event.DefaultView.RowFilter = $"Month = {filterValue.Month}";
+                _Events.DefaultView.RowFilter = $"Month = {filterValue.Month}";
             }
             else if (filterColumn == "Year")
             {
-                _Event.DefaultView.RowFilter = $"Year = {filterValue.Year}";
+                _Events.DefaultView.RowFilter = $"Year = {filterValue.Year}";
             }
             else if (filterColumn == "Day")
             {
-                _Event.DefaultView.RowFilter = $"Event_Date = '{filterValue.ToShortDateString()}'";
+                _Events.DefaultView.RowFilter = $"Event_Date = '{filterValue.ToShortDateString()}'";
             }
         }
 

@@ -68,7 +68,13 @@ namespace BTES.Forms.Discount
             {
                 LBL_Error.Text = "Request Approved.";
                 LBL_Error.ForeColor = Color.Green;
+                LBL_Error.Visible = true;
                 BTN_Request.Enabled = false;
+            }
+            else
+            {
+                LBL_Error.Text = "Request Rejected.";
+                LBL_Error.ForeColor = Color.Red;
             }
 
         }

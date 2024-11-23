@@ -549,7 +549,7 @@
             // 
             this.LBL_TeamsOrArtist.AutoSize = true;
             this.LBL_TeamsOrArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_TeamsOrArtist.Location = new System.Drawing.Point(16, 363);
+            this.LBL_TeamsOrArtist.Location = new System.Drawing.Point(3, 363);
             this.LBL_TeamsOrArtist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_TeamsOrArtist.Name = "LBL_TeamsOrArtist";
             this.LBL_TeamsOrArtist.Size = new System.Drawing.Size(94, 24);

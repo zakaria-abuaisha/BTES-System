@@ -48,7 +48,7 @@ namespace BTES.Business_layer.Discounts
 
             this.DiscountOrder_ID = ClsDiscountsData.AddNewDiscount_Orders(this.Customer_ID, this.Proof_Of_Identity, this.DiscountType, this.Status);
 
-            return (this.DiscountOrder_ID != -1);
+            return (this.DiscountOrder_ID != -1) && (this.Status);
         }
 
         public static bool IsDiscountExist(int Customer_ID)
