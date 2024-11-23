@@ -1,4 +1,5 @@
 ﻿using BTES.Business_layer;
+using BTES.Business_layer.Event_Management;
 using BTES.Forms.Ticket;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,8 @@ namespace BTES.Forms.Events
             if (admin != null)
             {
                 //if this constructor is called when the system is used by (admin), this the button (BTN_AddEvent) which is the button that allow the admin to
-                //add events will be enabled, and we have to disable (ContextMenuStrip) that consists (purchase button) because the user is an admin.
+                //add events will be enabled,
                 BTN_AddEvent.Visible = true;
-                dgvEvent.ContextMenuStrip = null;
             }
 
 
@@ -101,7 +101,20 @@ namespace BTES.Forms.Events
 
         private void purchaseTicketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRM_PurchaseTicket frm = new FRM_PurchaseTicket(ClsEvent.FindEvent(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString())));
+            ClsEvent Event = new ClsEvent();
+
+            if (dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Sport")
+            {
+                Event = clsSportEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+            }
+
+            else if (dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Concert")
+            {
+                Event = clsConcertEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+            }
+
+
+            FRM_PurchaseTicket frm = new FRM_PurchaseTicket(Event);
             frm.ShowDialog();
             Referesh();
         }
@@ -128,35 +141,33 @@ namespace BTES.Forms.Events
         {
             if(admin  != null)
             {
-                CMS_Options.Visible = true;
+                CMS_Options.Items["purchaseTicketToolStripMenuItem"].Visible = false;
                 CMS_Options.Items["UpdateToolStripMenuItem1"].Visible = true;
-                CMS_Options.Items["DeleteToolStripMenuItem2"].Visible = true;
-            }
-        }
-
-        private void DeleteToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-            // Show a message box with Yes and No buttons
-            DialogResult result = MessageBox.Show("Are you sure you want to delete This Event?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            // Check the result
-            if (result == DialogResult.Yes)
-            {
-                if(ClsEvent.DeleteRecord(int.Parse(dgvEvent.CurrentRow.Cells[0].Value.ToString())))
-                MessageBox.Show("Item deleted successfully.", "Deletion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CMS_Options.Items["RateEventToolStripMenuItem1"].Visible = false;
             }
             else
             {
-                // User clicked No
-                MessageBox.Show("Deletion canceled.", "Cancellation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CMS_Options.Items["purchaseTicketToolStripMenuItem"].Visible = true;
+                CMS_Options.Items["UpdateToolStripMenuItem1"].Visible = false;
+                CMS_Options.Items["RateEventToolStripMenuItem1"].Visible = true;
             }
-            
         }
+
 
         private void UpdateToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ClsEvent Event = ClsEvent.FindEvent(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value));
+            ClsEvent Event = new ClsEvent();
+
+            if (dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Sport")
+            {
+                Event = clsSportEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+            }
+
+            else if(dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Concert")
+            {
+                Event = clsConcertEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+            }
+
             FRM_AddEvent frm = new FRM_AddEvent(admin.adminID, Event);
             frm.ShowDialog();
         }

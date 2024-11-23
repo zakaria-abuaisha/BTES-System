@@ -51,6 +51,9 @@
             this.txtNumberOfVipTicket = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.grbEvent = new System.Windows.Forms.GroupBox();
+            this.txtTeamOrArtis = new System.Windows.Forms.TextBox();
+            this.lblEventType = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.grbEvent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -309,6 +313,9 @@
             // 
             // grbEvent
             // 
+            this.grbEvent.Controls.Add(this.txtTeamOrArtis);
+            this.grbEvent.Controls.Add(this.lblEventType);
+            this.grbEvent.Controls.Add(this.pictureBox11);
             this.grbEvent.Controls.Add(this.pictureBox6);
             this.grbEvent.Controls.Add(this.label5);
             this.grbEvent.Controls.Add(this.DTP_EventDate);
@@ -338,8 +345,40 @@
             this.grbEvent.TabIndex = 105;
             this.grbEvent.TabStop = false;
             // 
+            // txtTeamOrArtis
+            // 
+            this.txtTeamOrArtis.Location = new System.Drawing.Point(663, 302);
+            this.txtTeamOrArtis.Name = "txtTeamOrArtis";
+            this.txtTeamOrArtis.Size = new System.Drawing.Size(198, 22);
+            this.txtTeamOrArtis.TabIndex = 159;
+            this.txtTeamOrArtis.Visible = false;
+            // 
+            // lblEventType
+            // 
+            this.lblEventType.AutoSize = true;
+            this.lblEventType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventType.Location = new System.Drawing.Point(430, 299);
+            this.lblEventType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEventType.Name = "lblEventType";
+            this.lblEventType.Size = new System.Drawing.Size(164, 24);
+            this.lblEventType.TabIndex = 158;
+            this.lblEventType.Text = "Team Vs Team :";
+            this.lblEventType.Visible = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::BTES.Properties.Resources.icons8_event_50;
+            this.pictureBox11.Location = new System.Drawing.Point(616, 293);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 157;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Visible = false;
+            // 
             // pictureBox6
             // 
+            this.pictureBox6.Image = global::BTES.Properties.Resources.Calendar_32;
             this.pictureBox6.Location = new System.Drawing.Point(146, 178);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 33);
@@ -414,6 +453,7 @@
             this.cbmEventType.Name = "cbmEventType";
             this.cbmEventType.Size = new System.Drawing.Size(231, 24);
             this.cbmEventType.TabIndex = 134;
+            this.cbmEventType.SelectedIndexChanged += new System.EventHandler(this.cbmEventType_SelectedIndexChanged);
             // 
             // BTN_Close
             // 
@@ -537,6 +577,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.grbEvent.ResumeLayout(false);
             this.grbEvent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -589,5 +630,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox txtTeamOrArtis;
+        private System.Windows.Forms.Label lblEventType;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BTES.Business_layer;
+using BTES.Business_layer.Event_Management;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,11 @@ namespace BTES.Forms.Events
 {
     public partial class FRM_AddEvent : Form
     {
-        private ClsEvent NewEvent = new ClsEvent();
+        clsSportEvent SportEvent = new clsSportEvent();
+        clsConcertEvent ConcertEvent = new clsConcertEvent();
+        ClsEvent _Event = new ClsEvent(); 
         private int admin_ID;
+
         public FRM_AddEvent(int Admin_ID)
         {
             InitializeComponent();
@@ -22,7 +26,15 @@ namespace BTES.Forms.Events
 
         }
 
-        private void BTN_Save_Click(object sender, EventArgs e)
+        public FRM_AddEvent(int Admin_ID, ClsEvent Event)
+        {
+            InitializeComponent();
+            admin_ID = Admin_ID;
+            _Event = Event;
+            cbmEventType.Enabled = false;
+        }
+
+        private void BTN_Save_Click(object sender, EventArgs e) 
         {
             if (string.IsNullOrEmpty(txtTitle.Text.Trim()) || string.IsNullOrEmpty(txtPriceOfVipTicket.Text.Trim()) || string.IsNullOrEmpty(txtPriceOfRegularTicket.Text.Trim())
                 || string.IsNullOrEmpty(txtNumberOfVipTicket.Text.Trim()) || string.IsNullOrEmpty(txtNumberofRegularTicket.Text.Trim()) || string.IsNullOrEmpty(txtLocation.Text.Trim()) ||
@@ -33,28 +45,55 @@ namespace BTES.Forms.Events
                 return;
             }
 
-
-
-            NewEvent.eventContent = txtContent.Text;
-            NewEvent.eventDate = DTP_EventDate.Value;
-            NewEvent.title = txtTitle.Text;
-            NewEvent.VIPprice = Convert.ToInt32(txtPriceOfVipTicket.Text);
-            NewEvent.VIPTickets = Convert.ToInt32(txtNumberOfVipTicket.Text);
-            NewEvent.regularTickets = Convert.ToInt32(txtNumberofRegularTicket.Text);
-            NewEvent.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
-            NewEvent.location = txtLocation.Text;
-            NewEvent.createdByUserID = admin_ID;
-            NewEvent.eventTypeID = cbmEventType.FindString(cbmEventType.Text) + 1;
-
-            if (NewEvent.Save())
+            if (cbmEventType.Text == "Sport")
             {
-                lblEventID.Text = NewEvent.event_ID.ToString();
-                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                SportEvent.eventContent = txtContent.Text;
+                SportEvent.eventDate = DTP_EventDate.Value;
+                SportEvent.title = txtTitle.Text;
+                SportEvent.VIPprice = Convert.ToInt32(txtPriceOfVipTicket.Text);
+                SportEvent.VIPTickets = Convert.ToInt32(txtNumberOfVipTicket.Text);
+                SportEvent.regularTickets = Convert.ToInt32(txtNumberofRegularTicket.Text);
+                SportEvent.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
+                SportEvent.location = txtLocation.Text;
+                SportEvent.createdByUserID = admin_ID;
+                SportEvent.Team_VS_Team = txtTeamOrArtis.Text;
+                SportEvent.eventType = ClsEvent.enEventType.Sport;
+
+
+                if (SportEvent.Save())
+                {
+                    lblEventID.Text = SportEvent.event_ID.ToString();
+                    MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else if (cbmEventType.Text == "Concert")
+            {
+                ConcertEvent.eventContent = txtContent.Text;
+                ConcertEvent.eventDate = DTP_EventDate.Value;
+                ConcertEvent.title = txtTitle.Text;
+                ConcertEvent.VIPprice = Convert.ToInt32(txtPriceOfVipTicket.Text);
+                ConcertEvent.VIPTickets = Convert.ToInt32(txtNumberOfVipTicket.Text);
+                ConcertEvent.regularTickets = Convert.ToInt32(txtNumberofRegularTicket.Text);
+                ConcertEvent.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
+                ConcertEvent.location = txtLocation.Text;
+                ConcertEvent.createdByUserID = admin_ID;
+                ConcertEvent.Band_Or_Artist = txtTeamOrArtis.Text;
+                ConcertEvent.eventType = ClsEvent.enEventType.Concert;
+
+                if (ConcertEvent.Save())
+                {
+                    lblEventID.Text = SportEvent.event_ID.ToString();
+                    MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BTN_Close_Click(object sender, EventArgs e)
@@ -64,12 +103,40 @@ namespace BTES.Forms.Events
 
         private void FRM_AddEvent_Load(object sender, EventArgs e)
         {
-            DataTable allEventType = ClsEventType.GetAllRecord();
+            
 
-            foreach (DataRow row in allEventType.Rows)
+            if (_Event is clsSportEvent SportEvent)
             {
-                cbmEventType.Items.Add(row[1]);
+
+                cbmEventType.Text = "Sport";
+                txtContent.Text = SportEvent.eventContent;
+                DTP_EventDate.Value = SportEvent.eventDate;
+                txtTitle.Text = SportEvent.title;
+                txtPriceOfRegularTicket.Text = SportEvent.regularPrice.ToString();
+                txtPriceOfVipTicket.Text = SportEvent.VIPprice.ToString();
+                txtNumberOfVipTicket.Text = SportEvent.VIPTickets.ToString();
+                txtNumberofRegularTicket.Text = SportEvent.regularTickets.ToString();
+                txtTeamOrArtis.Text = SportEvent.Team_VS_Team;
+                lblEventID.Text = SportEvent.event_ID.ToString();
+                txtLocation.Text = SportEvent.location;
+
+
             }
+            else if (_Event is clsConcertEvent ConcertEvent)
+            {
+                cbmEventType.Text = "Concert";
+                txtContent.Text = ConcertEvent.eventContent;
+                DTP_EventDate.Value = ConcertEvent.eventDate;
+                txtTitle.Text = ConcertEvent.title;
+                txtPriceOfVipTicket.Text = ConcertEvent.VIPprice.ToString();
+                txtPriceOfRegularTicket.Text = ConcertEvent.regularPrice.ToString();
+                txtNumberOfVipTicket.Text = ConcertEvent.VIPTickets.ToString();
+                txtNumberofRegularTicket.Text = ConcertEvent.regularTickets.ToString();
+                lblEventID.Text = ConcertEvent.event_ID.ToString();
+                txtLocation.Text = ConcertEvent.location;
+                txtTeamOrArtis.Text = ConcertEvent.Band_Or_Artist;
+            }
+
             DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
         }
 
@@ -144,6 +211,21 @@ namespace BTES.Forms.Events
         private void txtPriceOfVipTicket_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
+        }
+
+        private void cbmEventType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbmEventType.Text == "Sport")
+            {
+                lblEventType.Text = "Team Vs Team :";
+            }
+
+            else if (cbmEventType.Text == "Concert")
+            {
+                lblEventType.Text = "Artist Or Band :";
+
+            }
+
         }
     }
 }
