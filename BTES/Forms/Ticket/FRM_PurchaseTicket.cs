@@ -1,5 +1,7 @@
 ﻿using BTES.Business_layer;
+using BTES.Business_layer.Discounts;
 using BTES.Business_layer.Event_Management;
+using BTES.Data_Access.Discounts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +18,7 @@ namespace BTES.Forms.Ticket
     {
         private ClsEvent _event;
 
-        public FRM_PurchaseTicket(ClsEvent Event)
+        public FRM_PurchaseTicket(ClsEvent Event) 
         {
             InitializeComponent();
             _event = Event;
@@ -71,12 +73,26 @@ namespace BTES.Forms.Ticket
                 return;
             }
 
-            if (ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim()) == null)
+            ClsCustomer customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim());
+            if (customer == null)
             {
                 MessageBox.Show("Wrong UserName Or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            ClsDiscount discount = ClsDiscount.Find(customer.Customer_ID);
+            if(discount != null)
+            {
+                LBL_RegularPrice.Text = (_event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
+                LBL_RegularPrice.ForeColor = Color.Green;
+                LBL_VIPPrice.Text = (_event.VIPTickets * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
+                LBL_VIPPrice.ForeColor = Color.Green;
+            }
+            else
+            {
+                LBL_RegularPrice.ForeColor = Color.Black;
+                LBL_VIPPrice.ForeColor = Color.Black;
+            }
 
 
             if (RB_Regular.Checked)

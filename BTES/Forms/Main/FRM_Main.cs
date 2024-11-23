@@ -1,4 +1,5 @@
 ﻿using BTES.Business_layer;
+using BTES.Forms.Discount;
 using BTES.Forms.Events;
 using BTES.Forms.Ticket;
 using BTES.Forms.Users;
@@ -68,6 +69,8 @@ namespace BTES
             BTN_Login.Visible = false;
             BTN_Logout.Visible = true;
             BTN_Tickets.Visible = false;
+            BTN_ReqDiscount.Visible = false;
+
 
         }
 
@@ -78,7 +81,15 @@ namespace BTES
             BTN_Logout.Visible = false;
             BTN_Tickets.Visible = true;
             admin = null;
+            BTN_ReqDiscount.Visible = true;
             ChangeForm(new FRM_Events(admin));
+        }
+
+        private void BTN_ReqDiscount_Click(object sender, EventArgs e)
+        {
+            FRM_OrderDiscount frm = new FRM_OrderDiscount();
+            frm.ShowDialog();
+
         }
     }
 }

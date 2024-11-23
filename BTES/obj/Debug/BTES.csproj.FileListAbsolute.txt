@@ -27,3 +27,4 @@ E:\computer science\BTES-System\BTES\obj\Debug\BTES.csproj.GenerateResource.cach
 E:\computer science\BTES-System\BTES\obj\Debug\BTES.csproj.CoreCompileInputs.cache
 E:\computer science\BTES-System\BTES\obj\Debug\BTES.exe
 E:\computer science\BTES-System\BTES\obj\Debug\BTES.pdb
+E:\computer science\Software engineering\project\BTES-System\BTES\obj\Debug\BTES.Forms.Discount.FRM_OrderDiscount.resources

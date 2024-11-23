@@ -31,13 +31,14 @@
             this.PNL_Form = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.BTN_Logout = new System.Windows.Forms.Button();
             this.BTN_Login = new System.Windows.Forms.Button();
             this.BTN_Tickets = new System.Windows.Forms.Button();
             this.BTN_Event = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BTN_ReqDiscount = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(82)))), ((int)(((byte)(160)))));
+            this.panel1.Controls.Add(this.BTN_ReqDiscount);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.BTN_Tickets);
             this.panel1.Controls.Add(this.BTN_Event);
@@ -76,28 +78,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(265, 77);
             this.panel3.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.label2.Location = new System.Drawing.Point(135, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Event System";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Booking Ticket";
             // 
             // BTN_Logout
             // 
@@ -168,6 +148,28 @@
             this.BTN_Event.UseVisualStyleBackColor = false;
             this.BTN_Event.Click += new System.EventHandler(this.BTN_Event_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.label2.Location = new System.Drawing.Point(135, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Event System";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(114, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Booking Ticket";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BTES.Properties.Resources.ticket_5408974__1_;
@@ -177,6 +179,23 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // BTN_ReqDiscount
+            // 
+            this.BTN_ReqDiscount.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_ReqDiscount.FlatAppearance.BorderSize = 0;
+            this.BTN_ReqDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_ReqDiscount.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_ReqDiscount.ForeColor = System.Drawing.Color.White;
+            this.BTN_ReqDiscount.Image = global::BTES.Properties.Resources.icons8_price_50;
+            this.BTN_ReqDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BTN_ReqDiscount.Location = new System.Drawing.Point(32, 263);
+            this.BTN_ReqDiscount.Name = "BTN_ReqDiscount";
+            this.BTN_ReqDiscount.Size = new System.Drawing.Size(211, 56);
+            this.BTN_ReqDiscount.TabIndex = 3;
+            this.BTN_ReqDiscount.Text = "       Request Discount";
+            this.BTN_ReqDiscount.UseVisualStyleBackColor = false;
+            this.BTN_ReqDiscount.Click += new System.EventHandler(this.BTN_ReqDiscount_Click);
             // 
             // FRM_Main
             // 
@@ -210,6 +229,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button BTN_ReqDiscount;
     }
 }
 

@@ -65,6 +65,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.RB_Regular = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TXT_TeamsOrArtists = new System.Windows.Forms.TextBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.LBL_TeamsOrArtist = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,9 +84,6 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.BTN_Buy = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.LBL_TeamsOrArtist = new System.Windows.Forms.Label();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.TXT_TeamsOrArtists = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -91,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
             // RB_VIP
@@ -526,6 +526,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Information";
             // 
+            // TXT_TeamsOrArtists
+            // 
+            this.TXT_TeamsOrArtists.Location = new System.Drawing.Point(190, 355);
+            this.TXT_TeamsOrArtists.Multiline = true;
+            this.TXT_TeamsOrArtists.Name = "TXT_TeamsOrArtists";
+            this.TXT_TeamsOrArtists.ReadOnly = true;
+            this.TXT_TeamsOrArtists.Size = new System.Drawing.Size(235, 70);
+            this.TXT_TeamsOrArtists.TabIndex = 165;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Image = global::BTES.Properties.Resources.icons8_index_64;
+            this.pictureBox16.Location = new System.Drawing.Point(148, 358);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 164;
+            this.pictureBox16.TabStop = false;
+            // 
+            // LBL_TeamsOrArtist
+            // 
+            this.LBL_TeamsOrArtist.AutoSize = true;
+            this.LBL_TeamsOrArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_TeamsOrArtist.Location = new System.Drawing.Point(16, 363);
+            this.LBL_TeamsOrArtist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_TeamsOrArtist.Name = "LBL_TeamsOrArtist";
+            this.LBL_TeamsOrArtist.Size = new System.Drawing.Size(94, 24);
+            this.LBL_TeamsOrArtist.TabIndex = 163;
+            this.LBL_TeamsOrArtist.Text = "Content :";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::BTES.Properties.Resources.icons8_title_50;
@@ -691,36 +721,6 @@
             this.pictureBox4.TabIndex = 196;
             this.pictureBox4.TabStop = false;
             // 
-            // LBL_TeamsOrArtist
-            // 
-            this.LBL_TeamsOrArtist.AutoSize = true;
-            this.LBL_TeamsOrArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_TeamsOrArtist.Location = new System.Drawing.Point(16, 363);
-            this.LBL_TeamsOrArtist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LBL_TeamsOrArtist.Name = "LBL_TeamsOrArtist";
-            this.LBL_TeamsOrArtist.Size = new System.Drawing.Size(94, 24);
-            this.LBL_TeamsOrArtist.TabIndex = 163;
-            this.LBL_TeamsOrArtist.Text = "Content :";
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Image = global::BTES.Properties.Resources.icons8_index_64;
-            this.pictureBox16.Location = new System.Drawing.Point(148, 358);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox16.TabIndex = 164;
-            this.pictureBox16.TabStop = false;
-            // 
-            // TXT_TeamsOrArtists
-            // 
-            this.TXT_TeamsOrArtists.Location = new System.Drawing.Point(190, 355);
-            this.TXT_TeamsOrArtists.Multiline = true;
-            this.TXT_TeamsOrArtists.Name = "TXT_TeamsOrArtists";
-            this.TXT_TeamsOrArtists.ReadOnly = true;
-            this.TXT_TeamsOrArtists.Size = new System.Drawing.Size(235, 70);
-            this.TXT_TeamsOrArtists.TabIndex = 165;
-            // 
             // FRM_PurchaseTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -769,6 +769,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -780,7 +781,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

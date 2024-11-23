@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business-layer\Discounts\ClsDiscount.cs" />
     <Compile Include="Business-layer\Event Management\clsConcertEvent.cs" />
     <Compile Include="Business-layer\Event Management\ClsEvent.cs" />
     <Compile Include="Business-layer\Event Management\clsEventRate.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="Business-layer\User Management\ClsAdmin.cs" />
     <Compile Include="Business-layer\User Management\ClsCustomer.cs" />
     <Compile Include="Business-layer\User Management\ClsPerson.cs" />
+    <Compile Include="Data-Access\Discounts\ClsDiscountsData.cs" />
+    <Compile Include="Business-layer\Discounts\ClsDiscountTypes.cs" />
     <Compile Include="Data-Access\Event Management\clsConcertEventData.cs" />
     <Compile Include="Data-Access\Event Management\ClsEventData.cs" />
     <Compile Include="Data-Access\Event Management\clsEventRateData.cs" />
@@ -69,6 +72,12 @@
     <Compile Include="Data-Access\User Management\ClsAdminData.cs" />
     <Compile Include="Data-Access\User Management\ClsCustomerDA.cs" />
     <Compile Include="Data-Access\User Management\ClsPersonDA.cs" />
+    <Compile Include="Forms\Discount\FRM_OrderDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Discount\FRM_OrderDiscount.Designer.cs">
+      <DependentUpon>FRM_OrderDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Events\FRM_AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Discount\FRM_OrderDiscount.resx">
+      <DependentUpon>FRM_OrderDiscount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Events\FRM_AddEvent.resx">
       <DependentUpon>FRM_AddEvent.cs</DependentUpon>
     </EmbeddedResource>
