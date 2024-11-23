@@ -38,6 +38,7 @@ namespace BTES.Forms.Discount
             if (string.IsNullOrEmpty(TXT_UserName.Text.Trim()) || string.IsNullOrEmpty(TXT_Password.Text.Trim()) || string.IsNullOrEmpty(TXT_Proof.Text.Trim()))
             {
                 LBL_Error.Text = "Please Fill up All Fields.";
+                LBL_Error.Visible = true;
                 return;
             }
 
@@ -45,12 +46,16 @@ namespace BTES.Forms.Discount
             if (customer == null)
             {
                 LBL_Error.Text = "Wrong Username Or Password.";
+                LBL_Error.Visible = true;
+
                 return;
             }
 
             if (ClsDiscount.IsDiscountExist(customer.Customer_ID))
             {
                 LBL_Error.Text = "Already have a Discount.";
+                LBL_Error.Visible = true;
+
                 return;
             }
 
