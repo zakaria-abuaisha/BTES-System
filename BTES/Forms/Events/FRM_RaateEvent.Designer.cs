@@ -329,10 +329,8 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txtComent;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button BTN_Close;
         private System.Windows.Forms.Button BTN_Save;
@@ -342,5 +340,7 @@
         private System.Windows.Forms.RadioButton rb_3;
         private System.Windows.Forms.RadioButton rb_2;
         private System.Windows.Forms.RadioButton rb_1;
+        public System.Windows.Forms.TextBox txtUsername;
+        public System.Windows.Forms.TextBox txtComent;
     }
 }

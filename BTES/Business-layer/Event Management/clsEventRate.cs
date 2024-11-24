@@ -69,9 +69,9 @@ namespace BTES.Business_layer.Event_Management
         }
 
 
-        public static clsEventRate Findby()
+        public static clsEventRate FindbyID(int EventRate_ID)
         {
-            int EventRate_ID = -1; int Event_ID = -1; int Customer_ID = -1; int Rate = -1; string Comment = ""; ;
+            int Event_ID = -1; int Customer_ID = -1; int Rate = -1; string Comment = ""; ;
             if (clsEventRateData.FindByEventRate_ID(EventRate_ID, ref Event_ID, ref Customer_ID, ref Rate, ref Comment))
 
                 return new clsEventRate(EventRate_ID, Event_ID, Customer_ID, Rate, Comment);
@@ -108,7 +108,6 @@ namespace BTES.Business_layer.Event_Management
 
         public static bool IsEventRateExist(int Event_ID, int _CustomerID)
         {
-
             return clsEventRateData.IsEventRateExist(Event_ID, _CustomerID);
         }
 

@@ -4,10 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace BTES.Forms.Events
@@ -23,7 +20,7 @@ namespace BTES.Forms.Events
             _EventID = EventID;
         }
 
-        private bool IsRequired(object sender, CancelEventArgs e)
+        public bool IsRequired(object sender, CancelEventArgs e)
         {
             TextBox Temp = ((TextBox)sender);
             if (string.IsNullOrEmpty(Temp.Text.Trim()))
