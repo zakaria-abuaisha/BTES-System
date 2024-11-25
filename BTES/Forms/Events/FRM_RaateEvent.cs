@@ -55,6 +55,13 @@ namespace BTES.Forms.Events
             if (IsRequired(sender, e))
             {
                  _CustomerID = ClsCustomer.GetCustomer_ID_By_UserName(txtUsername.Text.Trim());
+
+                 if(_CustomerID == -1)
+                 {
+                     MessageBox.Show("Wrong Username Please try Again!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     return;
+                 }
+                     
                  
                 if (clsEventRate.IsEventRateExist(_EventID, _CustomerID))
                 {
