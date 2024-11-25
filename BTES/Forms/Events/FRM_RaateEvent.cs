@@ -52,10 +52,10 @@ namespace BTES.Forms.Events
 
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
-            _CustomerID = ClsCustomer.GetCustomer_ID_By_UserName(txtUsername.Text.Trim());
-
             if (IsRequired(sender, e))
             {
+                 _CustomerID = ClsCustomer.GetCustomer_ID_By_UserName(txtUsername.Text.Trim());
+                 
                 if (clsEventRate.IsEventRateExist(_EventID, _CustomerID))
                 {
                     e.Cancel = false;
