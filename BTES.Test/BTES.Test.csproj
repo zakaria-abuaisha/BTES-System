@@ -78,7 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsDiscount.cs" />
+    <Compile Include="clsDiscountTest.cs" />
     <Compile Include="clsEvenrtRateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
