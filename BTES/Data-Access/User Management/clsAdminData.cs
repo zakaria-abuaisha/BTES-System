@@ -19,7 +19,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT    Admin.Admin_ID, Person.*
                                                 FROM     Admin INNER JOIN
@@ -76,7 +76,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT    Admin.Admin_ID, Person.*
                                                 FROM     Admin INNER JOIN

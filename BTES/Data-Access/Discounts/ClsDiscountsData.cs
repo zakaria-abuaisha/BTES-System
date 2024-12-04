@@ -12,13 +12,7 @@ namespace BTES.Data_Access.Discounts
     {
         public static int AddNewDiscount_Orders(int Customer_ID, string Proof_Of_Identity,int DiscountType, bool Status)
         {
-
-
-
-
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
-
-
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = $@"INSERT INTO Discount_Orders(Customer_ID,Proof_Of_Identity,DiscountType,Status)
                                 VALUES ( @Customer_ID, @Proof_Of_Identity, @DiscountType, @Status);
@@ -67,7 +61,7 @@ namespace BTES.Data_Access.Discounts
         public static bool IsDiscountExist(int Customer_ID)
         {
             bool isFound = false;
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = "SELECT Found=1 FROM Discount_Orders WHERE Customer_ID = @Customer_ID and Status = 1;";
 
@@ -101,7 +95,7 @@ namespace BTES.Data_Access.Discounts
         {
             bool isFound = false;
             
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection =clsDatabaseManager.GetInstance();
             string query = "SELECT * FROM Discount_Orders WHERE Customer_ID = @Customer_ID and Status = 1";
 
             SqlCommand command = new SqlCommand(query, connection);

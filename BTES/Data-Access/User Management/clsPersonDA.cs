@@ -13,7 +13,7 @@ namespace BTES.Data_Access
         public static bool GetPerson_Info_By_In_Person(int Person_ID, ref string FirstName, ref string LastName, ref string Phone, ref string Email, ref string Address, ref int Age, ref string Password, ref string UserName)
         {
             bool isFound = false;
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
             string query = "SELECT * FROM Person WHERE Person_ID = @Person_ID";
 
             SqlCommand command = new SqlCommand(query, connection);

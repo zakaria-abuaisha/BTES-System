@@ -18,7 +18,7 @@ namespace BTES.Data_Access.Event_Management
 
             int RecordID = -1;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string InsertEvent_query = @"INSERT INTO Events  (Title, Event_Content, Event_Date, EventType, Regular_Tickets, VIP_Tickets, Regular_Price, VIP_Price, Location, Created_By)
                                  VALUES (@Title, @Event_Content, @Event_Date, @EventType, @Regular_Tickets, @VIP_Tickets, @Regular_Price, @VIP_Price, @Location, @Created_By);
@@ -88,7 +88,7 @@ namespace BTES.Data_Access.Event_Management
         {
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"Update Events
                               set Title = @Title , 
@@ -151,7 +151,7 @@ namespace BTES.Data_Access.Event_Management
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT Sport_ID, Sports.Team_VS_Team ,Events.* 
                     FROM Sports inner join Events on Sports.Event_ID = Events.Event_ID
@@ -209,7 +209,7 @@ namespace BTES.Data_Access.Event_Management
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT Sport_ID, Sports.Team_VS_Team ,Events.* 
                                 FROM Sports inner join Events on Sports.Event_ID = Events.Event_ID
@@ -272,7 +272,7 @@ namespace BTES.Data_Access.Event_Management
 
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"DELETE FROM Events
                                 WHERE Event_ID IN (
@@ -311,7 +311,7 @@ namespace BTES.Data_Access.Event_Management
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = "SELECT * FROM Sports;";
 

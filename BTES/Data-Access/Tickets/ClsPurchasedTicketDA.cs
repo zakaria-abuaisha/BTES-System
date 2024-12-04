@@ -23,7 +23,7 @@ namespace BTES.Data_Access
         {
 
             //CONNECTING WITH DATABASE
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             //PREPAER THE QUERY
             string query;
@@ -89,7 +89,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
             string query = $@"SELECT * FROM Purchased_Tickets WHERE PT_ID = @PT_ID";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -137,7 +137,7 @@ namespace BTES.Data_Access
 
             int RowsAffected = 0;
             //CONNECTING WITH DATABASE
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             //PREPAER THE QUERY
             string query;
@@ -193,7 +193,7 @@ namespace BTES.Data_Access
         {
             bool isAllowed = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = $@"select Event_Date from Purchased_Tickets inner join Events on Purchased_Tickets.Event_ID = Events.Event_ID
                                 where PT_ID = @PurchasedTicket_ID and Status = 1;";
@@ -228,7 +228,7 @@ namespace BTES.Data_Access
 
             DataTable dt = new DataTable();
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT   Purchased_Tickets.PT_ID, Events.Title, (Person.FirstName + ' ' + Person.LastName) as FullName, Purchased_Tickets.Purchase_Date,
                                             Purchased_Tickets.Fees, 

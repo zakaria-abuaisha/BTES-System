@@ -90,6 +90,7 @@
     <Compile Include="Data-Access\Event Management\ClsEventData.cs" />
     <Compile Include="Data-Access\Event Management\clsEventRateData.cs" />
     <Compile Include="Data-Access\Event Management\clsSportEventData.cs" />
+    <Compile Include="Data-Access\Setting\clsDatabaseManager.cs" />
     <Compile Include="Data-Access\Setting\ClsSettings.cs" />
     <Compile Include="Data-Access\Tickets\ClsPurchasedTicketDA.cs" />
     <Compile Include="Data-Access\User Management\ClsAdminData.cs" />

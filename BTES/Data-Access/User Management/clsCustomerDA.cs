@@ -17,7 +17,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
             string query = $@"select Customer.Customer_ID, Person.* from Customer inner join Person on Customer.Person_ID = Person.Person_ID where Customer_ID = @Customer_ID;";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -66,7 +66,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
             string query = $@"select Customer.Customer_ID, Person.* from Customer 
                                 inner join Person on Customer.Person_ID = Person.Person_ID
                                 where (Person.UserName = @UserName AND Person.Password = @Password);";
@@ -116,7 +116,7 @@ namespace BTES.Data_Access
         {
 
             bool IsFound = false;
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = $@"SELECT       Customer.Customer_ID
                                 FROM            Customer INNER JOIN

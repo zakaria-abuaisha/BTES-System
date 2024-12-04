@@ -18,7 +18,7 @@ namespace BTES.Data_Access.Event_Management
 
             int RecordID = -1;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"INSERT INTO Event_Rate  (Event_ID, Customer_ID, Rate, Comment)
                              VALUES (@Event_ID, @Customer_ID, @Rate, @Comment);
@@ -62,7 +62,7 @@ namespace BTES.Data_Access.Event_Management
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT * FROM Event_Rate 
                              WHERE  EventRate_ID = @EventRate_ID;";
@@ -106,13 +106,11 @@ namespace BTES.Data_Access.Event_Management
 
         }
 
-
-
         public static bool UpdateRecord(int EventRate_ID, int Event_ID, int Customer_ID, int Rate, string Comment)
         {
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"Update Event_Rate
                               set EventRate_ID = @EventRate_ID , 
@@ -153,14 +151,12 @@ namespace BTES.Data_Access.Event_Management
 
         }
 
-
-
         public static bool DeleteRecord(int EventRate_ID)
         {
 
             int rowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"Delete Event_Rate 
                                         where EventRate_ID = @EventRate_ID";
@@ -195,7 +191,7 @@ namespace BTES.Data_Access.Event_Management
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = "SELECT * FROM Event_Rate;";
 
@@ -236,7 +232,7 @@ namespace BTES.Data_Access.Event_Management
 
             bool isFound = false;       
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = "SELECT * FROM Event_Rate WHERE Event_ID = @Event_ID AND Customer_ID = @Customer_ID;";
 

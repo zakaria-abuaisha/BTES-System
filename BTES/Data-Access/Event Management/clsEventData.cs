@@ -18,7 +18,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT * FROM Events 
                                  WHERE  Event_ID = @Event_ID;";
@@ -72,7 +72,7 @@ namespace BTES.Data_Access
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = $@"SELECT   Events.Event_ID, Events.Title,  Events.Location, Events.Event_Date, 
 										CASE
