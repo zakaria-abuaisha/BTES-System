@@ -81,6 +81,7 @@
     <Compile Include="Business-layer\Payments\ClsTadawul.cs" />
     <Compile Include="Business-layer\Payments\IPaymentGateway.cs" />
     <Compile Include="Business-layer\Tickets\ClsPurchasedTicket.cs" />
+    <Compile Include="Business-layer\Tickets\clsWaitingList.cs" />
     <Compile Include="Business-layer\User Management\ClsAdmin.cs" />
     <Compile Include="Business-layer\User Management\ClsCustomer.cs" />
     <Compile Include="Business-layer\User Management\ClsPerson.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Data-Access\Setting\clsDatabaseManager.cs" />
     <Compile Include="Data-Access\Setting\ClsSettings.cs" />
     <Compile Include="Data-Access\Tickets\ClsPurchasedTicketDA.cs" />
+    <Compile Include="Data-Access\Tickets\clsWaitingListData.cs" />
     <Compile Include="Data-Access\User Management\ClsAdminData.cs" />
     <Compile Include="Data-Access\User Management\ClsCustomerDA.cs" />
     <Compile Include="Data-Access\User Management\ClsPersonDA.cs" />
