@@ -1,6 +1,7 @@
 ﻿using BTES.Business_layer;
 using BTES.Business_layer.Discounts;
 using BTES.Business_layer.Event_Management;
+using BTES.Business_layer.Tickets;
 using BTES.Data_Access.Discounts;
 using System;
 using System.Collections.Generic;
@@ -50,50 +51,50 @@ namespace BTES.Forms.Ticket
             LBL_VIPPrice.Text = _event.VIPprice.ToString();
             COB_PaymentGateway.SelectedIndex = 0;
 
-            if (_event.regularTickets == 0)
+            
+            //if (_event.regularTickets == 0)
+            //{
+            //    BTN_Buy.Enabled = false;
+            //    TXT_AccountID.Enabled = false;
+            //    TXT_AccountPassword.Enabled = false;
+            //    TXT_Username.Enabled = false;
+            //    TXT_UserPassword.Enabled = false;
+            //    COB_PaymentGateway.Enabled = false;
+            //}
+        }
+
+        private void _PrepareWaitingListTicket(ClsCustomer customer, ClsDiscount discount)
+        {
+            clsWaitingList WaitingList = new clsWaitingList();
+
+            WaitingList.CustomerID = customer.Customer_ID;
+            WaitingList.EventID = _event.event_ID;
+            WaitingList.JoinDate = DateTime.Now;
+            WaitingList.PaymentMethod = (int)(ClsPurchasedTicket.enPaymentMethod)COB_PaymentGateway.SelectedIndex + 1;
+            WaitingList.AccountID = Convert.ToInt32(TXT_AccountID.Text.Trim());
+            WaitingList.Password = TXT_AccountPassword.Text.Trim();
+
+            if (WaitingList.Save())
             {
+                MessageBox.Show("This Event is Full. we Added you to Waiting List.", "Event is Full", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RB_Regular.Enabled = false;
+                RB_VIP.Enabled = false;
                 BTN_Buy.Enabled = false;
                 TXT_AccountID.Enabled = false;
                 TXT_AccountPassword.Enabled = false;
                 TXT_Username.Enabled = false;
                 TXT_UserPassword.Enabled = false;
                 COB_PaymentGateway.Enabled = false;
-
-            }
-        }
-
-        private void BTN_Buy_Click(object sender, EventArgs e)
-        {
-            ClsPurchasedTicket PT = new ClsPurchasedTicket();
-
-            if (string.IsNullOrEmpty(TXT_AccountID.Text.Trim()) || string.IsNullOrEmpty(TXT_AccountPassword.Text.Trim()) || string.IsNullOrEmpty(TXT_Username.Text.Trim()) ||
-                string.IsNullOrEmpty(TXT_UserPassword.Text.Trim()))
-            {
-                MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            ClsCustomer customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim());
-            if (customer == null)
-            {
-                MessageBox.Show("Wrong UserName Or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            ClsDiscount discount = ClsDiscount.Find(customer.Customer_ID);
-            if(discount != null)
-            {
-                LBL_RegularPrice.Text = (_event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
-                LBL_RegularPrice.ForeColor = Color.Green;
-                LBL_VIPPrice.Text = (_event.VIPTickets * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
-                LBL_VIPPrice.ForeColor = Color.Green;
             }
             else
             {
-                LBL_RegularPrice.ForeColor = Color.Black;
-                LBL_VIPPrice.ForeColor = Color.Black;
+                MessageBox.Show("Error Occurred During Processing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void _PreparePurchasedTicket(ClsCustomer customer, ClsDiscount discount)
+        {
+            ClsPurchasedTicket PT = new ClsPurchasedTicket();
 
             if (RB_Regular.Checked)
                 PT.Fees = (_event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value);
@@ -123,6 +124,50 @@ namespace BTES.Forms.Ticket
             }
             else
                 MessageBox.Show("Error Occurred During Processing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+
+        private void BTN_Buy_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(TXT_AccountID.Text.Trim()) || string.IsNullOrEmpty(TXT_AccountPassword.Text.Trim()) || string.IsNullOrEmpty(TXT_Username.Text.Trim()) ||
+                string.IsNullOrEmpty(TXT_UserPassword.Text.Trim()))
+            {
+                MessageBox.Show("Please Fill up All the Fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ClsCustomer customer = ClsCustomer.Find(TXT_Username.Text.Trim(), TXT_UserPassword.Text.Trim());
+            if (customer == null)
+            {
+                MessageBox.Show("Wrong UserName Or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ClsDiscount discount = ClsDiscount.Find(customer.Customer_ID);
+            if(discount != null)
+            {
+                LBL_RegularPrice.Text = (_event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
+                LBL_RegularPrice.ForeColor = Color.Green;
+                LBL_VIPPrice.Text = (_event.VIPTickets * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
+                LBL_VIPPrice.ForeColor = Color.Green;
+            }
+
+            else
+            {
+                LBL_RegularPrice.ForeColor = Color.Black;
+                LBL_VIPPrice.ForeColor = Color.Black;
+            }
+
+            if (ClsPurchasedTicket.IsEventFull(_event.event_ID, RB_Regular.Checked ? "Regular_Tickets" : "VIP_Tickets"))
+            {
+                _PrepareWaitingListTicket(customer, discount);
+            }
+            else
+            {
+                _PreparePurchasedTicket(customer, discount);
+                
+            }
         }
 
         private void RB_Regular_CheckedChanged(object sender, EventArgs e)

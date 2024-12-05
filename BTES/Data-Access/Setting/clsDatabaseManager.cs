@@ -10,13 +10,17 @@ public sealed class clsDatabaseManager
 
     public static SqlConnection GetInstance()
     {
-        lock (lockObject)
+        if (instance == null)
         {
-            if (instance == null)
+            lock (lockObject)
             {
-                instance = clsDatabaseManager.GetInstance();
+                if (instance == null)
+                {
+                    instance = new SqlConnection(ClsSettings.ConnectionString);
+                }
             }
-            return instance;
         }
+        return instance;
     }
+    
 }
