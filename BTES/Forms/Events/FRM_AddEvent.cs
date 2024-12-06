@@ -108,7 +108,19 @@ namespace BTES.Forms.Events
         //Event to handle the required fields
         private void IsRequired(object sender, CancelEventArgs e)
         {
+            TextBox Temp = ((TextBox)sender);
+            if (string.IsNullOrEmpty(Temp.Text.Trim()))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(Temp, "This field is required!");
 
+                Temp.Select(0, 0);
+            }
+            else
+            {
+                //e.Cancel = false;
+                errorProvider1.SetError(Temp, null);
+            }
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)

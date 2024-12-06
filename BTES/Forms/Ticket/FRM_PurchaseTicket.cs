@@ -71,8 +71,13 @@ namespace BTES.Forms.Ticket
             WaitingList.EventID = _event.event_ID;
             WaitingList.JoinDate = DateTime.Now;
             WaitingList.PaymentMethod = (int)(ClsPurchasedTicket.enPaymentMethod)COB_PaymentGateway.SelectedIndex + 1;
-            WaitingList.AccountID = Convert.ToInt32(TXT_AccountID.Text.Trim());
+            WaitingList.AccountID = TXT_AccountID.Text.Trim();
             WaitingList.Password = TXT_AccountPassword.Text.Trim();
+            if (RB_Regular.Checked)
+                WaitingList.TicketType = "Regular";
+            else
+                WaitingList.TicketType = "VIP";
+
 
             if (WaitingList.Save())
             {
@@ -149,7 +154,7 @@ namespace BTES.Forms.Ticket
             {
                 LBL_RegularPrice.Text = (_event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
                 LBL_RegularPrice.ForeColor = Color.Green;
-                LBL_VIPPrice.Text = (_event.VIPTickets * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
+                LBL_VIPPrice.Text = (_event.VIPprice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value).ToString();
                 LBL_VIPPrice.ForeColor = Color.Green;
             }
 
@@ -172,47 +177,47 @@ namespace BTES.Forms.Ticket
 
         private void RB_Regular_CheckedChanged(object sender, EventArgs e)
         {
-            if (_event.regularTickets == 0)
-            {
-                BTN_Buy.Enabled = false;
-                TXT_AccountID.Enabled = false;
-                TXT_AccountPassword.Enabled = false;
-                TXT_Username.Enabled = false;
-                TXT_UserPassword.Enabled = false;
-                COB_PaymentGateway.Enabled = false;
+            //if (_event.regularTickets == 0)
+            //{
+            //    BTN_Buy.Enabled = false;
+            //    TXT_AccountID.Enabled = false;
+            //    TXT_AccountPassword.Enabled = false;
+            //    TXT_Username.Enabled = false;
+            //    TXT_UserPassword.Enabled = false;
+            //    COB_PaymentGateway.Enabled = false;
 
-            }
-            else
-            {
-                BTN_Buy.Enabled = true;
-                TXT_AccountID.Enabled = true;
-                TXT_AccountPassword.Enabled = true;
-                TXT_Username.Enabled = true;
-                COB_PaymentGateway.Enabled = true;
-                TXT_UserPassword.Enabled = true;
-            }
+            //}
+            //else
+            //{
+            //    BTN_Buy.Enabled = true;
+            //    TXT_AccountID.Enabled = true;
+            //    TXT_AccountPassword.Enabled = true;
+            //    TXT_Username.Enabled = true;
+            //    COB_PaymentGateway.Enabled = true;
+            //    TXT_UserPassword.Enabled = true;
+            //}
         }
 
         private void RB_VIP_CheckedChanged(object sender, EventArgs e)
         {
-            if (_event.VIPTickets == 0)
-            {
-                BTN_Buy.Enabled = false;
-                TXT_AccountID.Enabled = false;
-                TXT_AccountPassword.Enabled = false;
-                TXT_Username.Enabled = false;
-                TXT_UserPassword.Enabled = false;
-                COB_PaymentGateway.Enabled = false;
-            }
-            else
-            {
-                BTN_Buy.Enabled = true;
-                TXT_AccountID.Enabled = true;
-                TXT_AccountPassword.Enabled = true;
-                TXT_Username.Enabled = true;
-                TXT_UserPassword.Enabled = true;
-                COB_PaymentGateway.Enabled = true;
-            }
+            //if (_event.VIPTickets == 0)
+            //{
+            //    BTN_Buy.Enabled = false;
+            //    TXT_AccountID.Enabled = false;
+            //    TXT_AccountPassword.Enabled = false;
+            //    TXT_Username.Enabled = false;
+            //    TXT_UserPassword.Enabled = false;
+            //    COB_PaymentGateway.Enabled = false;
+            //}
+            //else
+            //{
+            //    BTN_Buy.Enabled = true;
+            //    TXT_AccountID.Enabled = true;
+            //    TXT_AccountPassword.Enabled = true;
+            //    TXT_Username.Enabled = true;
+            //    TXT_UserPassword.Enabled = true;
+            //    COB_PaymentGateway.Enabled = true;
+            //}
         }
 
         private void LL_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

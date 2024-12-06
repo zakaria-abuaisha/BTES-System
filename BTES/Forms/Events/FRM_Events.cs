@@ -40,13 +40,14 @@ namespace BTES.Forms.Events
             _Events.Columns.Add("Year", typeof(int));
 
             dgvEvent.DataSource = _Events;
-            
 
             if (dgvEvent.Rows.Count > 0)
             {
+                dgvEvent.Visible = true;
                 LBL_NoRecords.Visible = false;
                 CMS_Options.Enabled = true;
                 cbFilterBy.SelectedIndex = 1;
+                cbFilterBy.Enabled = true;
 
                 dgvEvent.Columns[0].HeaderText = "Event ID";
                 dgvEvent.Columns[0].Width = 40;

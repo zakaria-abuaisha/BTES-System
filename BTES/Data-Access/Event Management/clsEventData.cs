@@ -18,14 +18,14 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = clsDatabaseManager.GetInstance();
+            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
 
             string query = @"SELECT * FROM Events 
                                  WHERE  Event_ID = @Event_ID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@Event_ID", Event_ID);
+            command.Parameters.AddWithValue("@Event_ID", Event_ID); 
 
 
             try
