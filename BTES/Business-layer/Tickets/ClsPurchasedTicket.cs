@@ -1,4 +1,5 @@
-﻿using BTES.Data_Access;
+﻿using BTES.Business_layer.Tickets;
+using BTES.Data_Access;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -197,14 +198,23 @@ namespace BTES.Business_layer
                             break;
                         }
                 }
+
+                if (ClsPurchasedTicketDA.Refund_Ticket(this))
+                {
+                    clsWaitingList WaitingList = clsWaitingList.GetFirstRecordBy(Event.event_ID, TicketType);
+
+                    if (WaitingList != null)
+                        WaitingList.PurshaseTickit(Event);
+
+
+                }
             }
             catch (Exception ex)
             {
                 return false;
             }
 
-            return ClsPurchasedTicketDA.Refund_Ticket(this);
-
+            return true;
         }
 
         public bool IsRefundAllowed()

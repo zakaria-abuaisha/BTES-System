@@ -4,11 +4,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BTES.Business_layer.Discounts;
+using BTES.Data_Access.Discounts;
 using BTES.Data_Access.Tickets;
 
 namespace BTES.Business_layer.Tickets
 {
-
     public class clsWaitingList
     {
         public enum enMode { AddNew = 0, Update = 1 };
@@ -19,9 +20,9 @@ namespace BTES.Business_layer.Tickets
         public int CustomerID { set; get; }
         public DateTime JoinDate { set; get; }
         public int PaymentMethod { set; get; }
-        public int AccountID { set; get; }
+        public string AccountID { set; get; }
         public string Password { set; get; }
-
+        public string TicketType { set; get; } 
 
         public clsWaitingList()
         {
@@ -30,13 +31,13 @@ namespace BTES.Business_layer.Tickets
             this.CustomerID = -1;
             this.JoinDate = DateTime.Now;
             this.PaymentMethod = -1;
-            this.AccountID = -1;
+            this.AccountID = "";
             this.Password = "";
-
+            this.TicketType = "";
             Mode = enMode.AddNew;
         }
 
-        private clsWaitingList(int WaitingListID, int EventID, int CustomerID, DateTime JoinDate, int PaymentMethod, int AccountID, string Password)
+        private clsWaitingList(int WaitingListID, int EventID, int CustomerID, DateTime JoinDate, int PaymentMethod, string AccountID, string Password, string TicketType)
         {
             this.WaitingListID = WaitingListID;
             this.EventID = EventID;
@@ -45,7 +46,7 @@ namespace BTES.Business_layer.Tickets
             this.PaymentMethod = PaymentMethod;
             this.AccountID = AccountID;
             this.Password = Password;
-
+            this.TicketType = TicketType;
             Mode = enMode.Update;
         }
 
@@ -56,7 +57,6 @@ namespace BTES.Business_layer.Tickets
                 case enMode.AddNew:
                     if (_AddNewclsWaitingList())
                     {
-
                         Mode = enMode.Update;
                         return true;
                     }
@@ -64,23 +64,17 @@ namespace BTES.Business_layer.Tickets
                     {
                         return false;
                     }
-
                 case enMode.Update:
-
                     return _UpdateclsWaitingList();
-
             }
-
             return false;
         }
 
-
-        public static clsWaitingList Findby(int WaitingList_ID)
+        public static clsWaitingList GetFirstRecordBy(int EventID, string TicketType)
         {
-            int Event_ID = -1; int Customer_ID = -1; DateTime JoinDate = DateTime.Now; int Payment_Method = -1; int Account_ID = -1; string Password = ""; ;
-            if (clsWaitingListData.FindByID(WaitingList_ID, ref Event_ID, ref Customer_ID, ref JoinDate, ref Payment_Method, ref Account_ID, ref Password))
-
-                return new clsWaitingList(WaitingList_ID, Event_ID, Customer_ID, JoinDate, Payment_Method, Account_ID, Password);
+            int WaitingList_ID = -1; int Customer_ID = -1; DateTime JoinDate = DateTime.Now; int Payment_Method = -1; string Account_ID = ""; string Password = "";
+            if (clsWaitingListData.GetFirstRecordBy(ref WaitingList_ID, EventID, ref Customer_ID, ref JoinDate, ref Payment_Method, ref Account_ID, ref Password, TicketType))
+                return new clsWaitingList(WaitingList_ID, EventID, Customer_ID, JoinDate, Payment_Method, Account_ID, Password, TicketType);
             else
                 return null;
         }
@@ -88,22 +82,45 @@ namespace BTES.Business_layer.Tickets
         private bool _AddNewclsWaitingList()
         {
             //call DataAccess Layer 
-
-            this.WaitingListID = clsWaitingListData.InsertRecord(this.EventID, this.CustomerID, this.JoinDate, this.PaymentMethod, this.AccountID, this.Password);
-
+            this.WaitingListID = clsWaitingListData.InsertRecord(this.EventID, this.CustomerID, this.JoinDate, this.PaymentMethod, this.AccountID, this.Password, this.TicketType);
             return (this.WaitingListID != -1);
         }
 
         private bool _UpdateclsWaitingList()
         {
             //call DataAccess Layer 
-
-            return clsWaitingListData.UpdateRecord(this.WaitingListID, this.EventID, this.CustomerID, this.JoinDate, this.PaymentMethod, this.AccountID, this.Password);
+            return clsWaitingListData.UpdateRecord(this.WaitingListID, this.EventID, this.CustomerID, this.JoinDate, this.PaymentMethod, this.AccountID, this.Password, this.TicketType);
         }
 
         public static bool DeleteRecord(int WaitingList_ID)
         {
             return clsWaitingListData.DeleteRecord(WaitingList_ID);
+        }
+
+        public bool PurshaseTickit(ClsEvent Event)
+        {
+            ClsPurchasedTicket purchasedTicket = new ClsPurchasedTicket();
+            ClsDiscount discount = ClsDiscount.Find(CustomerID);
+
+            purchasedTicket.TicketType = this.TicketType;
+            purchasedTicket.Event = Event;
+            purchasedTicket.Customer = ClsCustomer.Find(this.CustomerID);
+            purchasedTicket.Purchase_Date = DateTime.Now;
+
+
+            if(TicketType == "Regular")
+            {
+                purchasedTicket.Fees = discount != null?
+                    Event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value : Event.regularPrice;
+            }
+            else if(TicketType == "VIP")
+            {
+                purchasedTicket.Fees = discount != null ?
+                    Event.VIPprice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value : Event.VIPprice;
+            }
+
+
+            return purchasedTicket.Purchase(AccountID, Password);            
         }
     }
 }
