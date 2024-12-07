@@ -204,7 +204,10 @@ namespace BTES.Business_layer
                     clsWaitingList WaitingList = clsWaitingList.GetFirstRecordBy(Event.event_ID, TicketType);
 
                     if (WaitingList != null)
-                        WaitingList.PurshaseTickit(Event);
+                        if(WaitingList.PurshaseTickit(Event))
+                            clsWaitingList.DeleteRecord(WaitingList.WaitingListID);
+
+                        
 
 
                 }

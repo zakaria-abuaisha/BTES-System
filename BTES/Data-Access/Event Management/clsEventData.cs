@@ -18,7 +18,7 @@ namespace BTES.Data_Access
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(ClsSettings.ConnectionString);
+            SqlConnection connection = clsDatabaseManager.GetInstance();
 
             string query = @"SELECT * FROM Events 
                                  WHERE  Event_ID = @Event_ID;";
@@ -30,7 +30,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -48,6 +48,7 @@ namespace BTES.Data_Access
                     Event.VIPprice = float.Parse(reader["VIP_Price"].ToString());
                     Event.location = (string)reader["Location"];
                     Event.createdByUserID = int.Parse(reader["Created_By"].ToString());
+                    Event.event_ID = Event_ID;
 
 
                     reader.Close();
@@ -61,7 +62,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isFound;
@@ -87,7 +88,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -108,7 +109,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return dt;
