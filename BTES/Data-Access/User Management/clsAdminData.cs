@@ -33,7 +33,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -64,7 +64,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isFound;
@@ -91,7 +91,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -121,7 +121,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isFound;
