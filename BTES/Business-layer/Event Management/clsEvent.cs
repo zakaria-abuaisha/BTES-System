@@ -45,7 +45,7 @@ namespace BTES.Business_layer
             Mode = enMode.AddNew;
         }
 
-        protected ClsEvent(ClsEvent Event)
+        public ClsEvent(ClsEvent Event)
         {
             this.event_ID = Event.event_ID;
             this.title = Event.title;

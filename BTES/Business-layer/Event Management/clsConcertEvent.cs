@@ -19,6 +19,14 @@ namespace BTES.Business_layer.Event_Management
             Mode = enMode.AddNew;
         }
 
+        public clsConcertEvent(ClsEvent Event) : base(Event)
+        {
+            this.Concert_ID = -1;
+            this.Band_Or_Artist = "";
+
+            Mode = enMode.AddNew;
+        }
+
         private clsConcertEvent(int Concert_ID, string Band_Or_Artist, ClsEvent Event) : base(Event)
         {
             this.Concert_ID = Concert_ID;

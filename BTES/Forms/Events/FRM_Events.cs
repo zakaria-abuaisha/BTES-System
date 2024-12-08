@@ -1,5 +1,6 @@
 ﻿using BTES.Business_layer;
 using BTES.Business_layer.Event_Management;
+using BTES.Data_Access.Factory;
 using BTES.Forms.Ticket;
 using System;
 using System.Collections.Generic;
@@ -107,16 +108,16 @@ namespace BTES.Forms.Events
 
         private void purchaseTicketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClsEvent Event = new ClsEvent();
+            ClsEvent Event = EventFactory.CreateEvent(EventFactory.enEventType.Regular);
 
             if (dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Sport")
             {
-                Event = clsSportEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+                Event = EventFactory.FindByEvent_ID(EventFactory.enEventType.Sport, Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
             }
 
             else if (dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Concert")
             {
-                Event = clsConcertEvent.FindbyEvent_ID(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
+                Event = EventFactory.FindByEvent_ID(EventFactory.enEventType.Concerts, Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
             }
 
 

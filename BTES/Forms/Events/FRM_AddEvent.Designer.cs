@@ -40,8 +40,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.LBL_Title = new System.Windows.Forms.Label();
-            this.lblEventID = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -70,7 +68,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -85,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -206,28 +202,6 @@
             this.LBL_Title.Size = new System.Drawing.Size(263, 39);
             this.LBL_Title.TabIndex = 101;
             this.LBL_Title.Text = "Add New event";
-            // 
-            // lblEventID
-            // 
-            this.lblEventID.AutoSize = true;
-            this.lblEventID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventID.Location = new System.Drawing.Point(184, 50);
-            this.lblEventID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEventID.Name = "lblEventID";
-            this.lblEventID.Size = new System.Drawing.Size(32, 24);
-            this.lblEventID.TabIndex = 103;
-            this.lblEventID.Text = "##";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(21, 52);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(100, 24);
-            this.label22.TabIndex = 102;
-            this.label22.Text = "Event ID :";
             // 
             // errorProvider1
             // 
@@ -544,24 +518,12 @@
             this.txtTitle.TabIndex = 0;
             this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BTES.Properties.Resources.Number_32;
-            this.pictureBox1.Location = new System.Drawing.Point(128, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox1.TabIndex = 104;
-            this.pictureBox1.TabStop = false;
-            // 
             // FRM_AddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 587);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LBL_Title);
-            this.Controls.Add(this.lblEventID);
-            this.Controls.Add(this.label22);
             this.Controls.Add(this.grbEvent);
             this.Name = "FRM_AddEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -584,15 +546,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker DTP_EventDate;
@@ -605,8 +564,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label LBL_Title;
-        private System.Windows.Forms.Label lblEventID;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.GroupBox grbEvent;
         private System.Windows.Forms.GroupBox groupBox1;

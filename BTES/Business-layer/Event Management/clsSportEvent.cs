@@ -10,10 +10,19 @@ namespace BTES.Business_layer.Event_Management
         public int Sport_ID { set; get; }
         public string Team_VS_Team { set; get; }
 
+
         public clsSportEvent() : base()
         {
             this.Sport_ID = -1;
             this.event_ID = -1;
+            this.Team_VS_Team = "";
+
+            Mode = enMode.AddNew;
+        }
+
+        public clsSportEvent(ClsEvent Event) : base(Event)
+        {
+            this.Sport_ID = -1;
             this.Team_VS_Team = "";
 
             Mode = enMode.AddNew;
