@@ -64,11 +64,11 @@ namespace BTES.Data_Access
             try
             {
                 //OPEN THE CONNECION
-                connection.Open();
+                
                 //EXECUTE
                 object result = command.ExecuteScalar();
 
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
 
 
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
@@ -96,7 +96,7 @@ namespace BTES.Data_Access
 
                 try
                 {
-                    connection.Open();
+                    
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read() && !reader.IsDBNull(0))
@@ -145,7 +145,7 @@ namespace BTES.Data_Access
 
                 try
                 {
-                    connection.Open();
+                    
                     int rowsAffected = command.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }
@@ -174,7 +174,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -188,7 +188,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isAllowed;
@@ -231,7 +231,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -252,7 +252,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return dt;
@@ -273,7 +273,7 @@ namespace BTES.Data_Access
 
             try
             {
-                connection.Open();
+                
                 object Result = command.ExecuteScalar();
 
                 if (Result != null)
@@ -289,7 +289,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isFull;

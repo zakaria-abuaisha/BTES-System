@@ -199,22 +199,13 @@ namespace BTES.Business_layer
                         }
                 }
 
-                if (ClsPurchasedTicketDA.Refund_Ticket(this))
-                {
-                    clsWaitingList WaitingList = clsWaitingList.GetFirstRecordBy(Event.event_ID, TicketType);
+                return ClsPurchasedTicketDA.Refund_Ticket(this);
 
-                    if (WaitingList != null)
-                        WaitingList.PurshaseTickit(Event);
-
-
-                }
             }
             catch (Exception ex)
             {
                 return false;
             }
-
-            return true;
         }
 
         public bool IsRefundAllowed()

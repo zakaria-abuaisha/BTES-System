@@ -1,10 +1,12 @@
 ﻿using BTES.Business_layer;
+using BTES.Business_layer.Tickets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -78,18 +80,31 @@ namespace BTES.Forms.Ticket
                 MessageBox.Show("Please Fill up Account ID and PIN(Password).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            try
+            {
+                if (purchasedTicket.Refund(TXT_AccountID.Text.Trim(), TXT_AccountPassword.Text.Trim()))
+                {
+                    MessageBox.Show("The Process ended successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BTN_Refund.Enabled = false;
+                    TXT_AccountID.Enabled = false;
+                    TXT_AccountPassword.Enabled = false;
 
-            if (purchasedTicket.Refund(TXT_AccountID.Text.Trim(), TXT_AccountPassword.Text.Trim()))
-            {
-                MessageBox.Show("The Process ended successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                BTN_Refund.Enabled = false;
-                TXT_AccountID.Enabled = false;
-                TXT_AccountPassword.Enabled = false;
+                    clsWaitingList WaitingList = clsWaitingList.GetFirstRecordBy(purchasedTicket.Event.event_ID, purchasedTicket.TicketType);
+
+                    if (WaitingList != null)
+                        if (WaitingList.PurshaseTickit(purchasedTicket.Event))
+                            clsWaitingList.DeleteRecord(WaitingList.WaitingListID);
+                }
+                else
+                {
+                    MessageBox.Show("Error Occurred During Processing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error Occurred During Processing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error Occurred During Processing .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }
