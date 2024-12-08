@@ -20,7 +20,6 @@ namespace BTES.Data_Access.Event_Management
             int RecordID = -1;
 
             SqlConnection connection = clsDatabaseManager.GetInstance();
-
             string InsertEvent_query = @"INSERT INTO Events  (Title, Event_Content, Event_Date, EventType, Regular_Tickets, VIP_Tickets, Regular_Price, VIP_Price, Location, Created_By)
                                  VALUES (@Title, @Event_Content, @Event_Date, @EventType, @Regular_Tickets, @VIP_Tickets, @Regular_Price, @VIP_Price, @Location, @Created_By);
                                  SELECT SCOPE_IDENTITY();";
@@ -53,7 +52,7 @@ namespace BTES.Data_Access.Event_Management
             try
             {
                 int New_Event_ID = -1;
-                connection.Open();
+                
 
                 object result = InsertEvent_command.ExecuteScalar();
 
@@ -79,7 +78,7 @@ namespace BTES.Data_Access.Event_Management
             }
 
             finally
-            { connection.Close(); }
+            { clsDatabaseManager.CloseConnection(); }
 
             return RecordID;
 
@@ -131,7 +130,7 @@ namespace BTES.Data_Access.Event_Management
 
             try
             {
-                connection.Open();
+                
                 rowsAffected = command.ExecuteNonQuery();
 
             }
@@ -143,7 +142,7 @@ namespace BTES.Data_Access.Event_Management
 
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return (rowsAffected > 0);
@@ -167,7 +166,7 @@ namespace BTES.Data_Access.Event_Management
 
             try
             {
-                connection.Open();
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -201,7 +200,7 @@ namespace BTES.Data_Access.Event_Management
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isFound;
@@ -225,7 +224,7 @@ namespace BTES.Data_Access.Event_Management
 
             try
             {
-                connection.Open();
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -263,7 +262,7 @@ namespace BTES.Data_Access.Event_Management
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return isFound;
@@ -292,7 +291,7 @@ namespace BTES.Data_Access.Event_Management
 
             try
             {
-                connection.Open();
+                
 
                 rowsAffected = command.ExecuteNonQuery();
 
@@ -304,7 +303,7 @@ namespace BTES.Data_Access.Event_Management
             finally
             {
 
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
 
             }
 
@@ -324,7 +323,7 @@ namespace BTES.Data_Access.Event_Management
 
             try
             {
-                connection.Open();
+                
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -345,7 +344,7 @@ namespace BTES.Data_Access.Event_Management
             }
             finally
             {
-                connection.Close();
+                clsDatabaseManager.CloseConnection();
             }
 
             return dt;
