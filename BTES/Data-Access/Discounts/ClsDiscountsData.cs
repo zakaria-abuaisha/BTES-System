@@ -33,11 +33,11 @@ namespace BTES.Data_Access.Discounts
             try
             {
 
-                
+                connection.Open();
 
                 object result = command.ExecuteScalar();
 
-                clsDatabaseManager.CloseConnection();
+                connection.Close();
 
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
                     return insertedID;
@@ -71,6 +71,7 @@ namespace BTES.Data_Access.Discounts
  
             try
             {
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
                 isFound = reader.HasRows;
@@ -84,8 +85,7 @@ namespace BTES.Data_Access.Discounts
             }
             finally
             {
-                clsDatabaseManager.CloseConnection();
-                
+                connection.Close();
             }
 
             return isFound;
@@ -103,7 +103,7 @@ namespace BTES.Data_Access.Discounts
             command.Parameters.AddWithValue("@Customer_ID", Customer_ID);
             try
             {
-                
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -129,7 +129,7 @@ namespace BTES.Data_Access.Discounts
             }
             finally
             {
-                clsDatabaseManager.CloseConnection();
+                connection.Close();
             }
             return isFound;
 

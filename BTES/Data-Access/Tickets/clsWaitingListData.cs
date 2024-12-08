@@ -29,7 +29,7 @@ namespace BTES.Data_Access.Tickets
 
             try
             {
-                
+                connection.Open();
                 object result = command.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
                 {
@@ -41,7 +41,7 @@ namespace BTES.Data_Access.Tickets
                 //Console.WriteLine("Error: " + ex.Message);
             }
             finally
-            { clsDatabaseManager.CloseConnection(); }
+            { connection.Close(); }
 
             return RecordID;
         }
@@ -72,7 +72,7 @@ namespace BTES.Data_Access.Tickets
 
             try
             {
-                
+                connection.Open();
                 rowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace BTES.Data_Access.Tickets
             }
             finally
             {
-                clsDatabaseManager.CloseConnection();
+                connection.Close();
             }
 
             return (rowsAffected > 0);
@@ -105,7 +105,7 @@ namespace BTES.Data_Access.Tickets
 
             try
             {
-                
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -127,7 +127,7 @@ namespace BTES.Data_Access.Tickets
             }
             finally
             {
-                clsDatabaseManager.CloseConnection();
+                connection.Close();
             }
 
             return isFound;
@@ -145,7 +145,7 @@ namespace BTES.Data_Access.Tickets
 
             try
             {
-                
+                connection.Open();
                 rowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -154,7 +154,7 @@ namespace BTES.Data_Access.Tickets
             }
             finally
             {
-                clsDatabaseManager.CloseConnection();
+                connection.Close();
             }
 
             return (rowsAffected > 0);

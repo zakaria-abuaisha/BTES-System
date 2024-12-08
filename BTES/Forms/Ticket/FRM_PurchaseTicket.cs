@@ -63,7 +63,7 @@ namespace BTES.Forms.Ticket
             //}
         }
 
-        private void _PrepareWaitingListTicket(ClsCustomer customer)
+        private void _PrepareWaitingListTicket(ClsCustomer customer, ClsDiscount discount)
         {
             clsWaitingList WaitingList = new clsWaitingList();
 
@@ -73,7 +73,6 @@ namespace BTES.Forms.Ticket
             WaitingList.PaymentMethod = (int)(ClsPurchasedTicket.enPaymentMethod)COB_PaymentGateway.SelectedIndex + 1;
             WaitingList.AccountID = TXT_AccountID.Text.Trim();
             WaitingList.Password = TXT_AccountPassword.Text.Trim();
-
             if (RB_Regular.Checked)
                 WaitingList.TicketType = "Regular";
             else
@@ -167,7 +166,7 @@ namespace BTES.Forms.Ticket
 
             if (ClsPurchasedTicket.IsEventFull(_event.event_ID, RB_Regular.Checked ? "Regular_Tickets" : "VIP_Tickets"))
             {
-                _PrepareWaitingListTicket(customer);
+                _PrepareWaitingListTicket(customer, discount);
             }
             else
             {

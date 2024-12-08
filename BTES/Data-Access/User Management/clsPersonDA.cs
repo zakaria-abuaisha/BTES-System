@@ -21,7 +21,7 @@ namespace BTES.Data_Access
             command.Parameters.AddWithValue("@Person_ID", Person_ID);
             try
             {
-                
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -51,7 +51,7 @@ namespace BTES.Data_Access
             }
             finally
             {
-                clsDatabaseManager.CloseConnection();
+                connection.Close();
             }
             return isFound;
 
