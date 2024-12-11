@@ -259,42 +259,7 @@ namespace BTES.Data_Access
 
         }
 
-        public static bool IsEventFull(int Event_ID, string TicketType)
-        {
-            bool isFull = false;
-
-            SqlConnection connection = clsDatabaseManager.GetInstance();
-
-            string query = $@"select {TicketType} from Events where Event_ID = @Event_ID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@Event_ID", Event_ID);
-
-            try
-            {
-                
-                object Result = command.ExecuteScalar();
-
-                if (Result != null)
-                {
-                    isFull = int.Parse(Result.ToString()) == 0;
-                    
-                }
-
-            }
-            catch (Exception)
-            {
-                isFull = false;
-            }
-            finally
-            {
-                clsDatabaseManager.CloseConnection();
-            }
-
-            return isFull;
-
-        }
+        
     }
 
 }

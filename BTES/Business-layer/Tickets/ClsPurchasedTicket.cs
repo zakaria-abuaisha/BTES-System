@@ -218,10 +218,6 @@ namespace BTES.Business_layer
             return ClsPurchasedTicketDA.GetAllRecords(CostumerID);
         }
 
-        public static bool IsEventFull(int EventID, string TicketType)
-        {
-            return ClsPurchasedTicketDA.IsEventFull(EventID, TicketType);
-        }
 
     }
 

@@ -171,7 +171,7 @@ namespace BTES.Forms.Ticket
                 LBL_VIPPrice.ForeColor = Color.Black;
             }
 
-            if (ClsPurchasedTicket.IsEventFull(_event.event_ID, RB_Regular.Checked ? "Regular_Tickets" : "VIP_Tickets"))
+            if (ClsEvent.IsEventFull(_event.event_ID, RB_Regular.Checked ? "Regular_Tickets" : "VIP_Tickets"))
             {
                 _PrepareWaitingListTicket(customer);
             }

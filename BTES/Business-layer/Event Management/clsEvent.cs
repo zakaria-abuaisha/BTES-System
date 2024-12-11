@@ -77,5 +77,10 @@ namespace BTES.Business_layer
             return ClsEventData.GetAllRecords();
 
         }
+
+        public static bool IsEventFull(int EventID, string TicketType)
+        {
+            return ClsEventData.IsEventFull(EventID, TicketType);
+        }
     }
 }
