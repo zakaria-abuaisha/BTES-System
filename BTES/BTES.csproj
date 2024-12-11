@@ -105,11 +105,11 @@
     <Compile Include="Forms\Discount\FRM_OrderDiscount.Designer.cs">
       <DependentUpon>FRM_OrderDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Events\FRM_AddEvent.cs">
+    <Compile Include="Forms\Events\FRM_AddEditEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Events\FRM_AddEvent.Designer.cs">
-      <DependentUpon>FRM_AddEvent.cs</DependentUpon>
+    <Compile Include="Forms\Events\FRM_AddEditEvent.Designer.cs">
+      <DependentUpon>FRM_AddEditEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Events\FRM_Events.cs">
       <SubType>Form</SubType>
@@ -158,8 +158,8 @@
     <EmbeddedResource Include="Forms\Discount\FRM_OrderDiscount.resx">
       <DependentUpon>FRM_OrderDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Events\FRM_AddEvent.resx">
-      <DependentUpon>FRM_AddEvent.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Events\FRM_AddEditEvent.resx">
+      <DependentUpon>FRM_AddEditEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Events\FRM_Events.resx">
       <DependentUpon>FRM_Events.cs</DependentUpon>

@@ -37,6 +37,7 @@
             this.CMS_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.purchaseTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RateEventToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editEventtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LBL_NoRecords = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvEvent = new System.Windows.Forms.DataGridView();
@@ -55,10 +56,11 @@
             this.CMS_Options.BackColor = System.Drawing.Color.Gray;
             this.CMS_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.purchaseTicketToolStripMenuItem,
-            this.RateEventToolStripMenuItem1});
+            this.RateEventToolStripMenuItem1,
+            this.editEventtoolStripMenuItem});
             this.CMS_Options.Name = "contextMenuStrip1";
             this.CMS_Options.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CMS_Options.Size = new System.Drawing.Size(211, 64);
+            this.CMS_Options.Size = new System.Drawing.Size(211, 116);
             // 
             // purchaseTicketToolStripMenuItem
             // 
@@ -83,6 +85,18 @@
             this.RateEventToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
             this.RateEventToolStripMenuItem1.Text = "Rate Event";
             this.RateEventToolStripMenuItem1.Click += new System.EventHandler(this.RateEventToolStripMenuItem1_Click);
+            // 
+            // editEventtoolStripMenuItem
+            // 
+            this.editEventtoolStripMenuItem.BackColor = System.Drawing.SystemColors.GrayText;
+            this.editEventtoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editEventtoolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.editEventtoolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editEventtoolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Gray;
+            this.editEventtoolStripMenuItem.Name = "editEventtoolStripMenuItem";
+            this.editEventtoolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.editEventtoolStripMenuItem.Text = "Edit Event";
+            this.editEventtoolStripMenuItem.Click += new System.EventHandler(this.editEventtoolStripMenuItem_Click);
             // 
             // LBL_NoRecords
             // 
@@ -281,5 +295,6 @@
         private System.Windows.Forms.DateTimePicker DTP_Date;
         private System.Windows.Forms.ComboBox cbDate;
         private System.Windows.Forms.ToolStripMenuItem RateEventToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editEventtoolStripMenuItem;
     }
 }

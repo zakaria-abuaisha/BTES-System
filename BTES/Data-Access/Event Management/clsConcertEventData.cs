@@ -124,7 +124,6 @@ namespace BTES.Data_Access.Event_Management
             command.Parameters.AddWithValue("@Created_By", concertEvent.createdByUserID);
 
             command.Parameters.AddWithValue("@Concert_ID", concertEvent.Concert_ID);
-            command.Parameters.AddWithValue("@Event_ID", concertEvent.event_ID);
             command.Parameters.AddWithValue("@Band_Or_Artist", concertEvent.Band_Or_Artist);
 
 

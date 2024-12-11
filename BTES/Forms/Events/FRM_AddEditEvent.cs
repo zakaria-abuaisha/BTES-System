@@ -13,19 +13,61 @@ using System.Windows.Forms;
 
 namespace BTES.Forms.Events
 {
-    public partial class FRM_AddEvent : Form
+    public partial class FRM_AddEditEvent : Form
     {
 
 
         private int admin_ID;
 
-        public FRM_AddEvent(int Admin_ID)
+        private ClsEvent Event;
+
+        public FRM_AddEditEvent(int Admin_ID)
+        {
+            InitializeComponent();
+            admin_ID = Admin_ID;
+            this.Event = EventFactory.CreateEvent(EventFactory.enEventType.Regular);
+
+        }
+        public FRM_AddEditEvent(int Admin_ID, ClsEvent Event)
         {
             InitializeComponent();
             admin_ID = Admin_ID;
 
+            this.Event = Event;
+        
         }
 
+        private void FillUpForm()
+        {
+
+
+            LBL_Title.Text = "Edit Event";
+            this.Text = "Edit Event";
+            cbmEventType.Enabled = false;
+            txtContent.Text = Event.eventContent;
+            txtLocation.Text = Event.location;
+            txtNumberofRegularTicket.Text = Event.regularTickets.ToString();
+            txtNumberOfVipTicket.Text = Event.VIPTickets.ToString();
+            txtPriceOfRegularTicket.Text = Event.regularPrice.ToString();
+            txtPriceOfVipTicket.Text = Event.VIPprice.ToString();
+            DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
+            DTP_EventDate.Value = Event.eventDate.Date;
+            txtTitle.Text = Event.title;
+
+            if (Event.eventType == ClsEvent.enEventType.Sport)
+            {
+                txt_variableTXT.Text = (Event as clsSportEvent).Team_VS_Team;
+                cbmEventType.Text = "Sport";
+                lblEventType.Text = "Team Vs Team :";
+
+            }
+            else if (Event.eventType == ClsEvent.enEventType.Concert)
+            {
+                txt_variableTXT.Text = (Event as clsConcertEvent).Band_Or_Artist;
+                cbmEventType.Text = "Concert";
+
+            }
+        }
 
         private void BTN_Save_Click(object sender, EventArgs e) 
         {
@@ -39,39 +81,42 @@ namespace BTES.Forms.Events
                 return;
             }
 
+            if(Event.Mode == ClsEvent.enMode.AddNew)
+            {
+                Event = (cbmEventType.Text == "Sport" ? EventFactory.CreateEvent(EventFactory.enEventType.Sport) : EventFactory.CreateEvent(EventFactory.enEventType.Concerts));
 
 
-            ClsEvent Event = EventFactory.CreateEvent(EventFactory.enEventType.Regular);
+            }
             Event.eventContent = txtContent.Text;
             Event.eventDate = DTP_EventDate.Value;
             Event.title = txtTitle.Text;
-            Event.VIPprice = Convert.ToInt32(txtPriceOfVipTicket.Text);
+            Event.VIPprice = (float)Convert.ToDouble(txtPriceOfVipTicket.Text);
             Event.VIPTickets = Convert.ToInt32(txtNumberOfVipTicket.Text);
             Event.regularTickets = Convert.ToInt32(txtNumberofRegularTicket.Text);
-            Event.regularPrice = Convert.ToInt32(txtPriceOfRegularTicket.Text);
+            Event.regularPrice = (float)Convert.ToDouble(txtPriceOfRegularTicket.Text);
             Event.location = txtLocation.Text;
             Event.createdByUserID = admin_ID;
 
 
+
+
             if (cbmEventType.Text == "Sport")
             {
-                clsSportEvent SportEvent = EventFactory.CreateEvent(EventFactory.enEventType.Sport, Event) as clsSportEvent;
+                clsSportEvent SportEvent = Event as clsSportEvent;
 
                 SportEvent.Team_VS_Team = txt_variableTXT.Text;
                 SportEvent.eventType = ClsEvent.enEventType.Sport;
 
-                if (SportEvent.Save())
-                    isSaved = true;
+                isSaved = SportEvent.Save();
             }
             else if (cbmEventType.Text == "Concert")
             {
-                clsConcertEvent ConcertEvent = EventFactory.CreateEvent(EventFactory.enEventType.Concerts , Event) as clsConcertEvent;
+                clsConcertEvent ConcertEvent = Event as clsConcertEvent;
 
                 ConcertEvent.Band_Or_Artist = txt_variableTXT.Text;
                 ConcertEvent.eventType = ClsEvent.enEventType.Concert;
 
-                if (ConcertEvent.Save())
-                    isSaved = true;
+                isSaved = ConcertEvent.Save();
             }
 
             if (isSaved)
@@ -90,7 +135,14 @@ namespace BTES.Forms.Events
 
         private void FRM_AddEvent_Load(object sender, EventArgs e)
         {
-            cbmEventType.SelectedIndex = 0;
+            if (Event.Mode == ClsEvent.enMode.Update)
+            {
+                FillUpForm();
+            }
+            else
+                cbmEventType.SelectedIndex = 0;
+
+
             DTP_EventDate.MinDate = DateTime.Now.AddDays(1);
         }
 

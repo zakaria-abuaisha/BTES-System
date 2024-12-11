@@ -128,7 +128,7 @@ namespace BTES.Forms.Events
 
         private void BTN_AddEvent_Click(object sender, EventArgs e)
         {
-            FRM_AddEvent frm = new FRM_AddEvent(admin.adminID);
+            FRM_AddEditEvent frm = new FRM_AddEditEvent(admin.adminID);
             frm.ShowDialog();
             Referesh();
         }
@@ -150,11 +150,14 @@ namespace BTES.Forms.Events
             {
                 CMS_Options.Items["purchaseTicketToolStripMenuItem"].Visible = false;
                 CMS_Options.Items["RateEventToolStripMenuItem1"].Visible = false;
+                CMS_Options.Items["editEventtoolStripMenuItem"].Visible = true;
             }
             else
             {
                 CMS_Options.Items["purchaseTicketToolStripMenuItem"].Visible = true;
                 CMS_Options.Items["RateEventToolStripMenuItem1"].Visible = true;
+                CMS_Options.Items["editEventtoolStripMenuItem"].Visible = false;
+
             }
         }
 
@@ -260,6 +263,22 @@ namespace BTES.Forms.Events
         {
             FRM_RaateEvent frm = new FRM_RaateEvent(Convert.ToInt32(dgvEvent.CurrentRow.Cells[0].Value.ToString()));
             frm.ShowDialog();
+        }
+
+        private void editEventtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DateTime.Now.AddDays(1) > DateTime.Parse(dgvEvent.CurrentRow.Cells[3].Value.ToString()))
+            {
+                MessageBox.Show("Sorry You Can not Edit this event.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FRM_AddEditEvent frm = new FRM_AddEditEvent(admin.adminID,
+                     dgvEvent.CurrentRow.Cells[4].Value.ToString() == "Sport" ? 
+                     EventFactory.FindByEvent_ID(EventFactory.enEventType.Sport, (int)dgvEvent.CurrentRow.Cells[0].Value) :
+                     EventFactory.FindByEvent_ID(EventFactory.enEventType.Concerts, (int)dgvEvent.CurrentRow.Cells[0].Value)
+            );
+            frm.ShowDialog();
+            Referesh();
         }
     }
 }
