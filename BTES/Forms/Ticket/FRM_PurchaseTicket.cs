@@ -65,6 +65,12 @@ namespace BTES.Forms.Ticket
 
         private void _PrepareWaitingListTicket(ClsCustomer customer)
         {
+            if(MessageBox.Show("Sorry But The Event is full, if you want to be added to the waiting list press (yes).", "Waiting List", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                this.Close();
+
+                return;
+            }
             clsWaitingList WaitingList = new clsWaitingList();
 
             WaitingList.CustomerID = customer.Customer_ID;
@@ -82,7 +88,7 @@ namespace BTES.Forms.Ticket
 
             if (WaitingList.Save())
             {
-                MessageBox.Show("This Event is Full. we Added you to Waiting List.", "Event is Full", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("We added you to the waiting list.", "Event is Full", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RB_Regular.Enabled = false;
                 RB_VIP.Enabled = false;
                 BTN_Buy.Enabled = false;
