@@ -97,30 +97,5 @@ namespace BTES.Business_layer.Tickets
             return clsWaitingListData.DeleteRecord(WaitingList_ID);
         }
 
-        public bool PurshaseTickit(ClsEvent Event)
-        {
-            ClsPurchasedTicket purchasedTicket = new ClsPurchasedTicket();
-            ClsDiscount discount = ClsDiscount.Find(CustomerID);
-
-            purchasedTicket.TicketType = this.TicketType;
-            purchasedTicket.Event = Event;
-            purchasedTicket.Customer = ClsCustomer.Find(this.CustomerID);
-            purchasedTicket.Purchase_Date = DateTime.Now;
-
-
-            if(TicketType == "Regular")
-            {
-                purchasedTicket.Fees = discount != null?
-                    Event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value : Event.regularPrice;
-            }
-            else if(TicketType == "VIP")
-            {
-                purchasedTicket.Fees = discount != null ?
-                    Event.VIPprice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value : Event.VIPprice;
-            }
-
-
-            return purchasedTicket.Purchase(AccountID, Password);            
-        }
     }
 }

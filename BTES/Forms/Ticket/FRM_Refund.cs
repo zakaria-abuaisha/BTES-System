@@ -1,5 +1,7 @@
 ﻿using BTES.Business_layer;
+using BTES.Business_layer.Discounts;
 using BTES.Business_layer.Tickets;
+using BTES.Data_Access.Discounts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,8 +94,29 @@ namespace BTES.Forms.Ticket
                     clsWaitingList WaitingList = clsWaitingList.GetFirstRecordBy(purchasedTicket.Event.event_ID, purchasedTicket.TicketType);
 
                     if (WaitingList != null)
-                        if (WaitingList.PurshaseTickit(purchasedTicket.Event))
+                    {
+                        ClsPurchasedTicket newpurchasedTicket = new ClsPurchasedTicket();
+                        ClsDiscount discount = ClsDiscount.Find(purchasedTicket.Customer.Customer_ID);
+
+                        newpurchasedTicket.Event = purchasedTicket.Event;
+                        newpurchasedTicket.Customer = ClsCustomer.Find(purchasedTicket.Customer.Customer_ID);
+                        newpurchasedTicket.Purchase_Date = DateTime.Now;
+
+                        newpurchasedTicket.TicketType = purchasedTicket.TicketType;
+                        if (newpurchasedTicket.TicketType == "Regular")
+                        {
+                            newpurchasedTicket.Fees = discount != null ?
+                                purchasedTicket.Event.regularPrice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value : purchasedTicket.Event.regularPrice;
+                        }
+                        else
+                        {
+                            newpurchasedTicket.Fees = discount != null ?
+                                purchasedTicket.Event.VIPprice * ClsDiscountTypes.DiscountTypes[discount.DiscountType - 1].value : purchasedTicket.Event.VIPprice;
+                        }
+                        if (newpurchasedTicket.Purchase(WaitingList.AccountID, WaitingList.Password))
                             clsWaitingList.DeleteRecord(WaitingList.WaitingListID);
+                    }
+
                 }
                 else
                 {
