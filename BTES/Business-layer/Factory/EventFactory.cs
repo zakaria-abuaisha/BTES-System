@@ -10,7 +10,7 @@ namespace BTES.Data_Access.Factory
 {
     public class EventFactory
     {
-        public enum enEventType { Sport, Concerts, Regular };
+        public enum enEventType { Sport, Concerts, Regular, NULL };
 
         public static ClsEvent CreateEvent(enEventType eventType)
         {

@@ -99,7 +99,7 @@ namespace BTES.Forms.Ticket
                         ClsDiscount discount = ClsDiscount.Find(purchasedTicket.Customer.Customer_ID);
 
                         newpurchasedTicket.Event = purchasedTicket.Event;
-                        newpurchasedTicket.Customer = ClsCustomer.Find(purchasedTicket.Customer.Customer_ID);
+                        newpurchasedTicket.Customer = ClsCustomer.Find(WaitingList.CustomerID);
                         newpurchasedTicket.Purchase_Date = DateTime.Now;
 
                         newpurchasedTicket.TicketType = purchasedTicket.TicketType;
